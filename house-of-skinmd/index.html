@@ -134,6 +134,7 @@
           <a class="btn btn-primary" href="#book">Book an Appointment</a>
           <a class="btn btn-light" href="#treatments">View Treatments</a>
         </div>
+      <ul class="lp-proof" style="--lp:var(--accent)" aria-label="Why clients choose us"><li>“No bruising, perfect placement”: Alex Bendy, Botox</li><li>12755 Ventura Blvd, Studio City</li><li>Tue–Sat, 9:30am–5pm</li></ul>
       </div>
     </div>
   </section>
@@ -226,7 +227,7 @@
       <span class="eyebrow">Client experiences</span>
       <h2 id="reviews-h">Their words, their <em>results</em></h2>
     </div>
-    <div class="reviews" tabindex="0" aria-label="Client reviews, scroll sideways">
+    <div class="reviews lp-marquee" aria-label="Client reviews, scrolling; hover to pause">
       <article class="review"><blockquote>&ldquo;Had a great experience with Taylor for Botox. No bruising, perfect placement, and she&rsquo;s very thorough. &hellip; definitely my new go to spot.&rdquo;</blockquote><footer><b>Alex Bendy</b><span class="ph">add review source</span></footer></article>
       <article class="review"><blockquote>&ldquo;Great experience at this medspa- facial massage and Botox! I feel wonderful, and the team is so warm and welcoming.&rdquo;</blockquote><footer><b>Ninett Hernandez</b><span class="ph">add review source</span></footer></article>
       <article class="review"><blockquote>&ldquo;Everyone that works here is super friendly and accommodating! &hellip; Rober is super informative, and passionate about what he does and it shows!&rdquo;</blockquote><footer><b>Mackenzie Edwards</b><span class="ph">add review source</span></footer></article>
@@ -254,6 +255,24 @@
       <div class="member-card"><div class="portrait"><span class="ph">add portrait</span></div><h3>Dr. Babak Goldman, MD</h3><p>Named in your Instagram bio: &ldquo;Office of Dr. Babak Goldman, MD&rdquo;. <span class="ph">add bio, specialty + board certification</span></p></div>
       <div class="member-card"><div class="portrait"><span class="ph">add portrait</span></div><h3>Taylor</h3><p>Named in a client review for Botox. <span class="ph">add full name, role + license</span></p></div>
       <div class="member-card"><div class="portrait"><span class="ph">add portrait</span></div><h3>Rober</h3><p>Named in client reviews for facials and peels. <span class="ph">add full name, role + license</span></p></div>
+    </div>
+  </div></section>
+  <section id="faq" class="lp-faq" style="--lp:var(--accent)" aria-labelledby="faq-h"><div class="inner lp-grid">
+    <div class="lp-head">
+      <span class="eyebrow">Before you book</span>
+      <h2 id="faq-h">Questions, <em>answered</em></h2>
+      <p>The things new clients ask most, answered from your current website. Gold tags mark answers your site doesn’t give yet.</p>
+    </div>
+    <div>
+      <div class="lp-list">
+        <details><summary>How do I book?</summary><p>Pick a treatment and a time in the booking section below, or call <a href="tel:+18187602200">818-760-2200</a>.</p></details>
+        <details><summary>How much do treatments cost?</summary><p>Prices from the current site are listed above, for example HydraFacial® Express at $199 and IV therapy at $200.</p></details>
+        <details><summary>Is there a membership?</summary><p>Yes. See the membership plans above, starting at $100 per year.</p></details>
+        <details><summary>Who will treat me?</summary><p>Client reviews mention Taylor for Botox. <span class="ph">add provider names + credentials</span></p></details>
+        <details><summary>What treatments do you offer?</summary><p>Treatments for face, body and wellness, from injectables to laser and skincare.</p></details>
+        <details><summary>Where are you, and when are you open?</summary><p>12755 Ventura Blvd, Studio City. Tue to Sat, 9:30am to 5pm; closed Sunday and Monday. <span class="ph">add parking details</span></p></details>
+      </div>
+      <div class="lp-cta"><p>More than a spa: your partners in the journey to becoming the best version of yourself.</p><a class="btn btn-primary" href="#book">Book an Appointment</a></div>
     </div>
   </div></section>
 
@@ -290,6 +309,7 @@
 </main>
 
 <footer class="site"><div class="inner">
+  <nav class="lp-social" aria-label="Social media"><span>Follow</span><a href="https://www.instagram.com/houseofskinmd/" target="_blank" rel="noopener">Instagram <small>@houseofskinmd</small></a><a href="https://www.tiktok.com/@houseofskinmd" target="_blank" rel="noopener">TikTok <small>@houseofskinmd</small></a><a href="https://www.facebook.com/skinbodyloungemedspa/" target="_blank" rel="noopener">Facebook <small>House of Skin MD</small></a></nav>
   <span class="tag">Treat yourself. You deserve more.</span>
   <span>House of Skin MD &middot; 12755 Ventura Blvd, Studio City</span>
   <span>Concept by Studio8Web</span>
@@ -380,6 +400,19 @@
     document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + sel + ".";
   });
 })();
+</script>
+<script>
+/* Auto-scrolling reviews: duplicate the cards once so the strip loops seamlessly. */
+document.querySelectorAll('.lp-marquee').forEach(function (box) {
+  var items = Array.prototype.slice.call(box.children);
+  var track = document.createElement('div'); track.className = 'lp-track';
+  items.forEach(function (el) { track.appendChild(el); });
+  items.forEach(function (el) { var c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.setAttribute('inert', ''); track.appendChild(c); });
+  track.style.setProperty('--lp-dur', Math.max(30, items.length * 9) + 's');
+  box.appendChild(track);
+  box.addEventListener('touchstart', function () { box.classList.add('lp-paused'); }, { passive: true });
+  box.addEventListener('touchend', function () { setTimeout(function () { box.classList.remove('lp-paused'); }, 2500); }, { passive: true });
+});
 </script>
 </body>
 </html>

@@ -105,6 +105,7 @@
         <a class="btn btn-primary" href="#book">Book Your Consultation</a>
         <a class="btn btn-ghost" href="#treatments">View Treatments</a>
       </div>
+      <ul class="lp-proof" style="--lp:var(--rose-deep)" aria-label="Why clients choose us"><li>A personalized consultation first</li><li>346 N La Cienega Blvd</li><li>Mon–Sat, 9am–6pm</li><li><span class="ph">add Google rating</span></li></ul>
       
     </div>
     <div class="hero-visual"><img class="photo" src="https://glambarmedicalspa.com/images/mod-banner/banner-spa.jpg" alt="Glam Bar Aesthetic Spa"></div>
@@ -201,7 +202,7 @@
       <span class="eyebrow">Testimonials</span>
       <h2 id="reviews-h">Our clients say it <em>best</em></h2>
     </div>
-    <div class="reviews-grid">
+    <div class="reviews-grid lp-marquee" aria-label="Client reviews, scrolling; hover to pause">
       <article class="review"><p class="theme">Wanted something subtle and looks refreshed, not different.</p><footer><span class="ph">exact wording from current site + client first name</span></footer></article>
       <article class="review"><p class="theme">The best MedSpa experience in LA: professional and results-driven.</p><footer><span class="ph">exact wording from current site + client first name</span></footer></article>
       <article class="review"><p class="theme">Skin has never looked better, and feels more confident every day.</p><footer><span class="ph">exact wording from current site + client first name</span></footer></article>
@@ -257,6 +258,24 @@
       <div class="member"><div class="portrait"><span class="ph">add photo</span></div><h3><span class="ph">add name + credentials</span></h3></div>
     </div>
   </div></section>
+  <section id="faq" class="lp-faq" style="--lp:var(--rose-deep)" aria-labelledby="faq-h"><div class="inner lp-grid">
+    <div class="lp-head">
+      <span class="eyebrow">Before you book</span>
+      <h2 id="faq-h">Questions, <em>answered</em></h2>
+      <p>The things new clients ask most, answered from your current website. Gold tags mark answers your site doesn’t give yet.</p>
+    </div>
+    <div>
+      <div class="lp-list">
+        <details><summary>How do I book?</summary><p>Pick a treatment and a time in the booking section below, or call <a href="tel:+13104672711">310-467-2711</a>.</p></details>
+        <details><summary>What happens at my first visit?</summary><p>A detailed consultation first, then a treatment plan tailored to you.</p></details>
+        <details><summary>Will my results look natural?</summary><p>That’s the focus at Glam Bar: high-end, non-surgical treatments for subtle, balanced and undetectable results.</p></details>
+        <details><summary>How much do treatments cost?</summary><p>This month’s specials are listed above. <span class="ph">add starting prices</span></p></details>
+        <details><summary>Who will treat me?</summary><p>A team highly trained in injectables, customized treatment planning and skin rejuvenation. <span class="ph">add provider names + credentials</span></p></details>
+        <details><summary>Where are you, and when are you open?</summary><p>346 N La Cienega Blvd, Los Angeles, CA 90048. Mon–Sat, 9am–6pm; closed Sunday. <span class="ph">add parking details</span></p></details>
+      </div>
+      <div class="lp-cta"><p>Every treatment plan starts with a personalized consultation.</p><a class="btn btn-primary" href="#book">Book Your Consultation</a></div>
+    </div>
+  </div></section>
 
   <section id="book" class="book" aria-labelledby="book-h"><div class="inner book-wrap">
     <div>
@@ -290,6 +309,7 @@
 </main>
 
 <footer class="site"><div class="inner">
+  <nav class="lp-social" aria-label="Social media"><span>Follow</span><a href="https://www.instagram.com/glambar_medspa/" target="_blank" rel="noopener">Instagram <small>@glambar_medspa</small></a><a href="https://www.facebook.com/glambarmedicalspa/" target="_blank" rel="noopener">Facebook <small>glambarmedicalspa</small></a></nav>
   <span>Glam Bar Aesthetic Spa · Refined Aesthetics. Natural Results. Elevated Confidence.</span>
   <span>Concept by Studio8Web</span>
 </div></footer>
@@ -372,6 +392,19 @@
     document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + sel + ".";
   });
 })();
+</script>
+<script>
+/* Auto-scrolling reviews: duplicate the cards once so the strip loops seamlessly. */
+document.querySelectorAll('.lp-marquee').forEach(function (box) {
+  var items = Array.prototype.slice.call(box.children);
+  var track = document.createElement('div'); track.className = 'lp-track';
+  items.forEach(function (el) { track.appendChild(el); });
+  items.forEach(function (el) { var c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.setAttribute('inert', ''); track.appendChild(c); });
+  track.style.setProperty('--lp-dur', Math.max(30, items.length * 9) + 's');
+  box.appendChild(track);
+  box.addEventListener('touchstart', function () { box.classList.add('lp-paused'); }, { passive: true });
+  box.addEventListener('touchend', function () { setTimeout(function () { box.classList.remove('lp-paused'); }, 2500); }, { passive: true });
+});
 </script>
 </body>
 </html>

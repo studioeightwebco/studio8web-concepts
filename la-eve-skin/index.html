@@ -46,6 +46,7 @@
         <a class="btn btn-primary" href="#book">Book Online</a>
         <a class="btn btn-ghost" href="#treatments">View Treatments</a>
       </div>
+      <ul class="lp-proof" style="--lp:var(--plum-deep)" aria-label="Why clients choose us"><li>5 stars on Yelp</li><li>People Love Us on Yelp: 2018, 2019, 2020 and 2023</li><li>Satisfaction guaranteed</li></ul>
       
     </div>
     <div class="hero-photo">
@@ -142,7 +143,7 @@
 
   <section id="reviews" aria-labelledby="reviews-h"><div class="inner">
     <div class="head"><h2 id="reviews-h">Our <strong>reviews</strong></h2></div>
-    <div class="review-strip" tabindex="0" aria-label="Yelp reviews, scroll sideways">
+    <div class="review-strip lp-marquee" aria-label="Yelp reviews, scrolling; hover to pause">
       <article class="review">
         <span class="stars" aria-label="5 stars">★★★★★</span>
         <blockquote>“I’ve been to many facial places in Ktown to try out and I must say this one is the best among all.”</blockquote>
@@ -208,6 +209,24 @@
       <figure class="member"><img src="images/consult-desk.jpg" alt="Team member reviewing a treatment plan with a client at the desk" width="1400" height="933" loading="lazy"><figcaption><span class="ph">add injector name</span><span class="ph">add credentials</span></figcaption></figure>
     </div>
   </div></section>
+  <section id="faq" class="lp-faq" style="--lp:var(--plum-deep)" aria-labelledby="faq-h"><div class="inner lp-grid">
+    <div class="lp-head">
+      <span class="eyebrow">Before you book</span>
+      <h2 id="faq-h">Questions, <em>answered</em></h2>
+      <p>The things new clients ask most, answered from your current website. Gold tags mark answers your site doesn’t give yet.</p>
+    </div>
+    <div>
+      <div class="lp-list">
+        <details><summary>How do I book?</summary><p>Book online, call <a href="tel:+12133052772">213-305-2772</a> or email. New to LA Eve Skin? Sign up for discounts.</p></details>
+        <details><summary>What if I’m not happy with my visit?</summary><p>Satisfaction is guaranteed. With your happiness in mind, the LA Eve Skin team ensures your satisfaction every visit.</p></details>
+        <details><summary>How much do treatments cost?</summary><p>Store prices and package specials are listed above. <span class="ph">add facial, laser and injectable prices</span></p></details>
+        <details><summary>Who will treat me?</summary><p>Reviews praise the team as experienced, sweet and helpful. <span class="ph">add team names + licenses</span></p></details>
+        <details><summary>Where are you, and is there parking?</summary><p>1144 S Western Ave STE 205, Los Angeles, CA 90006, 2 minutes from the heart of Koreatown, in a commercial area with convenient parking.</p></details>
+        <details><summary>When are you open?</summary><p>Weekdays 10 AM–6 PM, Saturday 9 AM–6 PM; closed Sunday.</p></details>
+      </div>
+      <div class="lp-cta"><p>Satisfaction guaranteed, every visit.</p><a class="btn btn-primary" href="#book">Book Online</a></div>
+    </div>
+  </div></section>
 
   <section id="book" class="book" aria-labelledby="book-h"><div class="inner book-wrap">
     <div>
@@ -239,6 +258,7 @@
 </main>
 
 <footer class="site"><div class="inner">
+  <nav class="lp-social" aria-label="Social media"><span>Follow</span><a href="https://www.instagram.com/laeveskin/" target="_blank" rel="noopener">Instagram <small>@laeveskin</small></a><a href="https://www.facebook.com/laeveskin/" target="_blank" rel="noopener">Facebook <small>laeveskin</small></a><a href="https://www.yelp.com/biz/la-eve-skin-los-angeles" target="_blank" rel="noopener">Yelp <small>LA Eve Skin</small></a></nav>
   <span><b>LA’s Top Skin Care</b><br>LA Eve Skin Clinic, 1144 S Western Ave STE 205, Los Angeles, CA 90006</span>
   <span>Concept by Studio8Web. <a href="injectables-fillers.html">Injectables &amp; Fillers</a> · <a href="facial-services.html">Facial Services</a></span>
 </div></footer>
@@ -314,6 +334,19 @@ document.getElementById("price-groups").innerHTML = groups.map(([title, keys]) =
 document.getElementById("book-chips").addEventListener("click", e => {
   const c = e.target.closest(".chip"); if (!c) return;
   c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") !== "true");
+});
+</script>
+<script>
+/* Auto-scrolling reviews: duplicate the cards once so the strip loops seamlessly. */
+document.querySelectorAll('.lp-marquee').forEach(function (box) {
+  var items = Array.prototype.slice.call(box.children);
+  var track = document.createElement('div'); track.className = 'lp-track';
+  items.forEach(function (el) { track.appendChild(el); });
+  items.forEach(function (el) { var c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.setAttribute('inert', ''); track.appendChild(c); });
+  track.style.setProperty('--lp-dur', Math.max(30, items.length * 9) + 's');
+  box.appendChild(track);
+  box.addEventListener('touchstart', function () { box.classList.add('lp-paused'); }, { passive: true });
+  box.addEventListener('touchend', function () { setTimeout(function () { box.classList.remove('lp-paused'); }, 2500); }, { passive: true });
 });
 </script>
 </body>

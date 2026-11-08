@@ -298,3 +298,47 @@ footer.site a { color: #fff; }
 /* Before/after fix: every result photo shows whole, at its natural shape. Nothing is cropped or stretched. */
 img[alt*="efore"], img[alt*="reated"] { width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; align-self: start; }
 figure:has(> img[alt*="efore"]), figure:has(> img[alt*="reated"]) { height: auto !important; align-self: start; }
+
+/* Landing-page pass: hero proof line + 'Before you book' FAQ */
+.lp-proof { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .9rem; color: var(--muted); }
+.lp-proof li { display: flex; align-items: center; gap: 8px; }
+.lp-proof li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--lp); }
+.lp-faq .lp-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 6vw, 80px); align-items: start; }
+.lp-faq .lp-head { display: flex; flex-direction: column; gap: 14px; }
+.lp-faq .lp-head p { color: var(--muted); max-width: 40ch; }
+.lp-list { border-top: 1px solid var(--line); }
+.lp-list details { border-bottom: 1px solid var(--line); }
+.lp-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 2px; min-height: 44px; font-weight: 600; color: var(--ink); }
+.lp-list summary::-webkit-details-marker { display: none; }
+.lp-list summary::after { content: "+"; flex: none; font-size: 1.3rem; line-height: 1; color: var(--lp); transition: transform 200ms cubic-bezier(.23,1,.32,1); }
+.lp-list details[open] summary::after { transform: rotate(45deg); }
+.lp-list summary:focus-visible { outline: 2px solid var(--lp); outline-offset: 2px; }
+.lp-list details p { margin: 0 0 20px; color: var(--muted); max-width: 62ch; line-height: 1.6; }
+.lp-list details p a { color: var(--ink); white-space: nowrap; }
+.lp-cta { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.lp-cta p { margin: 0; font-weight: 600; color: var(--ink); }
+@media (max-width: 860px) { .lp-faq .lp-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .lp-list summary::after { transition: none; } }
+
+/* Auto-scrolling reviews. overflow-x:auto keeps motion.js from staggering the cards. */
+.lp-marquee.lp-marquee { display: block; overflow-x: auto; scrollbar-width: none; scroll-snap-type: none; padding: 4px 0 8px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.lp-marquee::-webkit-scrollbar { display: none; }
+.lp-track { display: flex; gap: 24px; width: max-content; animation: lp-scroll var(--lp-dur, 48s) linear infinite; }
+.lp-track > * { flex: 0 0 clamp(270px, 30vw, 380px); margin: 0; scroll-snap-align: none; }
+.lp-marquee:hover .lp-track, .lp-marquee:focus-within .lp-track, .lp-marquee.lp-paused .lp-track { animation-play-state: paused; }
+@keyframes lp-scroll { to { transform: translateX(calc(-50% - 12px)); } }
+@media (prefers-reduced-motion: reduce) {
+  .lp-track { animation: none; }
+  .lp-track > [aria-hidden="true"] { display: none; }
+  .lp-marquee.lp-marquee { -webkit-mask-image: none; mask-image: none; scroll-snap-type: x mandatory; }
+  .lp-track > * { scroll-snap-align: start; }
+}
+/* Footer social links */
+.lp-social { flex: 1 0 100%; width: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; padding-bottom: 18px; margin-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.lp-social > span { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; opacity: .75; margin-right: 6px; }
+.lp-social a { display: inline-flex; align-items: baseline; gap: 8px; min-height: 44px; align-items: center; padding: 0 16px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #fff; text-decoration: none; font-weight: 600; font-size: .86rem; transition: background-color 160ms ease, border-color 160ms ease; }
+.lp-social a small { font-weight: 400; opacity: .7; font-size: .8rem; }
+.lp-social a:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.55); }
+.lp-social a:active { transform: scale(.97); }
+.lp-social a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }

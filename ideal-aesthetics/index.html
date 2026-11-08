@@ -136,6 +136,7 @@
         <a class="btn btn-primary" href="#book">Book Online</a>
         <a class="btn btn-line" href="#treatments">View Treatments</a>
       </div>
+      <ul class="lp-proof" style="--lp:var(--accent-deep)" aria-label="Why clients choose us"><li>Kim Ngo PA-C</li><li>14+ years in the cosmetic industry</li><li>Every price listed up front</li></ul>
       
     </div>
     <div class="arch-wrap"><div class="arch"><img src="images/home-hero.jpg" alt="Palm trees against a soft pink Los Angeles sky, the banner image from the Ideal Aesthetics homepage" width="1400" height="738" fetchpriority="high"></div></div>
@@ -191,7 +192,7 @@
       <h2 id="reviews-h">Word on the <em>street</em></h2>
       <p><span class="ph">add Google rating and review count</span></p>
     </div>
-    <div class="quotes">
+    <div class="quotes lp-marquee" aria-label="Client reviews, scrolling; hover to pause">
       <blockquote class="quote"><p>“Kim does an amazing job with my Botox every single time. She is knowledgeable and gentle. … she makes me feel comfortable and puts me at ease.”</p><footer>Mary P.</footer></blockquote>
       <blockquote class="quote"><p>“My lips look so natural, more even, and not overdone. I am beyond happy with her work …”</p><footer>Christine P.</footer></blockquote>
       <blockquote class="quote"><p>“I was worried about the results looking too obvious … but she knew what she was doing and my forehead has never looked more smooth.”</p><footer>Patrick A.</footer></blockquote>
@@ -229,6 +230,24 @@
       <div class="tags"><span class="ph">add any additional injectors or staff</span><span class="ph">add trainer or certification badges</span></div>
     </div>
   </div></section>
+  <section id="faq" class="lp-faq" style="--lp:var(--accent-deep)" aria-labelledby="faq-h"><div class="inner lp-grid">
+    <div class="lp-head">
+      <span class="eyebrow">Before you book</span>
+      <h2 id="faq-h">Questions, <em>answered</em></h2>
+      <p>The things new clients ask most, answered from your current website. Gold tags mark answers your site doesn’t give yet.</p>
+    </div>
+    <div>
+      <div class="lp-list">
+        <details><summary>How do I book?</summary><p>Choose your treatment and book online, or call <a href="tel:+14242810376">424-281-0376</a> or email info@idealaestheticsbh.com with any questions.</p></details>
+        <details><summary>Who will treat me?</summary><p>Kim Ngo PA-C, a board certified plastic surgery and aesthetic physician assistant with over 14 years in the cosmetic industry.</p></details>
+        <details><summary>How much does it cost?</summary><p>Every price is listed above, for example Dysport at $4.75 per unit and Restylane Kysse at $800 per syringe. Discounted microneedling packages are available.</p></details>
+        <details><summary>What kind of results can I expect?</summary><p>Personalized, natural and balanced results, from individualized treatments based on each person’s unique needs.</p></details>
+        <details><summary>Where are you, and when are you open?</summary><p>360 North Camden Drive, 2nd floor, Beverly Hills, CA 90210. <span class="ph">add opening hours</span> <span class="ph">add parking details</span></p></details>
+        <details><summary>Can I give a treatment as a gift?</summary><p>Yes, gift cards are available online.</p></details>
+      </div>
+      <div class="lp-cta"><p>Clear prices, no guesswork: every price is listed up front.</p><a class="btn btn-primary" href="#book">Book Online</a></div>
+    </div>
+  </div></section>
 
   <section id="book" class="book" aria-labelledby="book-h"><div class="inner book-wrap">
     <div>
@@ -255,6 +274,7 @@
 </main>
 
 <footer class="site"><div class="inner">
+  <nav class="lp-social" aria-label="Social media"><span>Follow</span><a href="https://www.instagram.com/idealaestheticsbh/" target="_blank" rel="noopener">Instagram <small>@idealaestheticsbh</small></a></nav>
   <b>IDEAL AESTHETICS</b>
   <span>360 North Camden Drive, 2nd floor, Beverly Hills, CA 90210 · <a href="tel:+14242810376">424-281-0376</a></span>
   <span>Concept by Studio8Web</span>
@@ -350,6 +370,19 @@ document.getElementById("price-menu").innerHTML = groups.map(g => `
 const chips = document.getElementById("book-chips");
 chips.innerHTML = services.map((s, i) => `<button type="button" class="chip" aria-pressed="${i === 0}">${esc(s.name)}</button>`).join("");
 chips.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => chips.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === c))));
+</script>
+<script>
+/* Auto-scrolling reviews: duplicate the cards once so the strip loops seamlessly. */
+document.querySelectorAll('.lp-marquee').forEach(function (box) {
+  var items = Array.prototype.slice.call(box.children);
+  var track = document.createElement('div'); track.className = 'lp-track';
+  items.forEach(function (el) { track.appendChild(el); });
+  items.forEach(function (el) { var c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.setAttribute('inert', ''); track.appendChild(c); });
+  track.style.setProperty('--lp-dur', Math.max(30, items.length * 9) + 's');
+  box.appendChild(track);
+  box.addEventListener('touchstart', function () { box.classList.add('lp-paused'); }, { passive: true });
+  box.addEventListener('touchend', function () { setTimeout(function () { box.classList.remove('lp-paused'); }, 2500); }, { passive: true });
+});
 </script>
 </body>
 </html>
