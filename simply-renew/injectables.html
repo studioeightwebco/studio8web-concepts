@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Injectables Redesign Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Injectables page concept for Simply Renew, Los Angeles. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Injectables page. The site's only injectables content is the service tile "INJECTABLE / Xeomin & filler & Sculptra"
+   and the Injectables Self-Test (form.jotform.com/230035834181146). Everything else is a gold tag. */
+.crumb { font-size: .82rem; color: var(--muted); padding-top: 22px; }
+.crumb a { text-decoration: none; color: var(--accent); font-weight: 600; }
+
+/* Hero: image-led poster with a copy panel overlapping the photo */
+.hero { padding-block: 20px 0; }
+.poster { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; }
+.poster-img { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 3 / 1; overflow: hidden; background: var(--wash); }
+.poster-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.poster-copy { grid-column: 1; grid-row: 1; align-self: end; margin: 0 0 -64px 0; background: var(--bg); padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 48px) 0 0; display: flex; flex-direction: column; gap: 20px; position: relative; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-after { padding-top: 88px; }
+
+/* Sticky in-page nav */
+.subnav { position: sticky; top: 76px; z-index: 20; background: var(--bg); border-block: 1px solid var(--line); margin-top: 48px; }
+.subnav .inner { display: flex; gap: 24px; overflow-x: auto; scrollbar-width: none; }
+.subnav a { flex: none; text-decoration: none; font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 16px 0; border-bottom: 2px solid transparent; }
+.subnav a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+
+/* Areas: three stacked rows, product name set large */
+.areas { border-top: 1px solid var(--ink); }
+.area { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) auto; gap: 24px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.area h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.area .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Self-test concerns */
+.concerns { background: var(--wash); }
+.concern-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.concern-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.concern-pills span { padding: 12px 18px; background: var(--surface); border: 1px solid var(--sage); font-weight: 600; }
+.statement { font-family: var(--display); font-style: italic; font-size: 1.15rem; border-left: 3px solid var(--sage); padding-left: 18px; margin-top: 22px; color: var(--ink); }
+
+/* Related: horizontal scroll-snap strip */
+.related { background: var(--surface); }
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.strip a { scroll-snap-align: start; text-decoration: none; display: flex; flex-direction: column; gap: 10px; background: var(--bg); }
+.strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.strip div { padding: 4px 18px 20px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.strip .sub { font-size: .88rem; color: var(--muted); }
+
+/* Why */
+.why-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.why-cols div { padding: 22px 0; border-top: 1px solid var(--sage); display: flex; flex-direction: column; gap: 6px; }
+.why-cols b { font-family: var(--display); font-weight: 400; font-size: 1.25rem; }
+.why-cols span { color: var(--muted); }
+
+/* Results */
+.res { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.res figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.res img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--wash); }
+.res .empty { aspect-ratio: 4 / 5; border: 1px dashed var(--placeholder); background: var(--placeholder-bg); display: grid; place-items: center; padding: 16px; text-align: center; }
+
+/* Pricing */
+.pricing { background: var(--surface); }
+.price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); max-width: 720px; }
+.price-row span:first-child { font-weight: 600; }
+
+@media (max-width: 860px) {
+  .poster { grid-template-columns: minmax(0, 1fr); }
+  .poster-img { aspect-ratio: 4 / 3; }
+  .poster-copy { grid-row: 2; margin: 0; padding: 28px 0 0; }
+  .hero-after { padding-top: 0; }
+  .concern-grid { grid-template-columns: minmax(0, 1fr); }
+  .area { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .why-cols { grid-template-columns: minmax(0, 1fr); }
+  .res { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) { .subnav { top: 76px; } .res { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official Simply Renew website. Copy and images from simplyrenewla.com.</span>
+  <span><span class="ph">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="wordmark" href="index.html" aria-label="Simply Renew home"><span>SIMPLY</span><span>RENEW</span></a>
+  <nav class="main" aria-label="Main">
+    <a href="index.html#treatments">Treatments</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#team">Our Team</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+12138003088">213-800-3088</a>
+    <a class="btn btn-primary" href="#book">Book Online</a>
+  </div>
+</div></header>
+
+<main>
+<div class="inner crumb"><a href="index.html#treatments">Treatments</a> / Injectables</div>
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="inner">
+    <div class="poster">
+      <div class="poster-img"><img src="images/svc-injectable.jpg" alt="Provider giving a cosmetic injection to a client" fetchpriority="high"></div>
+      <div class="poster-copy">
+        <span class="eyebrow">Injectable</span>
+        <h1 id="hero-title">Xeomin, filler &amp; <em>Sculptra</em></h1>
+      </div>
+    </div>
+    <div class="hero-after">
+      <p class="lead" style="margin-top:24px">Personalized to each client to enhance their natural beauty.</p>
+      <div class="hero-ctas" style="margin-top:24px">
+        <a class="btn btn-primary" href="#book">Book Online</a>
+        <a class="btn btn-ghost" href="#areas">View Treatment Areas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="subnav" aria-label="On this page"><div class="inner">
+  <a href="#areas">Treatments</a><a href="#self-test">Self-Test</a><a href="#related">Related</a><a href="#why">Why Us</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#book">Book</a>
+</div></nav>
+
+<section id="areas" aria-labelledby="areas-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="areas-title">Three <em>injectables</em></h2>
+      <p>The three products named on our current site.</p>
+    </div>
+    <div class="areas">
+      <div class="area"><h3>Xeomin</h3><div class="tags"><span class="ph">add what Xeomin treats, in your words</span><span class="ph">confirm Xeomin or Botox (the Appointments page says Botox)</span></div><a class="link" href="#book" data-svc="Xeomin">Book →</a></div>
+      <div class="area"><h3>Filler</h3><div class="tags"><span class="ph">add filler brands + treatment areas</span></div><a class="link" href="#book" data-svc="Filler">Book →</a></div>
+      <div class="area"><h3>Sculptra</h3><div class="tags"><span class="ph">add what Sculptra does, in your words</span></div><a class="link" href="#book" data-svc="Sculptra">Book →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="self-test" class="concerns" aria-labelledby="test-title">
+  <div class="inner concern-grid">
+    <div class="head" style="margin:0">
+      <h2 id="test-title">Start with our <em>self-test</em></h2>
+      <p>Our 13-question Injectables Self-Test asks which of these stand out to you most.</p>
+      <p class="statement">“I feel my face has lost some volume or fullness, possibly due to weight loss or aging.”</p>
+      <div><a class="btn btn-ghost" href="https://form.jotform.com/230035834181146" target="_blank" rel="noopener">Take our Injectables Self-Test</a></div>
+    </div>
+    <div class="concern-pills" aria-label="Concerns listed in the self-test">
+      <span>Under-eye circles</span><span>Flat cheeks</span><span>Thin lips</span><span>Crow’s feet</span><span>Forehead lines</span><span>Frown lines</span>
+    </div>
+  </div>
+</section>
+
+<section id="related" class="related" aria-labelledby="related-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="related-title">Related <em>services</em></h2>
+    </div>
+    <div class="strip">
+      <a href="index.html#treatments"><img src="images/svc-skin-booster.jpg" alt="Gloved provider treating a client's face" loading="lazy"><div><h3>Skin Booster</h3><span class="ph">add description</span></div></a>
+      <a href="index.html#treatments"><img src="images/svc-silk-pdo.jpg" alt="Face with lift direction lines" loading="lazy"><div><h3>Silk PDO</h3><span class="ph">add description</span></div></a>
+      <a href="index.html#treatments"><img src="images/svc-prp.jpg" alt="Woman touching her cheek" loading="lazy"><div><h3>PRP &amp; PRF</h3><span class="ph">add description</span></div></a>
+      <a href="index.html#treatments"><img src="images/svc-fat-dissolving.jpg" alt="Abdomen marked with a treatment grid" loading="lazy"><div><h3>Fat Dissolving</h3><span class="ph">add description</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="why" aria-labelledby="why-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="why-title">Why <em>Simply Renew</em></h2>
+      <p><span class="ph">add injectable benefits list</span></p>
+    </div>
+    <div class="why-cols">
+      <div><b>Professional, high-quality, medical-grade</b><span>Professional services and high-quality medical-grade products.</span></div>
+      <div><b>Personalized to you</b><span>Services personalized to each client to enhance their natural beauty.</span></div>
+      <div><b>In your best interest</b><span>We only recommend and perform services that are in the absolute best interest of our patients.</span></div>
+      <div><b>Who performs your injections</b><span class="ph">add injector name + credentials</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="results" style="padding-top:0" aria-labelledby="res-title">
+  <div class="inner">
+    <div class="head">
+      <span class="eyebrow">Results</span>
+      <h2 id="res-title">Injectable <em>results</em></h2>
+      <p>These photos are from the current Before &amp; After page, which does not say which treatment each one shows.</p>
+    </div>
+    <div class="res">
+      <figure><img src="images/ba-2.jpg" alt="Before and after, side profile of a client's jawline, stacked" loading="lazy"><figcaption><span class="ph">confirm treatment + provider</span></figcaption></figure>
+      <figure><img src="images/ba-1.jpg" alt="Before and after, front view of a client's face side by side" loading="lazy"><figcaption><span class="ph">confirm treatment + provider</span></figcaption></figure>
+      <figure><div class="empty"><span class="ph">add Xeomin, filler or Sculptra result from @simply.renew</span></div></figure>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing" aria-labelledby="price-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="price-title">Injectable <em>pricing</em></h2>
+      <p><span class="ph">add current injectable specials</span></p>
+    </div>
+    <div class="price-row"><span>Xeomin</span><span class="ph">add price per unit</span></div>
+    <div class="price-row"><span>Filler</span><span class="ph">add price per syringe</span></div>
+    <div class="price-row"><span>Sculptra</span><span class="ph">add price per vial</span></div>
+  </div>
+</section>
+
+<section id="book" class="book" aria-labelledby="book-title">
+  <div class="inner book-grid">
+    <div class="visit">
+      <h2 id="book-title">Get in <em>touch</em></h2>
+      <dl>
+        <dt>Visit</dt><dd>3030 W Olympic Blvd Ste. 209<br>Los Angeles, CA 90006</dd>
+        <dt>Call</dt><dd><a href="tel:+12138003088">213-800-3088</a></dd>
+        <dt>Email</dt><dd><a href="mailto:info.simplyrenewla@gmail.com">info.simplyrenewla@gmail.com</a></dd>
+        <dt>Instagram</dt><dd><a href="https://www.instagram.com/simply.renew/" target="_blank" rel="noopener">@simply.renew</a></dd>
+        <dt>Hours</dt><dd><span class="ph">add hours</span></dd>
+      </dl>
+    </div>
+    <div class="planner">
+      <h3>Book Online</h3>
+      <p class="note">Choose an injectable to see open times.</p>
+      <div class="chips" id="book-chips" aria-label="Choose a treatment">
+        <button type="button" class="chip" aria-pressed="false">Xeomin</button>
+        <button type="button" class="chip" aria-pressed="false">Filler</button>
+        <button type="button" class="chip" aria-pressed="false">Sculptra</button>
+      </div>
+      <a class="btn btn-primary" href="https://www.simplyrenewla.com/appointments-1">See Available Times</a>
+      <span class="ph">Connects to your booking software</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="inner">
+  <div>
+    <a class="wordmark" href="index.html"><span>SIMPLY</span><span>RENEW</span></a>
+    <p class="tag-line">Professional, High-quality, Medical-grade</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href="index.html#treatments">Treatments</a><a href="injectables.html">Injectables</a><a href="index.html#results">Results</a><a href="#book">Contact</a><a href="https://www.instagram.com/simply.renew/" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <p>Concept by Studio8Web. © Simply Renew <span class="ph">add current year + privacy policy</span></p>
+</div></footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="tel:+12138003088">Call</a>
+  <a class="btn btn-primary" href="#book">Book Online</a>
+</div>
+
+<script>
+(function () {
+  var chips = document.getElementById("book-chips");
+  function pick(name) { Array.prototype.forEach.call(chips.children, function (c) { c.setAttribute("aria-pressed", c.textContent === name ? "true" : "false"); }); }
+  chips.addEventListener("click", function (e) { if (e.target.classList.contains("chip")) pick(e.target.textContent); });
+  document.querySelectorAll("[data-svc]").forEach(function (a) { a.addEventListener("click", function () { pick(a.getAttribute("data-svc")); }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Botox at House of Skin MD Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&family=PT+Sans:wght@400;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Botox page. Copy from houseofskinmd.com/injectables-2/botox/; related services from /injectables-2/. */
+.crumb { font-size: .88rem; color: var(--muted); padding-block: 18px 0; }
+.crumb a { text-decoration: none; color: var(--accent); }
+.t-hero { padding-block: clamp(28px, 4vw, 56px) clamp(56px, 7vw, 96px); }
+.t-hero .inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.t-hero .copy { display: flex; flex-direction: column; gap: 22px; }
+.t-hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.t-hero .visual { aspect-ratio: 1 / 1; overflow: hidden; background: var(--wash); position: relative; }
+.t-hero .visual img { width: 100%; height: 100%; object-fit: cover; }
+.t-hero .visual::after { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(255,255,255,.7); pointer-events: none; }
+.subnav { position: sticky; top: 77px; z-index: 15; background: var(--bg); border-block: 1px solid var(--line); }
+.subnav .inner { display: flex; gap: 28px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.subnav a { font-family: var(--display); font-size: .76rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding-block: 16px; color: var(--ink); }
+.subnav a:hover { color: var(--accent); }
+section[id] { scroll-margin-top: 140px; }
+
+.areas { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.area { grid-column: span 2; padding: 28px 24px 32px 0; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid var(--line); }
+.area:nth-child(4), .area:nth-child(5) { grid-column: span 3; }
+.area h3 { font-size: 1.5rem; }
+.area p { color: var(--muted); }
+@media (max-width: 800px) { .area, .area:nth-child(4), .area:nth-child(5) { grid-column: span 6; padding-right: 0; } }
+
+.benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; background: var(--bg); border: 1px solid var(--line); }
+.benefit { padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 10px; }
+.benefit:nth-child(odd) { border-right: 1px solid var(--line); }
+.benefit:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+.benefit p { color: var(--muted); }
+@media (max-width: 700px) { .benefits { grid-template-columns: minmax(0, 1fr); } .benefit:nth-child(odd) { border-right: 0; } .benefit:not(:last-child) { border-bottom: 1px solid var(--line); } }
+
+.exp { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; margin-top: 8px; }
+.stat b { display: block; font-family: var(--display); font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--ink); line-height: 1.1; }
+.stat span { font-size: .92rem; color: var(--muted); }
+.exp .copy { display: flex; flex-direction: column; gap: 18px; }
+.exp .copy p { color: var(--muted); }
+@media (max-width: 800px) { .exp { grid-template-columns: minmax(0, 1fr); } }
+
+.related { display: flex; flex-wrap: wrap; gap: 10px; }
+.related a { border: 1px solid var(--line); padding: 12px 18px; text-decoration: none; color: var(--ink); background: var(--bg); min-height: 44px; display: inline-flex; align-items: center; }
+.related a:hover { border-color: var(--ink); }
+.ba-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 700px) { .ba-row { grid-template-columns: minmax(0, 1fr); } }
+.price-box { max-width: 720px; border-top: 1px solid var(--ink); }
+@media (max-width: 800px) { .t-hero .inner { grid-template-columns: minmax(0, 1fr); } .t-hero .visual { max-width: 520px; } }
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official House of Skin MD website. Copy and images from houseofskinmd.com.</span>
+  <span><span class="ph">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="index.html" aria-label="House of Skin MD, home"><img src="images/logo-wordmark.png" alt="House of Skin MD" width="770" height="111"></a>
+  <nav class="main" aria-label="Main">
+    <a href="index.html#treatments" aria-current="page">Treatments</a>
+    <a href="index.html#membership">Membership</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#team">Our Team</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+18187602200">(818) 760-2200</a>
+    <a class="btn btn-primary" href="#book">Book an Appointment</a>
+  </div>
+</div></header>
+
+<main>
+  <div class="inner crumb"><a href="index.html#treatments">Treatments</a> / Botox</div>
+  <section class="t-hero" aria-labelledby="hero-h"><div class="inner">
+    <div class="copy">
+      <span class="eyebrow">BOTOX&reg; treatment</span>
+      <h1 id="hero-h">A smoother, more <em>youthful</em> appearance</h1>
+      <p class="lead">Expertly administered injections that target and reduce fine lines and wrinkles, for a refreshed, glowing complexion.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#book">Book an Appointment</a>
+        <a class="btn btn-ghost" href="#areas">View Treatment Areas</a>
+      </div>
+      <div class="facts" style="padding-top:6px">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>15 to 30 minute treatment</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Studio City</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span class="ph">add injector name + credentials</span></span>
+      </div>
+    </div>
+    <div class="visual"><img src="images/botox-site.jpg" alt="Gloved injector treating a client's forehead, image from the House of Skin MD homepage" fetchpriority="high"></div>
+  </div></section>
+
+  <nav class="subnav" aria-label="On this page"><div class="inner">
+    <a href="#areas">Areas</a><a href="#benefits">Benefits</a><a href="#experience">Experience</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#related">Related</a><a href="#book">Book</a>
+  </div></nav>
+
+  <section id="areas" aria-labelledby="areas-h"><div class="inner">
+    <div class="head"><h2 id="areas-h">Target areas for <em>BOTOX&reg;</em></h2></div>
+    <div class="areas">
+      <div class="area"><h3>Forehead lines</h3><p>Smooth out those horizontal lines and regain a youthful brow.</p></div>
+      <div class="area"><h3>Crow&rsquo;s feet</h3><p>Reduce wrinkles around the eyes for a refreshed, rested appearance.</p></div>
+      <div class="area"><h3>Frown lines</h3><p>Erase the &ldquo;11s&rdquo; between your eyebrows and brighten your expression.</p></div>
+      <div class="area"><h3>Brow lift</h3><p>Achieve a subtle lift, making your eyes appear more open and awake.</p></div>
+      <div class="area"><h3>Lip lines</h3><p>Soften the vertical lines around your mouth for a smoother, more youthful lip contour.</p></div>
+    </div>
+  </div></section>
+
+  <section id="benefits" style="background:var(--wash)" aria-labelledby="ben-h"><div class="inner">
+    <div class="head"><h2 id="ben-h">Key benefits at House of Skin <em>MD</em></h2></div>
+    <div class="benefits">
+      <div class="benefit"><h3>Smooths wrinkles and fine lines</h3><p>Minimize the appearance of crow&rsquo;s feet, forehead lines, frown lines and more, for a youthful, refreshed look.</p></div>
+      <div class="benefit"><h3>Non-surgical &amp; minimally invasive</h3><p>Noticeable results without surgery or lengthy recovery times, so you can get back to your daily routine immediately.</p></div>
+      <div class="benefit"><h3>Prevents new wrinkles</h3><p>Consistent treatments help prevent new wrinkles and fine lines from forming, keeping skin smoother over time.</p></div>
+      <div class="benefit"><h3>Customizable treatment</h3><p>Our experienced professionals create a personalized Botox treatment plan for your areas of concern and natural-looking results.</p></div>
+    </div>
+  </div></section>
+
+  <section id="experience" aria-labelledby="exp-h"><div class="inner exp">
+    <div class="copy">
+      <h2 id="exp-h">Your treatment <em>experience</em></h2>
+      <p>Your BOTOX&reg; treatment is expertly administered by a licensed professional in a quick, minimally invasive procedure. Most clients experience only mild discomfort. You&rsquo;ll leave feeling rejuvenated and more confident.</p>
+      <p>To maintain optimal results, we recommend treatments every 3 to 4 months. Regular treatments help prevent deeper lines from forming.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>15 to 30 min</b><span>typical treatment time</span></div>
+      <div class="stat"><b>3 to 7 days</b><span>to see visible results</span></div>
+      <div class="stat"><b>Up to 3 to 4 months</b><span>how long improvements last</span></div>
+      <div class="stat"><b>Every 3 to 4 months</b><span>recommended frequency</span></div>
+    </div>
+  </div></section>
+
+  <section id="results" style="background:var(--wash)" aria-labelledby="res-h"><div class="inner">
+    <div class="head"><h2 id="res-h">Botox <em>results</em></h2><p>No Botox before &amp; after photos appear on the current site.</p></div>
+    <div class="ba-row">
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add forehead lines result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add crow&rsquo;s feet result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add frown lines result + provider</span></div></div>
+    </div>
+  </div></section>
+
+  <section id="pricing" aria-labelledby="price-h"><div class="inner">
+    <div class="head"><h2 id="price-h">Pricing &amp; <em>booking</em></h2></div>
+    <div class="price-box">
+      <div class="price-row"><div><b>Botox</b><small>Listed on the current Botox page as &ldquo;Botox | $12.50&rdquo; <span class="ph">confirm: per unit?</span></small></div><span class="price">$12.50</span></div>
+      <div class="price-row"><div><b>Botox Consultation</b></div><span class="ph">add price (or free)</span></div>
+      <div class="price-row"><div><b>Botox Follow-Up Appointment</b><small>A client review mentions a follow-up after two weeks</small></div><span class="ph">add price (or included)</span></div>
+    </div>
+  </div></section>
+
+  <section id="related" style="background:var(--wash)" aria-labelledby="rel-h"><div class="inner">
+    <div class="head"><h2 id="rel-h">More <em>injectables</em></h2><p>Rejuvenate and revitalize with expertly administered cosmetic injectables, all listed on the current Injectables page.</p></div>
+    <div class="related">
+      <a href="laser.html">Laser Treatments</a>
+      <a href="index.html#treatments">AminoMultiPlex Vitamin Shot</a>
+      <a href="index.html#treatments">Glutathione Amino Acid Shot</a>
+      <a href="index.html#treatments">Tirzepatide</a>
+      <a href="index.html#treatments">L-Lysine Amino Acid Shot</a>
+      <a href="index.html#treatments">MIC/B-12 Shot</a>
+      <a href="index.html#treatments">MIC (Weight Loss Shot)</a>
+      <a href="index.html#treatments">Vitamin B</a>
+      <a href="index.html#treatments">Microneedling</a>
+    </div>
+    <p style="margin-top:20px"><span class="ph">add Fillers page (listed in your Instagram bio)</span></p>
+  </div></section>
+
+  <section id="book" class="book" style="background:var(--bg)" aria-labelledby="book-h"><div class="inner book-wrap">
+    <div>
+      <h2 id="book-h">Reclaim your youthful <em>glow</em></h2>
+      <p class="lead" style="margin-top:18px">Boost your confidence with this leading anti-aging treatment.</p>
+      <div class="visit">
+        <div><b>Visit</b>12755 Ventura Blvd<br>Studio City, CA 91604</div>
+        <div><b>Hours</b>Tue to Sat, 9:30am to 5pm<br>Sun and Mon closed</div>
+        <div><b>Call</b><a href="tel:+18187602200">(818) 760-2200</a></div>
+        <div><b>Follow</b><a href="https://www.instagram.com/houseofskinmd/">Instagram @houseofskinmd</a></div>
+      </div>
+    </div>
+    <form class="booker" id="booker" aria-label="Online booking concept">
+      <fieldset>
+        <legend>What would you like to book?</legend>
+        <div class="chips" id="book-chips">
+          <button type="button" class="chip" aria-pressed="true">Botox Consultation</button>
+          <button type="button" class="chip" aria-pressed="false">Botox</button>
+          <button type="button" class="chip" aria-pressed="false">Botox Follow-Up Appointment</button>
+        </div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">See Available Times</button>
+      <p class="demo-msg" id="demo-msg" aria-live="polite"></p>
+      <p class="note"><span class="ph">Connects to your booking software</span> These are the three Botox options your current page loads by script.</p>
+    </form>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <span class="tag">Treat yourself. You deserve more.</span>
+  <span>House of Skin MD &middot; 12755 Ventura Blvd, Studio City</span>
+  <span>Concept by Studio8Web</span>
+</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+18187602200">Call</a>
+  <a class="btn btn-primary" href="#book">Book an Appointment</a>
+</div>
+
+<script>
+(function () {
+  var chips = document.getElementById("book-chips");
+  chips.addEventListener("click", function (e) {
+    var c = e.target.closest(".chip"); if (!c) return;
+    Array.prototype.forEach.call(chips.children, function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+  });
+  document.getElementById("booker").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + chips.querySelector('[aria-pressed="true"]').textContent + ".";
+  });
+})();
+</script>
+</body>
+</html>

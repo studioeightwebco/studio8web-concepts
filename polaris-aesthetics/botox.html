@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Polaris Botox Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Redesign concept of the Polaris Medical Aesthetics Botox page. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Botox page. Copy from polarisaesthetics.com/botox/, /xeomin/, /bank-your-botox/, /our-team/ and the November specials. */
+.how { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.how p.big { font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.3; }
+@media (max-width: 860px) { .how { grid-template-columns: minmax(0, 1fr); } }
+.alt-bg { background: var(--surface); border-block: 1px solid var(--line); }
+.why-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.why-rows div { padding: 22px 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+.why-rows b { font-family: var(--display); font-size: 1.45rem; font-weight: 500; }
+.why-rows span { color: var(--muted); font-size: .92rem; }
+@media (max-width: 760px) { .why-rows { grid-template-columns: minmax(0, 1fr); } }
+.empty-results { aspect-ratio: auto; min-height: 220px; }
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official Polaris Medical Aesthetics website. Copy and images from polarisaesthetics.com.</span>
+  <span><span class="ph">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="index.html" aria-label="Polaris Medical Aesthetics, home"><img src="images/logo.png" alt="Polaris medical aesthetics" width="275" height="105"></a>
+  <nav class="main" aria-label="Main">
+    <a href="index.html#treatments" aria-current="page">Treatments</a>
+    <a href="index.html#specials">Specials</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#team">Our Team</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+13237443133">323-744-3133 <small>English, 한국어</small></a>
+    <a class="btn btn-primary" href="#book">Book a Free Consultation</a>
+  </div>
+</div></header>
+
+<main>
+  <div class="inner crumbs"><a href="index.html#treatments">Treatments</a> / Botox®</div>
+
+  <section class="t-hero" aria-label="Botox"><div class="inner grid">
+    <div class="copy">
+      <span class="eyebrow">BOTOX® Cosmetic</span>
+      <h1><em>Botox®</em></h1>
+      <p class="lead">A quick, simple, non-surgical treatment for forehead wrinkles, frown lines between the brows, and crow's feet.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#book">Book a Free Consultation</a>
+        <a class="btn btn-ghost" href="#areas">View Treatment Areas</a>
+      </div>
+      <div class="facts">
+        <span>No downtime</span>
+        <span>Results in 24 to 48 hours</span>
+        <span>Lasts up to four months</span>
+      </div>
+    </div>
+    <figure>
+      <img src="images/special-bank-your-botox.jpg" alt="Bank Your Botox flyer from Polaris: a white piggy bank wearing a gold crown" width="1000" height="1000">
+      <figcaption>Bank Your Botox, from the current site. <span class="ph">add a Botox treatment photo</span></figcaption>
+    </figure>
+  </div></section>
+
+  <nav class="subnav" aria-label="On this page"><div class="inner">
+    <a href="#areas">Areas</a>
+    <a href="#how">How it works</a>
+    <a href="#related">Related</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#why">Why Polaris</a>
+    <a href="#results">Results</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#book">Book</a>
+  </div></nav>
+
+  <section id="areas"><div class="inner">
+    <div class="section-head">
+      <h2>Treatment <em>areas</em></h2>
+      <p class="lead">BOTOX® Cosmetic treats facial wrinkles in three areas.</p>
+    </div>
+    <div class="areas">
+      <article class="area wide">
+        <span class="tag">Area one</span>
+        <h3>Frown lines between the <em>brows</em></h3>
+        <p>BOTOX® Cosmetic is a prescription medicine injected into muscles to improve the look of moderate to severe frown lines between the eyebrows (glabellar lines) for a short period of time.</p>
+        <span class="spec">Bank Your Botox: Allergan Botox, 100 units, $1,000</span>
+      </article>
+      <article class="area">
+        <span class="tag">Area two</span>
+        <h3>Forehead</h3>
+        <p>Smooths facial wrinkles on the forehead.</p>
+        <span class="spec"><span class="ph">add per-area units or price</span></span>
+      </article>
+      <article class="area">
+        <span class="tag">Area three</span>
+        <h3>Crow's feet</h3>
+        <p>Softens the lines that appear around the outer corners of the eye.</p>
+        <span class="spec"><span class="ph">add per-area units or price</span></span>
+      </article>
+      <article class="area wide">
+        <span class="tag">In a package</span>
+        <h3>Skin Botox, full face</h3>
+        <p>Included in the November Oligio X Special with Oligio X Full Face &amp; Neck, Oligio X Eye, Hycoox Injector and LDM Water Drop Lifting Facial × 2.</p>
+        <span class="spec">November special: Oligio X Special, $2,900 (value $4,150)</span>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="how" class="alt-bg"><div class="inner how">
+    <div class="section-head" style="margin-bottom:0">
+      <h2>How it <em>works</em></h2>
+      <p class="big">With a few tiny injections, Botox blocks the nerve impulses to the targeted muscles.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px" class="muted">
+      <p>This relaxes the muscles and allows the overlying skin to flatten, smoothing out fine lines and wrinkles.</p>
+      <p>The procedure requires no downtime and no recovery. Results become apparent within 24 to 48 hours and can last for up to four months.</p>
+      <p>One 10 minute treatment can achieve significant results.</p>
+    </div>
+  </div></section>
+
+  <section id="related"><div class="inner">
+    <div class="section-head">
+      <h2>Related <em>services</em></h2>
+    </div>
+    <div class="related">
+      <a href="https://polarisaesthetics.com/xeomin/"><b>Xeomin®</b><i>Learn more →</i><span>The "Botox® Alternative." A purified botulinum toxin type A with the same dosing units, so patients can switch from Botox® in one simple step. About 10 minutes for forehead lines, frown lines and crow's feet.</span></a>
+      <a href="juvederm.html"><b>Juvederm®</b><i>View Treatment →</i><span>Dermal fillers that smooth moderate to severe facial wrinkles and folds, and Voluma XC to add volume and subtly lift the cheek area.</span></a>
+      <a href="https://polarisaesthetics.com/mint-thread-lift/"><b>MINT™ Thread Lift</b><i>Learn more →</i><span>A minimally invasive, non-surgical PDO thread lift that lifts and tightens sagging skin while stimulating natural collagen.</span></a>
+      <a href="https://polarisaesthetics.com/xerf-structural-skin-tightening-in-los-angeles/"><b>XERF™</b><i>Learn more →</i><span>FDA-cleared radiofrequency skin tightening with zero needles, numbing, or downtime.</span></a>
+    </div>
+  </div></section>
+
+  <section id="benefits" class="alt-bg"><div class="inner">
+    <div class="section-head">
+      <h2>Why patients choose <em>Botox®</em></h2>
+    </div>
+    <div class="benefits">
+      <div><b>No downtime</b><span>No downtime and no recovery</span></div>
+      <div><b>24 to 48 hours</b><span>Results become apparent</span></div>
+      <div><b>Up to 4 months</b><span>How long results can last</span></div>
+      <div><b>10 minutes</b><span>One treatment can achieve significant results</span></div>
+    </div>
+  </div></section>
+
+  <section id="why"><div class="inner">
+    <div class="section-head">
+      <h2>Why <em>Polaris</em></h2>
+    </div>
+    <div class="why-rows">
+      <div><b>Dr. Andrew K. Choi, MD</b><span>Focuses exclusively on advanced non-surgical rejuvenation, including Botox, dermal fillers and thread lifts, bringing the depth of a surgical background into every procedure.</span></div>
+      <div><b>Refined, natural results</b><span>Results that are effortlessly natural, subtly enhanced, and tailored to each individual.</span></div>
+      <div><b>TargetCool comfort</b><span>A precise, controlled medical device that elevates patient comfort during injection-related procedures, including botulinum toxin.</span></div>
+      <div><b>Allē rewards</b><span>Polaris takes part in the Allē rewards program. <span class="ph">add how points apply to Botox</span></span></div>
+    </div>
+  </div></section>
+
+  <section id="results" class="alt-bg"><div class="inner">
+    <div class="section-head">
+      <h2>Botox <em>results</em></h2>
+    </div>
+    <div class="ph-box empty-results">add Botox before &amp; after photos (frown lines, forehead, crow's feet) with treatment + provider</div>
+  </div></section>
+
+  <section id="pricing"><div class="inner">
+    <div class="section-head">
+      <h2>Botox <em>pricing</em></h2>
+    </div>
+    <div class="price-list">
+      <div class="price-row"><b>Bank Your Botox: Allergan Botox, 100 units</b><span class="amt"><s>$1,300</s>$1,000</span><small>Special. <span class="ph">add how banked units work + expiry</span></small></div>
+      <div class="price-row"><b>Bank Your Botox: MERZ Xeomin, 100 units</b><span class="amt"><s>$1,200</s>$900</span><small>Special</small></div>
+      <div class="price-row"><b>Xeomin 50 Units, in the Winter Beauty Package</b><span class="amt">$2,600 package</span><small>Nov 9 to 21 only, with XERF, PicoWay Toning, V-line Facial and Venus Versa. Limit 2 per person.</small></div>
+      <div class="price-row"><b>Botox, per unit</b><span class="amt"><span class="ph">add price</span></span></div>
+      <div class="price-row"><b>Frown lines, forehead, crow's feet</b><span class="amt"><span class="ph">add typical units or price</span></span></div>
+    </div>
+  </div></section>
+
+  <section id="safety" class="alt-bg"><div class="inner">
+    <div class="fine">
+      <div>
+        <h3>Indication</h3>
+        <p>BOTOX® Cosmetic (onabotulinumtoxinA) is a prescription medicine that is injected into muscles and is used to improve the look of moderate to severe frown lines between the eyebrows (glabellar lines) for a short period of time.</p>
+      </div>
+      <div>
+        <h3>Contraindications</h3>
+        <p>BOTOX® Cosmetic is contraindicated in the presence of infection at the proposed injection site(s) and in individuals with known hypersensitivity to any botulinum toxin preparation or to any of the components in the formulation.</p>
+        <p>Be sure to tell your doctor about all the medicines that you take, including recent injection of any other botulinum toxin products, antibiotics, muscle relaxants, allergy or cold medicine, or medicinal sleep aids.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="book" id="book"><div class="inner book-grid">
+    <div class="visit">
+      <span class="eyebrow">Visit us</span>
+      <h2>Book a free <em>consultation</em></h2>
+      <p class="muted">For more information, please call us at (323) 744-3133.</p>
+      <dl>
+        <dt>Location</dt><dd>Koreatown Plaza, 928 S. Western Ave. #309, Los Angeles, CA 90006</dd>
+        <dt>Hours</dt><dd>Monday to Saturday, 10 am to 7 pm<br>Sunday closed</dd>
+        <dt>Parking</dt><dd>4-hour free parking. P4 has direct access to the 3rd floor.</dd>
+      </dl>
+    </div>
+    <div class="booker">
+      <h3>Choose your <em>treatment</em></h3>
+      <div class="chips" aria-label="Choose a treatment">
+        <button class="chip" type="button" aria-pressed="true">Botox®</button>
+        <button class="chip" type="button" aria-pressed="false">Xeomin®</button>
+        <button class="chip" type="button" aria-pressed="false">Bank Your Botox</button>
+        <button class="chip" type="button" aria-pressed="false">Free Consultation</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" type="button">See Available Times</button>
+        <span class="ph">Connects to your booking software</span>
+      </div>
+    </div>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <p class="tagline">Your North Star in aesthetic <em>excellence</em></p>
+  <div class="cols">
+    <div><b>Visit</b><span>928 S. Western Ave. #309</span><span>Los Angeles, CA 90006</span><a href="tel:+13237443133">323-744-3133</a></div>
+    <div><b>Treatments</b><a href="botox.html">Botox®</a><a href="juvederm.html">Juvederm®</a><a href="index.html#treatments">All treatments</a></div>
+    <div><b>Policies</b><a href="https://polarisaesthetics.com/medical-disclaimer/">Medical Disclaimer</a><a href="https://polarisaesthetics.com/privacy-policy-2023/">Privacy Policy</a><a href="https://polarisaesthetics.com/client-policies-guidelines/">Client Policies &amp; Guidelines</a></div>
+  </div>
+  <div class="legal"><span>© Polaris Medical Aesthetics and Wellness Inc. All rights reserved.</span><span>Concept by Studio8Web</span></div>
+</div></footer>
+
+<div class="sticky-bar">
+  <a class="btn btn-ghost" href="tel:+13237443133">Call</a>
+  <a class="btn btn-primary" href="#book">Book a Free Consultation</a>
+</div>
+<script>
+document.querySelectorAll(".chips").forEach(g => g.addEventListener("click", e => { const b = e.target.closest("button"); if (b) b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") !== "true"); }));
+</script>
+</body>
+</html>

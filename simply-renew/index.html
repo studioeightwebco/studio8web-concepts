@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simply Renew Redesign Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Redesign concept for Simply Renew, Los Angeles. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Homepage. Every line of copy and every image comes from simplyrenewla.com; only the order and design are new. */
+
+/* Hero: asymmetric split, photo bleeds to the right edge */
+.hero { padding: 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: min(82dvh, 760px); }
+.hero-copy { display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 72px) clamp(40px, 6vw, 88px) max(20px, calc((100vw - 1180px) / 2 + 20px)); }
+.hero h1 { font-size: clamp(2rem, 3.4vw, 2.9rem); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-photo { position: relative; overflow: hidden; background: var(--wash); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 40%; }
+
+/* Story: offset image with overlapping sage panel */
+.story-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.story-img { position: relative; }
+.story-img img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; }
+.story-img::after { content: ""; position: absolute; inset: 28px -28px -28px 28px; background: var(--sage-soft); z-index: -1; }
+.story-copy { display: flex; flex-direction: column; gap: 20px; }
+.story-copy p { color: var(--muted); }
+.pillars { display: flex; flex-wrap: wrap; gap: 8px; }
+.pillar { padding: 8px 16px; border: 1px solid var(--sage); font-weight: 600; font-size: .88rem; letter-spacing: .04em; }
+.selftest { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; padding-top: 22px; border-top: 1px solid var(--line); }
+.selftest p { font-size: .95rem; flex: 1 1 220px; }
+
+/* Treatments: filterable grid with one featured card */
+.treatments { background: var(--surface); }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.treat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.treat { background: var(--bg); display: flex; flex-direction: column; min-width: 0; }
+.treat img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--wash); }
+.treat .body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.treat .kind { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.treat .sub { font-size: .92rem; color: var(--muted); }
+.treat .foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.treat.featured { grid-column: span 2; flex-direction: row; }
+.treat.featured img { width: 55%; aspect-ratio: auto; height: 100%; min-height: 300px; }
+.treat.featured .body { justify-content: center; padding: 32px; }
+.treat.featured h3 { font-size: 1.6rem; }
+
+/* Why: full-width sage band of typographic statements */
+.why { background: var(--wash); }
+.why-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.why-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+.why-list li { padding: 26px 24px 26px 0; border-top: 1px solid var(--sage); display: flex; flex-direction: column; gap: 6px; }
+.why-list li:nth-child(odd) { padding-right: 28px; }
+.why-list b { font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+.why-list span { color: var(--muted); font-size: .95rem; }
+.why-list li.wide { grid-column: 1 / -1; }
+
+/* Results: featured result + strip */
+.results-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto; gap: 18px; }
+.results-grid figure { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.results-grid img { width: 100%; object-fit: contain; background: var(--surface); aspect-ratio: 4 / 5; }
+.results-grid figure:first-child { grid-row: span 2; }
+.results-grid figure:first-child img { aspect-ratio: auto; height: 100%; min-height: 0; flex: 1; object-fit: cover; }
+.results-note { margin-top: 22px; font-size: .9rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+
+/* Reviews: empty quote slots */
+.reviews { background: var(--surface); }
+.review-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+.review { border-left: 3px solid var(--sage); padding: 6px 0 6px 22px; display: flex; flex-direction: column; gap: 12px; }
+.review .q { font-family: var(--display); font-style: italic; font-size: 1.15rem; color: var(--muted); }
+
+/* Journey */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; counter-reset: s; border-top: 1px solid var(--ink); }
+.step { padding: 28px 28px 8px 0; display: flex; flex-direction: column; gap: 10px; }
+.step + .step { padding-left: 28px; border-left: 1px solid var(--line); }
+.step h3 { font-size: 1.3rem; }
+.step p { color: var(--muted); font-size: .95rem; }
+
+/* Pricing */
+.pricing { background: var(--surface); }
+.price-wrap { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.price-list { list-style: none; margin: 0; padding: 0; columns: 1; }
+.price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.price-row span:first-child { font-weight: 600; }
+.price-row small { display: block; font-weight: 400; color: var(--muted); font-size: .85rem; }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; max-width: 760px; }
+.member { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 18px; align-items: center; }
+.portrait { aspect-ratio: 3 / 4; background: repeating-linear-gradient(135deg, var(--wash) 0 10px, var(--bg) 10px 20px); border: 1px dashed var(--placeholder); display: grid; place-items: center; text-align: center; padding: 6px; }
+.member div { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .hero-photo { aspect-ratio: 4 / 3; order: -1; }
+  .hero-copy { padding: 36px 20px 48px; }
+  .story-grid, .why-grid, .price-wrap { grid-template-columns: minmax(0, 1fr); }
+  .story-img { margin-right: 28px; }
+  .treat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .results-grid figure:first-child { grid-column: 1 / -1; grid-row: auto; }
+  .results-grid figure:first-child img { height: auto; aspect-ratio: 4 / 3; }
+  .review-row { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .treat-grid { grid-template-columns: minmax(0, 1fr); }
+  .treat.featured { grid-column: auto; flex-direction: column; }
+  .treat.featured img { width: 100%; min-height: 0; aspect-ratio: 4 / 3; height: auto; }
+  .treat.featured .body { padding: 20px 22px 22px; }
+  .why-list { grid-template-columns: minmax(0, 1fr); }
+  .why-list li, .why-list li:nth-child(odd) { padding-right: 0; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .step + .step { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .team-grid { grid-template-columns: minmax(0, 1fr); }
+  .results-grid { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official Simply Renew website. Copy and images from simplyrenewla.com.</span>
+  <span><span class="ph">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="wordmark" href="index.html" aria-label="Simply Renew home"><span>SIMPLY</span><span>RENEW</span></a>
+  <nav class="main" aria-label="Main">
+    <a href="#treatments">Treatments</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#results">Results</a>
+    <a href="#team">Our Team</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+12138003088">213-800-3088</a>
+    <a class="btn btn-primary" href="#book">Book Online</a>
+  </div>
+</div></header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Simply Renew, Los Angeles</span>
+      <h1 id="hero-title">Professional, <span style="white-space:nowrap">high-quality,</span> <em style="white-space:nowrap">medical-grade</em></h1>
+      <p class="lead">Our mission: to restore, revitalize and rejuvenate your skin’s appearance, health and function.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#book">Book Online</a>
+        <a class="btn btn-ghost" href="#treatments">View Treatments</a>
+      </div>
+      
+    </div>
+    <div class="hero-photo"><img src="images/hero.jpg" alt="Client relaxing during a facial treatment" fetchpriority="high"></div>
+  </div>
+</section>
+
+  <div class="hero-facts" aria-label="Visit details"><div class="facts">
+        <span>3030 W Olympic Blvd Ste. 209</span>
+        <span class="ph">add hours</span>
+        <span class="ph">add Google rating</span>
+      </div></div>
+
+<section id="about" aria-labelledby="story-title">
+  <div class="inner story-grid">
+    <div class="story-img"><img src="images/story-room.jpg" alt="Bright treatment room with a treatment bed and skincare shelves" loading="lazy"></div>
+    <div class="story-copy">
+      <h2 id="story-title">Our <em>story</em></h2>
+      <p>Our services are personalized to each client to enhance their natural beauty. We only recommend and perform services that are in the absolute best interest of our patients.</p>
+      <p>The mission of Simply Renew is to restore, revitalize and rejuvenate your skin’s appearance, health and function. Through our professional services and high-quality medical-grade products, we strive to address and improve your skin concerns, enhancing your self image and self esteem.</p>
+      <div class="pillars" aria-label="Our approach"><span class="pillar">Restore</span><span class="pillar">Revitalize</span><span class="pillar">Rejuvenate</span></div>
+      <div class="selftest">
+        <p>Not sure where to start with injectables? Answer 13 short questions first.</p>
+        <a class="btn btn-ghost" href="https://form.jotform.com/230035834181146" target="_blank" rel="noopener">Take our Injectables Self-Test</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="treatments" class="treatments" aria-labelledby="treat-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="treat-title">Our <em>services</em></h2>
+      <p>Eight services, from injectables to permanent make-up.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Filter treatments" id="tabs"></div>
+    <div class="treat-grid" id="treat-grid"></div>
+  </div>
+</section>
+
+<section class="why" aria-labelledby="why-title">
+  <div class="inner why-grid">
+    <div class="head" style="margin:0">
+      <h2 id="why-title">Why <em>Simply Renew</em></h2>
+      <p>Straight from our mission and our story.</p>
+    </div>
+    <ul class="why-list">
+      <li><b>Professional</b><span>Professional services for your skin concerns.</span></li>
+      <li><b>High-quality, medical-grade</b><span>High-quality medical-grade products.</span></li>
+      <li><b>Personalized</b><span>Services personalized to each client to enhance their natural beauty.</span></li>
+      <li><b>In your best interest</b><span>We only recommend and perform services in the absolute best interest of our patients.</span></li>
+      <li class="wide"><span class="ph">add provider credentials, years in practice or certifications</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="results" aria-labelledby="results-title">
+  <div class="inner">
+    <div class="head">
+      <span class="eyebrow">Results</span>
+      <h2 id="results-title">Before and <em>after</em></h2>
+    </div>
+    <div class="results-grid">
+      <figure><img src="images/ba-3.jpg" alt="Before and after, close-up of a client's eye area, stacked" loading="lazy"><figcaption><span class="ph">add treatment + provider</span></figcaption></figure>
+      <figure><img src="images/ba-1.jpg" alt="Before and after, front view of a client's face side by side" loading="lazy"><figcaption><span class="ph">add treatment + provider</span></figcaption></figure>
+      <figure><img src="images/ba-2.jpg" alt="Before and after, side profile of a client's jawline, stacked" loading="lazy"><figcaption><span class="ph">add treatment + provider</span></figcaption></figure>
+      <figure><img src="images/ba-4.jpg" alt="Before and after, close-up of a client's cheek skin, stacked" loading="lazy"><figcaption><span class="ph">add treatment + provider</span></figcaption></figure>
+      <figure><img src="images/ba-5.jpg" alt="Before and after, close-up of a client's forehead, stacked" loading="lazy"><figcaption><span class="ph">add treatment + provider</span></figcaption></figure>
+    </div>
+    <p class="results-note">Photos from the current Before &amp; After page, where they sit under template filler text. <span class="ph">add results from @simply.renew</span> <span class="ph">send original high-resolution files</span></p>
+  </div>
+</section>
+
+<section class="reviews" aria-labelledby="reviews-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="reviews-title">What clients <em>say</em></h2>
+      <p><span class="ph">add Google rating + review count</span></p>
+    </div>
+    <div class="review-row">
+      <div class="review"><p class="q">“…”</p><span class="ph">add client review (exact wording)</span><span class="ph">add client first name</span></div>
+      <div class="review"><p class="q">“…”</p><span class="ph">add client review (exact wording)</span><span class="ph">add client first name</span></div>
+      <div class="review"><p class="q">“…”</p><span class="ph">add client review (exact wording)</span><span class="ph">add client first name</span></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="journey-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="journey-title">Your first <em>visit</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Take the self-test</h3><p>Our Injectables Self-Test asks about your skin, your treatment history and your beauty goals.</p><a class="link" href="https://form.jotform.com/230035834181146" target="_blank" rel="noopener">Take our Injectables Self-Test →</a></div>
+      <div class="step"><h3>Book online</h3><p>Choose your service and a time.</p><span class="ph">add consultation length + cost</span></div>
+      <div class="step"><h3>Visit Suite 209</h3><p>3030 W Olympic Blvd Ste. 209, Los Angeles, CA 90006.</p><span class="ph">add parking + directions</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing" aria-labelledby="pricing-title">
+  <div class="inner price-wrap">
+    <div class="head" style="margin:0">
+      <h2 id="pricing-title">Service <em>pricing</em></h2>
+      <p>No prices are published on the current site. Listing them here answers the first question most new clients ask.</p>
+      <p><span class="ph">add monthly specials from Instagram</span></p>
+    </div>
+    <ul class="price-list" id="price-list"></ul>
+  </div>
+</section>
+
+<section id="team" aria-labelledby="team-title">
+  <div class="inner">
+    <div class="head">
+      <h2 id="team-title">Meet our <em>team</em></h2>
+      <p><span class="ph">add a line about your team's expertise</span></p>
+    </div>
+    <div class="team-grid">
+      <div class="member"><div class="portrait"><span class="ph">add portrait</span></div><div><span class="ph">add provider name</span><span class="ph">add credentials (RN, NP, MD)</span></div></div>
+      <div class="member"><div class="portrait"><span class="ph">add portrait</span></div><div><span class="ph">add provider name</span><span class="ph">add credentials (RN, NP, MD)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="book" aria-labelledby="book-title">
+  <div class="inner book-grid">
+    <div class="visit">
+      <span class="eyebrow">Contact</span>
+      <h2 id="book-title">Get in <em>touch</em></h2>
+      <dl>
+        <dt>Visit</dt><dd>3030 W Olympic Blvd Ste. 209<br>Los Angeles, CA 90006</dd>
+        <dt>Call</dt><dd><a href="tel:+12138003088">213-800-3088</a></dd>
+        <dt>Email</dt><dd><a href="mailto:info.simplyrenewla@gmail.com">info.simplyrenewla@gmail.com</a></dd>
+        <dt>Instagram</dt><dd><a href="https://www.instagram.com/simply.renew/" target="_blank" rel="noopener">@simply.renew</a></dd>
+        <dt>Hours</dt><dd><span class="ph">add hours</span></dd>
+      </dl>
+    </div>
+    <div class="planner">
+      <h3>Book Online</h3>
+      <p class="note">Choose a service to see open times.</p>
+      <div class="chips" id="book-chips" aria-label="Choose a service"></div>
+      <a class="btn btn-primary" href="https://www.simplyrenewla.com/appointments-1">See Available Times</a>
+      <span class="ph">Connects to your booking software</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="inner">
+  <div>
+    <a class="wordmark" href="index.html"><span>SIMPLY</span><span>RENEW</span></a>
+    <p class="tag-line">Professional, High-quality, Medical-grade</p>
+  </div>
+  <nav aria-label="Footer">
+    <a href="#treatments">Treatments</a><a href="injectables.html">Injectables</a><a href="#results">Results</a><a href="#book">Contact</a><a href="https://www.instagram.com/simply.renew/" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <p>Concept by Studio8Web. © Simply Renew <span class="ph">add current year + privacy policy</span></p>
+</div></footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="tel:+12138003088">Call</a>
+  <a class="btn btn-primary" href="#book">Book Online</a>
+</div>
+
+<script>
+(function () {
+  // One source of truth for services: cards, filters, pricing rows and booking chips render from this array.
+  // Names and subtitles are exactly as on simplyrenewla.com. The site has no descriptions or benefits for any service.
+  var services = [
+    { name: "Injectable", category: "Injectables", subtitle: "Xeomin & filler & Sculptra", benefits: [], image: "images/svc-injectable.jpg", alt: "Provider giving a cosmetic injection", page: "injectables.html", special: null, featured: true },
+    { name: "Silk PDO", category: "Lift & Contour", subtitle: "", benefits: [], image: "images/svc-silk-pdo.jpg", alt: "Face with lift direction lines", page: null, special: null },
+    { name: "PRP & PRF", category: "Skin", subtitle: "", benefits: [], image: "images/svc-prp.jpg", alt: "Woman touching her cheek", page: null, special: null },
+    { name: "Fat Dissolving", category: "Lift & Contour", subtitle: "", benefits: [], image: "images/svc-fat-dissolving.jpg", alt: "Abdomen marked with a treatment grid", page: null, special: null },
+    { name: "Skin Booster", category: "Skin", subtitle: "", benefits: [], image: "images/svc-skin-booster.jpg", alt: "Gloved provider treating a client's face", page: null, special: null },
+    { name: "Laser", category: "Lift & Contour", subtitle: "Ultherapy & Inmode & Scarlett RF & HIFU", benefits: [], image: "images/svc-laser.jpg", alt: "Jawline and neck with lift lines", page: null, special: null },
+    { name: "Facial & Body Contouring", category: "Lift & Contour", subtitle: "", benefits: [], image: "images/svc-contouring.jpg", alt: "Close-up of neck and jawline", page: null, special: null },
+    { name: "Permanent Make-up & Eyelash Extension", category: "Beauty", subtitle: "", benefits: [], image: "images/svc-pmu-lash.jpg", alt: "Close-up of long eyelashes", page: null, special: null }
+  ];
+  var groups = ["All", "Injectables", "Skin", "Lift & Contour", "Beauty"];
+  var grid = document.getElementById("treat-grid"), tabs = document.getElementById("tabs");
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function card(s, g) {
+    var feat = s.featured && g === "All";
+    return '<article class="treat' + (feat ? ' featured' : '') + '">' +
+      '<img src="' + s.image + '" alt="' + esc(s.alt) + '" loading="lazy">' +
+      '<div class="body"><span class="kind">' + esc(s.category) + '</span>' +
+      '<h3>' + esc(s.name) + '</h3>' +
+      (s.subtitle ? '<p class="sub">' + esc(s.subtitle) + '</p>' : '') +
+      (s.benefits.length ? '' : '<span class="ph">add description + benefits</span>') +
+      '<div class="foot">' + (s.special ? '<span>' + esc(s.special) + '</span>' : '<span class="ph">add price</span>') +
+      (s.page ? '<a class="link" href="' + s.page + '">View Treatment →</a>' : '<a class="link" href="#book" data-svc="' + esc(s.name) + '">Book →</a>') +
+      '</div></div></article>';
+  }
+  function render(g) {
+    grid.innerHTML = services.filter(function (s) { return g === "All" || s.category === g; }).map(function (s) { return card(s, g); }).join("");
+    Array.prototype.forEach.call(tabs.children, function (b) { b.setAttribute("aria-selected", b.textContent === g ? "true" : "false"); b.setAttribute("aria-pressed", b.textContent === g ? "true" : "false"); });
+  }
+  groups.forEach(function (g) {
+    var b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.setAttribute("role", "tab"); b.textContent = g;
+    b.addEventListener("click", function () { render(g); });
+    tabs.appendChild(b);
+  });
+  render("All");
+
+  document.getElementById("price-list").innerHTML = services.map(function (s) {
+    return '<li class="price-row"><span>' + esc(s.name) + (s.subtitle ? '<small>' + esc(s.subtitle) + '</small>' : '') + '</span>' +
+      (s.special ? '<span>' + esc(s.special) + '</span>' : '<span class="ph">add price</span>') + '</li>';
+  }).join("");
+
+  var chips = document.getElementById("book-chips");
+  chips.innerHTML = services.map(function (s) { return '<button type="button" class="chip" aria-pressed="false">' + esc(s.name) + '</button>'; }).join("");
+  function pick(name) {
+    Array.prototype.forEach.call(chips.children, function (c) { c.setAttribute("aria-pressed", c.textContent === name ? "true" : "false"); });
+  }
+  chips.addEventListener("click", function (e) { if (e.target.classList.contains("chip")) pick(e.target.textContent); });
+  grid.addEventListener("click", function (e) { var a = e.target.closest("[data-svc]"); if (a) pick(a.getAttribute("data-svc")); });
+})();
+</script>
+</body>
+</html>

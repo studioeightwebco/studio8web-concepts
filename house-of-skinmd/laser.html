@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laser at House of Skin MD Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&family=PT+Sans:wght@400;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Laser Treatments page. Copy from houseofskinmd.com/laser-treatments/; prices and benefits from its 13 area pages
+   (/face-laser-treatment/, /legs-laser-treatment/ ...). */
+.crumb { font-size: .88rem; color: var(--muted); padding-block: 18px 0; }
+.crumb a { text-decoration: none; color: var(--accent); }
+.t-hero { padding-block: clamp(28px, 4vw, 56px) clamp(56px, 7vw, 96px); }
+.t-hero .inner { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.t-hero .copy { display: flex; flex-direction: column; gap: 22px; order: 2; }
+.t-hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.t-hero .visual { aspect-ratio: 4 / 5; overflow: hidden; background: var(--wash); position: relative; order: 1; }
+.t-hero .visual img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+.subnav { position: sticky; top: 77px; z-index: 15; background: var(--bg); border-block: 1px solid var(--line); }
+.subnav .inner { display: flex; gap: 28px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+.subnav a { font-family: var(--display); font-size: .76rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding-block: 16px; color: var(--ink); }
+.subnav a:hover { color: var(--accent); }
+section[id] { scroll-margin-top: 140px; }
+
+.types { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+.types span { border: 1px solid var(--ink); padding: 8px 16px; font-family: var(--display); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.area-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.area-card { background: var(--bg); padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.area-card h3 { font-size: 1.25rem; }
+.area-card p { color: var(--muted); font-size: .94rem; flex: 1; }
+.area-card .price { font-size: 1rem; }
+.area-card.lead-card { grid-column: span 2; background: var(--wash); }
+.area-card.lead-card h3 { font-size: 1.7rem; }
+@media (max-width: 1000px) { .area-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .area-grid { grid-template-columns: minmax(0, 1fr); } .area-card.lead-card { grid-column: auto; } }
+
+.why { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.why ol { list-style: none; margin: 0; padding: 0; counter-reset: w; display: flex; flex-direction: column; }
+.why li { counter-increment: w; display: grid; grid-template-columns: 48px 1fr; gap: 8px; padding-block: 22px; border-top: 1px solid var(--line); }
+.why li::before { content: counter(w, decimal-leading-zero); font-family: var(--display); font-weight: 300; font-size: 1.4rem; color: var(--accent); line-height: 1.3; }
+.why li b { display: block; color: var(--ink); font-family: var(--display); font-weight: 400; font-size: 1.15rem; margin-bottom: 4px; }
+.why li span { color: var(--muted); }
+.benefit-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 32px; }
+.benefit-list li b { display: block; color: var(--ink); font-family: var(--display); font-weight: 400; font-size: 1.1rem; margin-bottom: 4px; }
+.benefit-list li span { color: var(--muted); font-size: .95rem; }
+@media (max-width: 800px) { .why, .t-hero .inner { grid-template-columns: minmax(0, 1fr); } .t-hero .copy { order: 1; } .t-hero .visual { order: 2; max-width: 520px; aspect-ratio: 4 / 3; } .benefit-list { grid-template-columns: minmax(0, 1fr); } }
+
+.ba-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.ba-strip .ba-frame { scroll-snap-align: start; }
+
+.acc { max-width: 860px; border-top: 1px solid var(--ink); }
+.acc details { border-bottom: 1px solid var(--line); }
+.acc summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 60px; padding-block: 14px; }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary b { font-family: var(--display); font-weight: 400; font-size: 1.15rem; color: var(--ink); }
+.acc summary .from { display: flex; align-items: center; gap: 14px; color: var(--muted); font-size: .9rem; white-space: nowrap; }
+.acc summary .from::after { content: "+"; font-family: var(--display); font-size: 1.5rem; color: var(--accent); transition: transform .2s; }
+.acc details[open] summary .from::after { transform: rotate(45deg); }
+.acc .rows { padding-bottom: 14px; }
+.related { display: flex; flex-wrap: wrap; gap: 10px; }
+.related a { border: 1px solid var(--line); padding: 12px 18px; text-decoration: none; color: var(--ink); background: var(--bg); min-height: 44px; display: inline-flex; align-items: center; }
+.related a:hover { border-color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official House of Skin MD website. Copy and images from houseofskinmd.com.</span>
+  <span><span class="ph">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="index.html" aria-label="House of Skin MD, home"><img src="images/logo-wordmark.png" alt="House of Skin MD" width="770" height="111"></a>
+  <nav class="main" aria-label="Main">
+    <a href="index.html#treatments" aria-current="page">Treatments</a>
+    <a href="index.html#membership">Membership</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#team">Our Team</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+18187602200">(818) 760-2200</a>
+    <a class="btn btn-primary" href="#book">Book an Appointment</a>
+  </div>
+</div></header>
+
+<main>
+  <div class="inner crumb"><a href="index.html#treatments">Treatments</a> / Laser Treatments</div>
+  <section class="t-hero" aria-labelledby="hero-h"><div class="inner">
+    <div class="visual"><img src="images/laser-site.jpg" alt="Client seated in a treatment chair beside a laser device, image from the House of Skin MD homepage" fetchpriority="high"></div>
+    <div class="copy">
+      <span class="eyebrow">Hair removal and skin rejuvenation</span>
+      <h1 id="hero-h">Laser treatments for smooth, <em>radiant</em> skin</h1>
+      <p class="lead">From smooth, hair-free skin to advanced therapies for acne, pigmentation or vascular issues, personalized by our expert team.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#book">Book an Appointment</a>
+        <a class="btn btn-ghost" href="#areas">View Treatment Areas</a>
+      </div>
+      <div class="facts" style="padding-top:6px">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16M12 4v16"/></svg>13 treatment areas</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Sessions from 15 minutes</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span class="ph">add laser device name</span></span>
+      </div>
+    </div>
+  </div></section>
+
+  <nav class="subnav" aria-label="On this page"><div class="inner">
+    <a href="#areas">Areas</a><a href="#why">Why Choose</a><a href="#benefits">Benefits</a><a href="#results">Results</a><a href="#pricing">Pricing</a><a href="#related">Related</a><a href="#book">Book</a>
+  </div></nav>
+
+  <section id="areas" aria-labelledby="areas-h"><div class="inner">
+    <div class="head"><h2 id="areas-h">Laser treatment <em>services</em></h2><p>Treatments offered across the areas below, as listed on the current area pages.</p></div>
+    <div class="types"><span>Laser hair removal</span><span>Acne therapy</span><span>Rejuvenation</span><span>Pigment rejuvenate</span><span>Vascular therapy</span></div>
+    <div class="area-grid" id="area-grid"></div>
+  </div></section>
+
+  <section id="why" style="background:var(--wash)" aria-labelledby="why-h"><div class="inner why">
+    <div class="head" style="margin:0">
+      <h2 id="why-h">Why choose laser at House of Skin <em>MD</em></h2>
+      <p>Effective results with minimal discomfort, for both men and women.</p>
+    </div>
+    <ol>
+      <li><div><b>State-of-the-art technology</b><span>Laser technology designed to provide effective results with minimal discomfort.</span></div></li>
+      <li><div><b>Customized to you</b><span>Our team of certified professionals customizes each treatment to your skin and hair type. <span class="ph">add provider names + certifications</span></span></div></li>
+      <li><div><b>Visible, long-lasting results</b><span>Whether you are seeking permanent hair removal or advanced skin therapy.</span></div></li>
+      <li><div><b>Safe for all skin types</b><span>Advanced technology that provides safe, effective results for all skin types and concerns.</span></div></li>
+    </ol>
+  </div></section>
+
+  <section id="benefits" aria-labelledby="ben-h"><div class="inner">
+    <div class="head"><h2 id="ben-h">Benefits of face laser <em>treatment</em></h2><p>From the current Face Laser Treatment page.</p></div>
+    <ul class="benefit-list">
+      <li><b>Permanent hair reduction</b><span>Achieve smooth, hair-free skin with long-lasting results.</span></li>
+      <li><b>Clearer skin</b><span>Treat acne, reduce breakouts and promote clearer skin with laser acne therapy.</span></li>
+      <li><b>Even skin tone</b><span>Address pigmentation issues like dark spots, sun damage and uneven skin tone.</span></li>
+      <li><b>Vascular therapy</b><span>Reduce the appearance of spider veins and broken capillaries for a more even complexion.</span></li>
+      <li><b>Minimal downtime</b><span>Most face laser treatments involve little to no downtime, convenient for busy lifestyles.</span></li>
+    </ul>
+  </div></section>
+
+  <section id="results" style="background:var(--wash)" aria-labelledby="res-h"><div class="inner">
+    <div class="head"><h2 id="res-h">Laser <em>results</em></h2><p>No laser before &amp; after photos appear on the current site.</p></div>
+    <div class="ba-strip" tabindex="0" aria-label="Results, scroll sideways">
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add acne therapy result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add pigment rejuvenate result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add vascular therapy result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add hair removal result + sessions</span></div></div>
+    </div>
+  </div></section>
+
+  <section id="pricing" aria-labelledby="price-h"><div class="inner">
+    <div class="head"><h2 id="price-h">Pricing by <em>area</em></h2><p>Every laser price from the current site, gathered from 13 separate pages into one list.</p></div>
+    <div class="acc" id="acc"></div>
+  </div></section>
+
+  <section id="related" style="background:var(--wash)" aria-labelledby="rel-h"><div class="inner">
+    <div class="head"><h2 id="rel-h">Related <em>treatments</em></h2></div>
+    <div class="related">
+      <a href="botox.html">BOTOX&reg;</a>
+      <a href="index.html#treatments">HydraFacial&reg;</a>
+      <a href="index.html#treatments">Facials</a>
+      <a href="index.html#treatments">Microneedling</a>
+      <a href="index.html#treatments">Body Services</a>
+    </div>
+  </div></section>
+
+  <section id="book" class="book" style="background:var(--bg)" aria-labelledby="book-h"><div class="inner book-wrap">
+    <div>
+      <h2 id="book-h">Let us take care of <em>you</em></h2>
+      <p class="lead" style="margin-top:18px">Personalized laser treatments for optimal results. Treat yourself. You deserve more.</p>
+      <div class="visit">
+        <div><b>Visit</b>12755 Ventura Blvd<br>Studio City, CA 91604</div>
+        <div><b>Hours</b>Tue to Sat, 9:30am to 5pm<br>Sun and Mon closed</div>
+        <div><b>Call</b><a href="tel:+18187602200">(818) 760-2200</a></div>
+        <div><b>Follow</b><a href="https://www.instagram.com/houseofskinmd/">Instagram @houseofskinmd</a></div>
+      </div>
+    </div>
+    <form class="booker" id="booker" aria-label="Online booking concept">
+      <fieldset>
+        <legend>What would you like to book?</legend>
+        <div class="chips" id="book-chips"></div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">See Available Times</button>
+      <p class="demo-msg" id="demo-msg" aria-live="polite"></p>
+      <p class="note"><span class="ph">Connects to your booking software</span> Clients pick an area and see times, instead of opening 13 pages.</p>
+    </form>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <span class="tag">Treat yourself. You deserve more.</span>
+  <span>House of Skin MD &middot; 12755 Ventura Blvd, Studio City</span>
+  <span>Concept by Studio8Web</span>
+</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+18187602200">Call</a>
+  <a class="btn btn-primary" href="#book">Book an Appointment</a>
+</div>
+
+<script>
+(function () {
+  // Areas, descriptions and prices exactly as listed on houseofskinmd.com's laser area pages.
+  var areas = [
+    { n: "Face", d: "Achieve smooth, radiant skin by targeting unwanted facial hair or addressing acne, pigmentation and vascular concerns.", lead: true, rows: [
+      ["Partial Face Female Laser Hair Removal", "30 min", 27], ["Partial Face Male Laser", "15 min", 40.5], ["Full Face Female Laser Hair Removal", "30 min", 54], ["Full Face Male Laser Hair Removal", "30 min", 81],
+      ["Face Acne Therapy", "30 min", 200], ["Face Pigment Rejuvenate", "30 min", 200], ["Face Rejuvenation", "30 min", 200], ["Face Vascular Therapy", "30 min", 200]] },
+    { n: "Legs", d: "Smooth, hair-free legs with laser hair removal, or target skin issues like vascular problems and pigmentation.", rows: [
+      ["Half Legs Female Laser Hair Removal", "15 min", 108], ["Half Legs Male Laser Hair Removal", "15 min", 135], ["Full Legs Female Laser Hair Removal", "30 min", 202.5], ["Full Legs Male Laser Hair Removal", "30 min", 243]] },
+    { n: "Underarms", d: "Remove hair and improve the appearance of underarm skin with effective laser hair removal.", rows: [
+      ["Underarms Female Laser Hair Removal", "15 min", 27], ["Underarms Male Laser Hair Removal", "15 min", 40.5]] },
+    { n: "Thighs", d: "Laser hair removal and skin therapy for a smooth, radiant look, free from unwanted hair or skin concerns.", rows: [
+      ["Inner Thighs Acne Therapy", "20 min", 200], ["Inner Thighs Rejuvenation", "20 min", 200], ["Inner Thighs Vascular Therapy", "20 min", 200]] },
+    { n: "Neck", d: "Treat unwanted hair or rejuvenate the neck, addressing acne, pigmentation or vascular concerns.", rows: [
+      ["Neck Female Laser Hair Removal", "30 min", 33.75], ["Neck Male Laser Hair Removal", "15 min", 47.25], ["Neck Acne Therapy", "20 min", 150], ["Neck Pigment Rejuvenate", "15 min", 150], ["Neck Rejuvenation", "15 min", 150], ["Neck Vascular Therapy", "20 min", 150]] },
+    { n: "Buttock", d: "Remove unwanted hair or address skin concerns like acne and vascular issues for a smooth, clear area.", rows: [] },
+    { n: "Abdomen", d: "Safely and effectively remove unwanted hair or treat skin issues like acne for a smooth, clear appearance.", rows: [
+      ["Abdomen Female Laser Hair Removal", "20 min", 54], ["Abdomen Male Laser Hair Removal", "20 min", 94]] },
+    { n: "Arms", d: "Remove hair or rejuvenate the skin on your arms, targeting acne, sun damage and uneven texture.", rows: [] },
+    { n: "Back", d: "Target unwanted hair, acne or vascular issues on the full or half back for smoother, clearer skin.", rows: [
+      ["Half Back Female Laser Hair Removal", "15 min", 81], ["Half Back Male Laser Hair Removal", "15 min", 108], ["Full Back Female Laser Hair Removal", "20 min", 135], ["Full Back Male Laser Hair Removal", "20 min", 162],
+      ["Half Back Acne Therapy", "20 min", 250], ["Half Back Rejuvenation", "30 min", 250], ["Half Back Vascular Therapy", "20 min", 250], ["Full Back Acne Therapy", "30 min", 350], ["Full Back Rejuvenation", "30 min", 350], ["Full Back Vascular Therapy", "30 min", 350]] },
+    { n: "Bikini", d: "Safely remove unwanted hair from the bikini area for a smooth, hair-free look that lasts.", rows: [
+      ["Bikini Female Laser Hair Removal", "30 min", 54], ["Bikini Male Laser Hair Removal", "30 min", 81]] },
+    { n: "Chest", d: "A smooth, hair-free chest, or treatment for skin issues like acne and vascular conditions.", rows: [
+      ["Decolletage Female Laser Hair Removal", "30 min", 40.5], ["Chest Male Laser Hair Removal", "15 min", 67.5], ["Chest Acne Therapy", "30 min", 200], ["Chest Rejuvenation", "15 min", 200], ["Chest Vascular Therapy", "30 min", 200]] },
+    { n: "Face, Neck and Chest", d: "A comprehensive treatment to rejuvenate and smooth skin, removing hair or addressing pigmentation, acne and vascular issues.", rows: [
+      ["Face, Neck, and Chest Acne Therapy", "30 min", 310], ["Face, Neck, and Chest Rejuvenation", "30 min", 310], ["Face, Neck, and Chest Vascular Therapy", "15 min", 310]] },
+    { n: "Full Body", d: "Full-body hair removal and skin rejuvenation for smooth, radiant skin from head to toe.", rows: [
+      ["Full Body Laser Hair Removal", "1 hr 20 min", 337.5], ["Full Body Male Laser Hair Removal", "1 hr 20 min", 472.5]] }
+  ];
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function money(v) { return "$" + (v % 1 ? v.toFixed(2) : v); }
+  function from(a) { return a.rows.length ? Math.min.apply(null, a.rows.map(function (r) { return r[2]; })) : null; }
+  document.getElementById("area-grid").innerHTML = areas.map(function (a) {
+    var f = from(a);
+    return '<article class="area-card' + (a.lead ? ' lead-card' : '') + '"><h3>' + esc(a.n) + '</h3><p>' + esc(a.d) + '</p>' +
+      (f !== null ? '<span class="price">from ' + money(f) + '</span>' : '<span class="ph">add price</span>') + '</article>';
+  }).join("");
+  document.getElementById("acc").innerHTML = areas.map(function (a, i) {
+    var f = from(a);
+    return '<details' + (i === 0 ? ' open' : '') + '><summary><b>' + esc(a.n) + '</b><span class="from">' + (f !== null ? a.rows.length + ' options, from ' + money(f) : '<span class="ph">add prices</span>') + '</span></summary><div class="rows">' +
+      (a.rows.length ? a.rows.map(function (r) { return '<div class="price-row"><div><b>' + esc(r[0]) + '</b><small>' + esc(r[1]) + '</small></div><span class="price">' + money(r[2]) + '</span></div>'; }).join("")
+        : '<div class="price-row"><div><b>Hair removal, acne, rejuvenation and vascular options</b><small>Described on the current page, without prices</small></div><span class="ph">add price</span></div>') + '</div></details>';
+  }).join("");
+  var chips = document.getElementById("book-chips");
+  chips.innerHTML = ["Face", "Neck", "Underarms", "Legs", "Bikini", "Back", "Full Body"].map(function (n, i) {
+    return '<button type="button" class="chip" aria-pressed="' + (i === 0) + '">' + n + '</button>';
+  }).join("");
+  chips.addEventListener("click", function (e) {
+    var c = e.target.closest(".chip"); if (!c) return;
+    Array.prototype.forEach.call(chips.children, function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+  });
+  document.getElementById("booker").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + chips.querySelector('[aria-pressed="true"]').textContent + ".";
+  });
+})();
+</script>
+</body>
+</html>

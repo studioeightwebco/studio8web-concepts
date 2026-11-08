@@ -1,0 +1,57 @@
+/* Treatment page layout shared by botox.html and fillers.html */
+.crumbs { font-size: .85rem; color: var(--muted); padding-top: 28px; }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { color: var(--rose); }
+.t-hero { padding-block: 28px clamp(56px, 8vw, 88px); }
+.t-hero .inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
+.t-hero-copy { display: flex; flex-direction: column; gap: 22px; }
+.photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.t-photo { aspect-ratio: 4 / 5; border-radius: 220px 220px var(--radius) var(--radius); overflow: hidden; background: var(--blush); }
+
+.jump { position: sticky; top: calc(72px + env(safe-area-inset-top, 0px)); z-index: 15; background: var(--bg); border-bottom: 1px solid var(--line); }
+.jump .inner { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+.jump .inner::-webkit-scrollbar { display: none; }
+.jump a { flex: none; font-size: .88rem; font-weight: 600; text-decoration: none; padding: 10px 14px; border-radius: 999px; min-height: 44px; display: inline-flex; align-items: center; }
+.jump a:hover { background: var(--blush); color: var(--rose); }
+section[id] { scroll-margin-top: 150px; }
+
+.benefits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.benefits li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-weight: 500; display: flex; gap: 10px; align-items: flex-start; }
+.benefits svg { width: 18px; height: 18px; stroke: var(--rose); flex: none; margin-top: 3px; }
+.brands { display: flex; flex-wrap: wrap; gap: 10px; }
+.brand { padding: 10px 18px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 600; font-size: .92rem; }
+
+.areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.area { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.area p { color: var(--muted); }
+.area .tagline { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--lavender); }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.why div { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--rose); padding-top: 16px; }
+.why p { color: var(--muted); }
+
+.related { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.treat img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; width: 100%; background: var(--blush); }
+.treat ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .92rem; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+
+.price-only { max-width: 640px; }
+
+@media (max-width: 960px) {
+  .t-hero .inner { grid-template-columns: minmax(0, 1fr); }
+  .t-photo { max-width: 460px; }
+  .why, .related { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .areas { grid-template-columns: minmax(0, 1fr); }
+}
+
+.area .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.area .meta span { font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--blush); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.gallery figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius); background: var(--blush); }
+.gallery figcaption { font-weight: 600; }
+.review-one { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; max-width: 760px; display: flex; flex-direction: column; gap: 14px; }
+.review-one blockquote { margin: 0; font-family: var(--display); font-size: 1.3rem; line-height: 1.45; }
+@media (max-width: 960px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .gallery { grid-template-columns: minmax(0, 1fr); } }

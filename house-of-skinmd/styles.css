@@ -1,0 +1,133 @@
+/* House of Skin MD redesign concept.
+   Tokens come from houseofskinmd.com: charcoal buttons (#292929), warm brown body text (#52453A),
+   taupe panels (#918474, deepened to #6F6253 for 4.5:1 text contrast), blush-taupe wash (#F8F3EF),
+   Jost (their heading/button font) + PT Sans (their body font). Sharp corners everywhere, like the live site.
+   Light theme locked: the logo and site are black on white. */
+:root {
+  --bg: #FFFFFF;
+  --wash: #F8F3EF;        /* site section tint */
+  --wash-2: #EFE8E1;
+  --ink: #292929;         /* site button + heading charcoal, logo black */
+  --text: #52453A;        /* site body text */
+  --muted: #74685C;
+  --line: #E4DBD2;
+  --accent: #6F6253;      /* site taupe #918474, deepened for contrast; the one accent */
+  --taupe: #918474;       /* original taupe, decorative only (rules, large shapes) */
+  --placeholder: #9A6B1E; /* gold "add ..." tags, fixed across concepts */
+  --placeholder-bg: #FBF0DC;
+  --display: "Jost", "Futura", "Century Gothic", sans-serif;
+  --body: "PT Sans", "Gill Sans", system-ui, sans-serif;
+  --radius: 0px;
+  --track: .18em;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); color: var(--ink); font-weight: 300; line-height: 1.12; margin: 0; text-wrap: balance; }
+h1 em, h2 em, h3 em { font-style: italic; font-weight: 300; color: var(--accent); padding-bottom: .06em; }
+h1 { font-size: clamp(2.5rem, 5.6vw, 4.6rem); letter-spacing: -.01em; }
+h2 { font-size: clamp(2rem, 3.8vw, 3.1rem); }
+h3 { font-size: 1.3rem; font-weight: 400; }
+p { margin: 0; }
+.inner { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+section { padding-block: clamp(64px, 9vw, 120px); }
+section[id] { scroll-margin-top: 92px; }
+.eyebrow { font-family: var(--display); font-size: .78rem; font-weight: 500; letter-spacing: var(--track); text-transform: uppercase; color: var(--accent); }
+.lead { font-size: 1.12rem; color: var(--muted); max-width: 58ch; }
+.head { display: flex; flex-direction: column; gap: 16px; max-width: 680px; margin-bottom: 48px; }
+.head p { color: var(--muted); max-width: 60ch; }
+
+/* Buttons: sharp, charcoal, wide-tracked uppercase Jost, exactly like the live site's button, just roomier */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 28px;
+  border-radius: var(--radius); font-family: var(--display); font-weight: 500; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; border: 1px solid transparent; white-space: nowrap;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .2s ease; }
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--accent); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-ghost:hover { background: var(--ink); color: #fff; }
+.btn-light { border-color: rgba(255,255,255,.8); color: #fff; background: rgba(41,41,41,.25); }
+.btn-light:hover { background: #fff; color: var(--ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.text-link { font-family: var(--display); font-size: .8rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.text-link:hover { color: var(--ink); }
+
+.ph { display: inline-block; font-family: var(--body); font-size: .74rem; font-weight: 700; letter-spacing: .03em; text-transform: none;
+  color: var(--placeholder); background: var(--placeholder-bg); border: 1px dashed var(--placeholder); padding: 2px 8px; border-radius: 4px; white-space: normal; line-height: 1.45; }
+
+/* Concept ribbon */
+.ribbon { background: var(--ink); color: #E9E2DB; font-size: .82rem; }
+.ribbon .inner { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; align-items: center; padding-block: 9px; }
+.ribbon b { color: #fff; font-weight: 700; }
+
+/* Header */
+header.site { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+header.site .inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; }
+.logo { display: block; flex: none; }
+.logo img { height: 22px; width: auto; }
+nav.main { display: flex; gap: 26px; font-family: var(--display); font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+nav.main a { text-decoration: none; padding-block: 10px; color: var(--ink); }
+nav.main a:hover, nav.main a[aria-current="page"] { color: var(--accent); }
+.head-actions { display: flex; align-items: center; gap: 18px; }
+.call { font-size: .92rem; font-weight: 700; text-decoration: none; white-space: nowrap; color: var(--ink); }
+.head-actions .btn { min-height: 44px; padding: 0 20px; }
+
+/* Facts strip */
+.facts { display: flex; flex-wrap: wrap; gap: 12px 36px; font-size: .92rem; color: var(--muted); }
+.facts span { display: inline-flex; align-items: center; gap: 10px; }
+.facts svg { width: 17px; height: 17px; stroke: var(--accent); flex: none; }
+
+/* Price rows */
+.price-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 14px; }
+.price-row + .price-row { border-top: 1px solid var(--line); }
+.price-row div { display: flex; flex-direction: column; min-width: 0; }
+.price-row b { font-weight: 700; color: var(--ink); }
+.price-row small { color: var(--muted); font-size: .86rem; }
+.price { font-family: var(--display); font-weight: 400; font-size: 1.1rem; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* Results placeholders */
+.ba-frame { background: var(--wash); border: 1px dashed var(--taupe); display: grid; place-items: center; text-align: center; padding: 20px; min-height: 220px; }
+.ba-frame .split-lbl { display: flex; gap: 10px; justify-content: center; font-family: var(--display); font-size: .74rem; letter-spacing: var(--track); text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+
+/* Booking */
+.book { background: var(--wash); }
+.book-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.visit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 32px; font-size: .95rem; }
+.visit b { display: block; font-family: var(--display); font-weight: 500; font-size: .76rem; letter-spacing: var(--track); text-transform: uppercase; color: var(--ink); margin-bottom: 4px; }
+.booker { background: var(--bg); border: 1px solid var(--line); padding: clamp(22px, 3vw, 34px); display: flex; flex-direction: column; gap: 18px; }
+.booker fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.booker legend { font-family: var(--display); font-weight: 500; font-size: 1.05rem; color: var(--ink); margin-bottom: 12px; padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { min-height: 44px; padding: 0 16px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--bg); font: inherit; font-size: .9rem; color: var(--ink); cursor: pointer; transition: border-color .2s, background-color .2s, color .2s; }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.booker .note { font-size: .86rem; color: var(--muted); }
+.booker .demo-msg { font-size: .92rem; color: var(--accent); font-weight: 700; min-height: 1.5em; }
+
+footer.site { background: var(--ink); color: #D9D0C7; font-size: .88rem; }
+footer.site .inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px 28px; padding-block: 34px; }
+footer.site .tag { font-family: var(--display); letter-spacing: var(--track); text-transform: uppercase; font-size: .8rem; color: #fff; }
+
+.mobile-bar { display: none; }
+
+@media (max-width: 1180px) { .call { display: none; } nav.main { gap: 20px; } }
+@media (max-width: 1000px) {
+  nav.main { display: none; }
+  .book-wrap { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .head-actions .btn { display: none; }
+  .logo img { height: 18px; }
+  .visit { grid-template-columns: minmax(0, 1fr); }
+  .mobile-bar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+    background: rgba(255,255,255,.97); border-top: 1px solid var(--line); }
+  .mobile-bar .btn { flex: 1; padding: 0 12px; }
+  footer.site { padding-bottom: 76px; }
+}

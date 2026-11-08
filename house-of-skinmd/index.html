@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>House of Skin MD Redesign Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&family=PT+Sans:wght@400;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Homepage. All copy, prices and images come from houseofskinmd.com (and the @houseofskinmd Instagram bio where noted). */
+.cover { position: relative; min-height: min(88dvh, 820px); display: flex; align-items: flex-end; color: #fff; padding: 0; overflow: hidden; background: #2b2420; }
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,24,20,.15) 0%, rgba(30,24,20,.25) 45%, rgba(30,24,20,.78) 100%); }
+.cover .inner { position: relative; z-index: 1; width: 100%; padding-block: 0 clamp(48px, 7vw, 88px); }
+.cover-copy { max-width: 720px; display: flex; flex-direction: column; gap: 22px; }
+.cover .eyebrow { color: #EDE4DA; }
+.cover h1 { color: #fff; }
+.cover h1 em { color: #E9DCCD; }
+.cover .lead { color: #EDE6DF; }
+.cover-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.factbar { border-bottom: 1px solid var(--line); padding-block: 22px; }
+
+.vision { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+.vision .copy { display: flex; flex-direction: column; gap: 20px; }
+.vision .copy p { color: var(--muted); max-width: 60ch; }
+.vision-imgs { position: relative; display: grid; grid-template-columns: 1fr .8fr; gap: 16px; align-items: end; }
+.vision-imgs img { width: 100%; object-fit: cover; }
+.vision-imgs img:first-child { aspect-ratio: 3 / 4; }
+.vision-imgs img:last-child { aspect-ratio: 3 / 5; margin-bottom: -48px; }
+.badge { width: 120px; height: auto; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+.filter { min-height: 44px; padding: 0 18px; border: 1px solid var(--line); background: var(--bg); font-family: var(--display); font-size: .78rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); cursor: pointer; border-radius: 0; }
+.filter:hover { border-color: var(--ink); }
+.filter[aria-selected="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.t-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 20px; }
+.t-card { grid-column: span 4; display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--line); min-width: 0; }
+.t-card.feature { grid-column: span 6; }
+.t-card .img { aspect-ratio: 16 / 10; overflow: hidden; background: var(--wash); }
+.t-card .img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+.t-card:hover .img img { transform: scale(1.03); }
+.t-card.noimg { background: var(--wash); }
+.t-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.t-kind { font-family: var(--display); font-size: .72rem; font-weight: 500; letter-spacing: var(--track); text-transform: uppercase; color: var(--accent); }
+.t-body p { color: var(--muted); font-size: .95rem; }
+.subs { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.subs li { font-size: .8rem; border: 1px solid var(--line); padding: 3px 9px; color: var(--text); background: var(--bg); }
+.t-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+@media (max-width: 1000px) { .t-card, .t-card.feature { grid-column: span 6; } }
+@media (max-width: 640px) { .t-card, .t-card.feature { grid-column: span 12; } }
+
+.member { background: var(--wash); }
+.plans { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0; border: 1px solid var(--line); background: var(--bg); }
+.plans > div { padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 16px; }
+.plans > div + div { border-left: 1px solid var(--line); }
+.plans .intro { background: var(--bg); }
+.plans .max { background: var(--ink); color: #E9E2DB; }
+.plans .max h3, .plans .max .plan-price { color: #fff; }
+.plan-price { font-family: var(--display); font-weight: 300; font-size: 2.4rem; color: var(--ink); line-height: 1; }
+.plan-price small { font-size: .95rem; letter-spacing: .04em; }
+.plan-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.plan-list li { display: flex; gap: 10px; }
+.plan-list li::before { content: ""; flex: none; width: 14px; height: 1px; background: currentColor; margin-top: .8em; opacity: .7; }
+.popular { align-self: flex-start; font-family: var(--display); font-size: .7rem; letter-spacing: var(--track); text-transform: uppercase; border: 1px solid rgba(255,255,255,.5); padding: 3px 10px; }
+@media (max-width: 900px) { .plans { grid-template-columns: minmax(0, 1fr); } .plans > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+
+.statement { text-align: center; }
+.statement p.big { font-family: var(--display); font-weight: 300; font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.3; color: var(--ink); max-width: 30ch; margin: 0 auto; }
+.statement img { width: 64px; margin: 0 auto 28px; opacity: .9; }
+
+.results-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
+.results-grid .ba-frame:first-child { grid-row: span 2; min-height: 460px; }
+@media (max-width: 800px) { .results-grid { grid-template-columns: 1fr 1fr; } .results-grid .ba-frame:first-child { grid-column: span 2; grid-row: auto; min-height: 280px; } }
+@media (max-width: 520px) { .results-grid { grid-template-columns: minmax(0, 1fr); } .results-grid .ba-frame:first-child { grid-column: auto; } }
+
+.reviews { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 380px); gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px; scrollbar-width: thin; }
+.review { scroll-snap-align: start; border-top: 1px solid var(--ink); padding-top: 22px; display: flex; flex-direction: column; gap: 16px; }
+.review blockquote { margin: 0; font-family: var(--display); font-weight: 300; font-size: 1.18rem; line-height: 1.45; color: var(--ink); }
+.review footer { font-size: .9rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.review footer b { color: var(--ink); }
+@media (max-width: 640px) { .reviews { grid-auto-columns: 82%; } }
+
+.price-groups { columns: 2 340px; column-gap: 56px; }
+.pgroup { break-inside: avoid; margin-bottom: 36px; }
+.pgroup h3 { font-size: 1.05rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid var(--ink); margin-bottom: 4px; }
+
+.team-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 24px; }
+.member-card { display: flex; flex-direction: column; gap: 12px; }
+.member-card .portrait { aspect-ratio: 4 / 5; background: var(--wash); border: 1px dashed var(--taupe); display: grid; place-items: center; padding: 16px; text-align: center; }
+.member-card:first-child .portrait { aspect-ratio: 5 / 5; }
+.member-card p { color: var(--muted); font-size: .92rem; }
+@media (max-width: 800px) { .team-grid { grid-template-columns: minmax(0, 1fr); } .vision { grid-template-columns: minmax(0, 1fr); } .vision-imgs img:last-child { margin-bottom: 0; } }
+.book-img { margin-top: 32px; aspect-ratio: 16 / 10; overflow: hidden; }
+.book-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official House of Skin MD website. Copy and images from houseofskinmd.com.</span>
+  <span><span class="ph">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="index.html" aria-label="House of Skin MD, home"><img src="images/logo-wordmark.png" alt="House of Skin MD" width="770" height="111"></a>
+  <nav class="main" aria-label="Main">
+    <a href="#treatments">Treatments</a>
+    <a href="#membership">Membership</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#results">Results</a>
+    <a href="#team">Our Team</a>
+    <a href="#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+18187602200">(818) 760-2200</a>
+    <a class="btn btn-primary" href="#book">Book an Appointment</a>
+  </div>
+</div></header>
+
+<main id="top">
+  <section class="cover" aria-labelledby="hero-h">
+    <img src="images/hero-site.jpg" alt="Two women in a softly lit shower setting, from the House of Skin MD homepage slideshow" fetchpriority="high">
+    <div class="inner">
+      <div class="cover-copy">
+        <span class="eyebrow">Med Spa in Studio City</span>
+        <h1 id="hero-h">Where beauty meets <em>expertise</em></h1>
+        <p class="lead">Discover the perfect blend of artistry and skill, where every treatment enhances your natural beauty to its fullest potential.</p>
+        <div class="cover-ctas">
+          <a class="btn btn-primary" href="#book">Book an Appointment</a>
+          <a class="btn btn-light" href="#treatments">View Treatments</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="factbar"><div class="inner facts">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>12755 Ventura Blvd, Studio City</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Tue to Sat, 9:30am to 5pm</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:+18187602200">(818) 760-2200</a></span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21l1.5-7L2 9.3l7-.8z"/></svg><span class="ph">add Google rating</span></span>
+  </div></div>
+
+  <section id="about" aria-labelledby="about-h"><div class="inner vision">
+    <div class="copy">
+      <h2 id="about-h">Unparalleled luxury in the heart of <em>Studio City</em></h2>
+      <p>A sanctuary of elegance, offering a curated selection of non-invasive facial and body procedures designed to elevate your self-image with grace and precision. We pride ourselves on embracing the latest aesthetic innovations.</p>
+      <p>True beauty lies in both the art of enhancement and the accessibility of self-care. That's why we provide exceptional, high-end services at prices that make luxury attainable for all, with bespoke treatment plans for your desired results.</p>
+      <p style="color:var(--ink)">More than a spa: your partners in the journey to becoming the best version of yourself.</p>
+      <img class="badge" src="images/logo-badge.png" alt="House of Skin MD badge: Aesthetic, Medical, Wellness" width="250" height="200">
+    </div>
+    <div class="vision-imgs">
+      <img src="images/studio-site.jpg" alt="Side table with greenery and glassware, from the House of Skin MD About page" loading="lazy">
+      <img src="images/ritual-site.jpg" alt="Lavender, oils and stones, from the House of Skin MD About page" loading="lazy">
+    </div>
+  </div></section>
+
+  <section id="treatments" style="background:var(--wash)" aria-labelledby="treat-h"><div class="inner">
+    <div class="head">
+      <h2 id="treat-h">Treatments for face, body and <em>wellness</em></h2>
+      <p>Every service from the current site in one place, filterable, with the prices the site already lists.</p>
+    </div>
+    <div class="filters" role="tablist" aria-label="Filter treatments" id="filters"></div>
+    <div class="t-grid" id="t-grid" aria-live="polite"></div>
+    <p style="margin-top:28px;font-size:.92rem;color:var(--muted)">Also on the current menu: Nail Care Services, Eyebrow Services and Skincare. <span class="ph">add descriptions (these pages are empty today)</span> <span class="ph">add Fillers + PRP pages (listed in your Instagram bio)</span></p>
+  </div></section>
+
+  <section id="membership" class="member" aria-labelledby="mem-h" style="background:var(--bg)"><div class="inner">
+    <div class="plans">
+      <div class="intro">
+        <span class="eyebrow">Membership</span>
+        <h2 id="mem-h" style="font-size:clamp(1.8rem,3vw,2.5rem)">Unlock exclusive beauty <em>benefits</em></h2>
+        <p style="color:var(--muted)">Premium treatments, special discounts and gorgeous perks designed to keep you glowing year-round.</p>
+      </div>
+      <div>
+        <h3>Member</h3>
+        <p class="plan-price">$100 <small>/ per year</small></p>
+        <ul class="plan-list">
+          <li>Save 15% off all products</li>
+          <li>Save 20% off all full aesthetician</li>
+          <li>Save 25% off all HydraFacial</li>
+          <li>Save 50% off all services when you upload $500 to your account</li>
+        </ul>
+        <a class="text-link" href="#book" style="align-self:flex-start;margin-top:auto">Select Plan</a>
+      </div>
+      <div class="max">
+        <span class="popular">Popular</span>
+        <h3>Maximum</h3>
+        <p class="plan-price">$500 <small>/ services account credit</small></p>
+        <ul class="plan-list">
+          <li>Save 50% off facials</li>
+          <li>Save 50% off body sculpting</li>
+          <li>Save 50% off saunas &amp; body wraps</li>
+          <li>Save 50% off beauty treatments &amp; more</li>
+        </ul>
+        <a class="text-link" href="#book" style="align-self:flex-start;margin-top:auto;color:#fff">Select Plan</a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="statement" style="background:var(--wash);padding-block:clamp(56px,7vw,96px)"><div class="inner">
+    <img src="images/logo-monogram.png" alt="" width="960" height="540" style="width:120px;mix-blend-mode:multiply">
+    <p class="big">We craft beauty and wellness with bespoke, minimalist aesthetics, offering exquisite treatments for every individual.</p>
+  </div></section>
+
+  <section id="results" aria-labelledby="results-h"><div class="inner">
+    <div class="head">
+      <h2 id="results-h"><em>Before</em> &amp; after</h2>
+      <p>The current site has no results photos, and its imagery is stock photography. This is where your own work goes.</p>
+    </div>
+    <div class="results-grid">
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add Botox before &amp; after + provider</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add laser result + area</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add facial or peel result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add brow or lash result</span></div></div>
+      <div class="ba-frame"><div><div class="split-lbl"><span>Before</span><span>/</span><span>After</span></div><span class="ph">add body sculpting result</span></div></div>
+    </div>
+  </div></section>
+
+  <section style="background:var(--wash)" aria-labelledby="reviews-h"><div class="inner">
+    <div class="head">
+      <span class="eyebrow">Client experiences</span>
+      <h2 id="reviews-h">Their words, their <em>results</em></h2>
+    </div>
+    <div class="reviews" tabindex="0" aria-label="Client reviews, scroll sideways">
+      <article class="review"><blockquote>&ldquo;Had a great experience with Taylor for Botox. No bruising, perfect placement, and she&rsquo;s very thorough. &hellip; definitely my new go to spot.&rdquo;</blockquote><footer><b>Alex Bendy</b><span class="ph">add review source</span></footer></article>
+      <article class="review"><blockquote>&ldquo;Great experience at this medspa- facial massage and Botox! I feel wonderful, and the team is so warm and welcoming.&rdquo;</blockquote><footer><b>Ninett Hernandez</b><span class="ph">add review source</span></footer></article>
+      <article class="review"><blockquote>&ldquo;Everyone that works here is super friendly and accommodating! &hellip; Rober is super informative, and passionate about what he does and it shows!&rdquo;</blockquote><footer><b>Mackenzie Edwards</b><span class="ph">add review source</span></footer></article>
+      <article class="review"><blockquote>&ldquo;&hellip; I went from my face covered with acne to clear skin. &hellip; I definitely recommend this place. Go! you won&rsquo;t regret it&rdquo;</blockquote><footer><b>Tatyana</b><span class="ph">add review source</span></footer></article>
+      <article class="review"><blockquote>&ldquo;Amazing experience! They truly know how to treat a girl on her birthday facial, massage and Botox, top notch!&rdquo;</blockquote><footer><b>Sue Parra</b><span class="ph">add review source</span></footer></article>
+      <article class="review"><blockquote>&ldquo;My skin has been getting younger and younger, im now in my 30s and been told I look 20 after getting my facials.&rdquo;</blockquote><footer><b>Megan Michalski</b><span class="ph">add review source</span></footer></article>
+    </div>
+  </div></section>
+
+  <section id="pricing" aria-labelledby="price-h"><div class="inner">
+    <div class="head">
+      <h2 id="price-h">Treatment <em>pricing</em></h2>
+      <p>Prices as listed across the current site's treatment pages, gathered in one place.</p>
+    </div>
+    <div class="price-groups" id="price-groups"></div>
+  </div></section>
+
+  <section id="team" style="background:var(--wash)" aria-labelledby="team-h"><div class="inner">
+    <div class="head">
+      <span class="eyebrow">Our team</span>
+      <h2 id="team-h">The people behind the <em>MD</em></h2>
+      <p>The current site never names a provider. Your Instagram bio and client reviews do.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member-card"><div class="portrait"><span class="ph">add portrait</span></div><h3>Dr. Babak Goldman, MD</h3><p>Named in your Instagram bio: &ldquo;Office of Dr. Babak Goldman, MD&rdquo;. <span class="ph">add bio, specialty + board certification</span></p></div>
+      <div class="member-card"><div class="portrait"><span class="ph">add portrait</span></div><h3>Taylor</h3><p>Named in a client review for Botox. <span class="ph">add full name, role + license</span></p></div>
+      <div class="member-card"><div class="portrait"><span class="ph">add portrait</span></div><h3>Rober</h3><p>Named in client reviews for facials and peels. <span class="ph">add full name, role + license</span></p></div>
+    </div>
+  </div></section>
+
+  <section id="book" class="book" style="background:var(--bg)" aria-labelledby="book-h"><div class="inner book-wrap">
+    <div>
+      <h2 id="book-h">Let us take care of <em>you</em></h2>
+      <p class="lead" style="margin-top:18px">Treat yourself. You deserve more.</p>
+      <div class="visit">
+        <div><b>Visit</b>12755 Ventura Blvd<br>Studio City, CA 91604</div>
+        <div><b>Hours</b>Tue to Sat, 9:30am to 5pm<br>Sun and Mon closed</div>
+        <div><b>Call</b><a href="tel:+18187602200">(818) 760-2200</a></div>
+        <div><b>Follow</b><a href="https://www.instagram.com/houseofskinmd/">Instagram @houseofskinmd</a><br><span class="ph">add email address</span></div>
+      </div>
+      <div class="book-img"><img src="images/book-site.jpg" alt="Close-up portrait, from the House of Skin MD footer" loading="lazy"></div>
+    </div>
+    <form class="booker" id="booker" aria-label="Online booking concept">
+      <fieldset>
+        <legend>What would you like to book?</legend>
+        <div class="chips" id="book-chips">
+          <button type="button" class="chip" aria-pressed="true">Botox Consultation</button>
+          <button type="button" class="chip" aria-pressed="false">Laser Treatment</button>
+          <button type="button" class="chip" aria-pressed="false">HydraFacial&reg; Signature</button>
+          <button type="button" class="chip" aria-pressed="false">IV Therapy</button>
+          <button type="button" class="chip" aria-pressed="false">Brow Lamination</button>
+          <button type="button" class="chip" aria-pressed="false">Lash Lamination</button>
+          <button type="button" class="chip" aria-pressed="false">Membership</button>
+        </div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">See Available Times</button>
+      <p class="demo-msg" id="demo-msg" aria-live="polite"></p>
+      <p class="note"><span class="ph">Connects to your booking software</span> Today's booking page loads a script widget that shows only a spinner until it finishes; this puts the choice up front.</p>
+    </form>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <span class="tag">Treat yourself. You deserve more.</span>
+  <span>House of Skin MD &middot; 12755 Ventura Blvd, Studio City</span>
+  <span>Concept by Studio8Web</span>
+</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+18187602200">Call</a>
+  <a class="btn btn-primary" href="#book">Book an Appointment</a>
+</div>
+
+<script>
+(function () {
+  // Every service, description and price below is taken from houseofskinmd.com (page noted per entry).
+  var services = [
+    { n: "BOTOX®", g: "Injectables", img: "images/botox-site.jpg", page: "botox.html", feature: true,
+      d: "Expertly administered injections designed to target and reduce fine lines and wrinkles, for a refreshed, glowing complexion.",
+      subs: ["Forehead Lines", "Crow’s Feet", "Frown Lines", "Brow Lift", "Lip Lines"],
+      p: "$12.50", pnote: "Botox (as listed on the Botox page)" },
+    { n: "Laser Treatments", g: "Skin & Laser", img: "images/laser-site.jpg", page: "laser.html", feature: true,
+      d: "Laser hair removal and skin rejuvenation, from smooth, hair-free skin to advanced therapies for acne, pigmentation and vascular issues.",
+      subs: ["Hair Removal", "Acne Therapy", "Rejuvenation", "Pigment Rejuvenate", "Vascular Therapy"],
+      p: "from $27", prices: [["Underarms Female Laser Hair Removal", "15 min", "$27"], ["Full Face Female Laser Hair Removal", "30 min", "$54"], ["Face Acne, Pigment, Rejuvenation or Vascular Therapy", "30 min", "$200"], ["Full Body Laser Hair Removal", "1 hr 20 min", "$337.50"]] },
+    { n: "Injectables", g: "Injectables", img: "images/injectables-site.jpg",
+      d: "Expertly administered injectables to smooth fine lines, restore volume and achieve a youthful glow. The art of subtle refinement.",
+      subs: ["AminoMultiPlex Vitamin Shot", "Glutathione Amino Acid Shot", "Tirzepatide", "L-Lysine Amino Acid Shot", "MIC/B-12 Shot", "MIC (Weight Loss Shot)", "Vitamin B", "Microneedling"] },
+    { n: "Facials", g: "Skin & Laser", img: "images/facials-site.jpg",
+      d: "From deep cleansing to radiant rejuvenation, each facial is designed to refresh and revitalize your complexion.",
+      subs: ["Anti-Aging", "Dermaplane", "Microdermabrasion", "Non-Medical Chemical Peels", "LED Light Therapy", "Gentlemen’s Facial"],
+      p: "from $24.75", prices: [["Glow-Up Facial", "20 min", "$24.75"], ["Only Extractions", "30 min", "$65"], ["LED Light Therapy", "45 min", "$85"], ["Express Glow-up Facial", "30 min", "$99"], ["LED Light Therapy Acne Facial", "45 min", "$199"]] },
+    { n: "HydraFacial®", g: "Skin & Laser",
+      d: "Targeted, non-invasive treatments that cleanse, exfoliate and deeply hydrate, for skin that is smooth, firm and glowing.",
+      subs: ["Signature", "Express", "Arms", "Back Refresher", "Hands", "Neck & Décolleté"],
+      p: "from $199", prices: [["HydraFacial® Express", "20 min", "$199"], ["HydraFacial® Signature", "45 min", "$250"]] },
+    { n: "Body Services", g: "Body", img: "images/body-site.jpg",
+      d: "Innovative, non-invasive treatments to tone muscles, tighten skin or reduce stubborn fat.",
+      subs: ["CaviSculpt", "Diode Dissolve", "EM-MAX RF", "EMS", "Endo Treatment", "M’lis Contour Wrap", "House of Skin Body Combo", "TriPollar"] },
+    { n: "IV Therapy", g: "Wellness",
+      d: "Expertly crafted blends that deliver potent nutrients directly to your system, whether you want to combat fatigue, boost immunity or achieve radiant skin.",
+      subs: ["Fountain of Youth Elixir", "Immune Boost Elixir", "Jetsetter’s Recharge", "Radiant Beauty", "Revive & Thrive Myers Mix", "+ 9 more blends"],
+      p: "$200", prices: [["Any of 14 IV blends", "45 to 60 min", "$200"]] },
+    { n: "Arch Mastery", g: "Brows & Lashes", img: "images/brows-site.jpg",
+      d: "Brow lamination, tinting and waxing for symmetrical, voluminous and beautifully shaped brows.",
+      subs: ["Brow Lamination", "Brow Tinting", "Brow Wax"],
+      p: "from $35", prices: [["Brow Wax", "30 min", "$35"], ["Brow Tinting", "30 min", "$45"], ["Brow Lamination", "60 min", "$110"]] },
+    { n: "Lash Artistry", g: "Brows & Lashes", img: "images/lash-site.jpg",
+      d: "Lash lamination lifts and curls; lash tinting darkens lashes for a more defined, striking look.",
+      subs: ["Lash Lamination", "Lash Tinting"],
+      p: "from $45", prices: [["Lash Tinting", "20 min", "$45"], ["Lash Lamination", "60 min", "$110"]] }
+  ];
+  var groups = ["All", "Injectables", "Skin & Laser", "Body", "Wellness", "Brows & Lashes"];
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  var grid = document.getElementById("t-grid"), filters = document.getElementById("filters");
+  function render(g) {
+    grid.innerHTML = services.filter(function (s) { return g === "All" || s.g === g; }).map(function (s) {
+      return '<article class="t-card' + (s.feature && g === "All" ? ' feature' : '') + (s.img ? '' : ' noimg') + '">' +
+        (s.img ? '<div class="img"><img src="' + s.img + '" alt="' + esc(s.n.replace("®", "")) + ' at House of Skin MD (image from the current site)" loading="lazy"></div>' : '') +
+        '<div class="t-body"><span class="t-kind">' + esc(s.g) + '</span><h3>' + esc(s.n) + '</h3><p>' + esc(s.d) + '</p>' +
+        '<ul class="subs">' + s.subs.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul>' +
+        '<div class="t-foot">' + (s.p ? '<span class="price">' + esc(s.p) + '</span>' : '<span class="ph">add price</span>') +
+        (s.page ? '<a class="text-link" href="' + s.page + '">View Treatment</a>' : '<a class="text-link" href="#book">Book</a>') + '</div></div></article>';
+    }).join("");
+    Array.prototype.forEach.call(filters.children, function (b) { b.setAttribute("aria-selected", b.textContent === g ? "true" : "false"); });
+  }
+  groups.forEach(function (g) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "filter"; b.setAttribute("role", "tab"); b.textContent = g;
+    b.addEventListener("click", function () { render(g); });
+    filters.appendChild(b);
+  });
+  render("All");
+
+  document.getElementById("price-groups").innerHTML = services.map(function (s) {
+    var rows = s.prices ? s.prices.map(function (r) {
+      return '<div class="price-row"><div><b>' + esc(r[0]) + '</b><small>' + esc(r[1]) + '</small></div><span class="price">' + esc(r[2]) + '</span></div>';
+    }).join("") : (s.p ? '<div class="price-row"><div><b>' + esc(s.pnote) + '</b><small><span class="ph">confirm: per unit?</span></small></div><span class="price">' + esc(s.p) + '</span></div>'
+      : '<div class="price-row"><div><b>' + esc(s.subs.slice(0, 3).join(", ")) + '</b></div><span class="ph">add price</span></div>');
+    return '<div class="pgroup"><h3>' + esc(s.n) + '</h3>' + rows + '</div>';
+  }).join("");
+
+  var chips = document.getElementById("book-chips");
+  chips.addEventListener("click", function (e) {
+    var c = e.target.closest(".chip"); if (!c) return;
+    Array.prototype.forEach.call(chips.children, function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+  });
+  document.getElementById("booker").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var sel = chips.querySelector('[aria-pressed="true"]').textContent;
+    document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + sel + ".";
+  });
+})();
+</script>
+</body>
+</html>

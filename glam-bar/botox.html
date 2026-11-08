@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glam Bar Botox Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Treatment page: all copy and images come from glambarmedicalspa.com/botox and the homepage. */
+.crumbs { font-size: .85rem; color: var(--muted); padding-top: 28px; }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { color: var(--rose); }
+.t-hero { padding-block: 28px clamp(56px, 8vw, 88px); }
+.t-hero .inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
+.t-hero-copy { display: flex; flex-direction: column; gap: 22px; }
+.photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.t-photo { aspect-ratio: 4 / 5; border-radius: 220px 220px var(--radius) var(--radius); overflow: hidden; background: var(--blush); }
+
+.jump { position: sticky; top: calc(72px + env(safe-area-inset-top, 0px)); z-index: 15; background: var(--bg); border-bottom: 1px solid var(--line); }
+.jump .inner { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+.jump .inner::-webkit-scrollbar { display: none; }
+.jump a { flex: none; font-size: .88rem; font-weight: 600; text-decoration: none; padding: 10px 14px; border-radius: 999px; min-height: 44px; display: inline-flex; align-items: center; }
+.jump a:hover { background: var(--blush); color: var(--rose); }
+section[id] { scroll-margin-top: 150px; }
+
+.benefits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.benefits li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-weight: 500; display: flex; gap: 10px; align-items: flex-start; }
+.benefits svg { width: 18px; height: 18px; stroke: var(--rose); flex: none; margin-top: 3px; }
+.brands { display: flex; flex-wrap: wrap; gap: 10px; }
+.brand { padding: 10px 18px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 600; font-size: .92rem; }
+
+.areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.area { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.area p { color: var(--muted); }
+.area .tagline { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--lavender); }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.why div { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--rose); padding-top: 16px; }
+.why p { color: var(--muted); }
+
+.related { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.treat img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; width: 100%; background: var(--blush); }
+.treat ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .92rem; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+
+.price-only { max-width: 640px; }
+
+@media (max-width: 960px) {
+  .t-hero .inner { grid-template-columns: minmax(0, 1fr); }
+  .t-photo { max-width: 460px; }
+  .why, .related { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .areas { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official Glam Bar website. Copy and images from glambarmedicalspa.com.</span>
+  <span><span class="ph" style="margin-inline:2px">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="index.html" aria-label="Glam Bar Aesthetic Spa, home"><img class="logo-img" src="https://glambarmedicalspa.com/images/logo.jpg" alt="Glam Bar Aesthetic Spa" width="936" height="286"></a>
+  <nav class="main" aria-label="Main">
+    <a href="index.html#treatments" aria-current="page" style="color:var(--rose)">Treatments</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#team">Our Team</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+13104672711">310-467-2711</a>
+    <a class="btn btn-primary" href="#book">Book Your Consultation</a>
+  </div>
+</div></header>
+
+<main>
+  <div class="inner crumbs"><a href="index.html#treatments">Treatments</a> / Botox</div>
+
+  <section class="t-hero" aria-labelledby="t-h"><div class="inner">
+    <div class="t-hero-copy">
+      <span class="eyebrow">Neuromodulators · Botox, Dysport, Xeomin, Jeuveau, Letybo</span>
+      <h1 id="t-h">Botox in <em>Los Angeles</em></h1>
+      <p class="lead">More than traditional wrinkle reduction. Precise, personalized injections can refine specific facial and neck concerns, with balanced results that complement your natural features.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#book">Book Your Consultation</a>
+        <a class="btn btn-ghost" href="#areas">View Treatment Areas</a>
+      </div>
+      <div class="facts">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>346 N La Cienega Blvd</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat, 9am–6pm</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>310-467-2711</span>
+      </div>
+    </div>
+    <div class="t-photo"><img class="photo" src="https://glambarmedicalspa.com/images/tab-images/Neuromodulators.webp" alt="Neuromodulator treatment at Glam Bar"></div>
+  </div></section>
+
+  <nav class="jump" aria-label="On this page"><div class="inner">
+    <a href="#benefits">Benefits</a>
+    <a href="#areas">Treatment areas</a>
+    <a href="#why">Why Glam Bar</a>
+    <a href="#price">Pricing</a>
+    <a href="#more">Other injectables</a>
+    <a href="#book">Book</a>
+  </div></nav>
+
+  <section id="benefits" class="team" aria-labelledby="ben-h"><div class="inner" style="display:flex;flex-direction:column;gap:28px">
+    <div class="section-head" style="margin:0">
+      <span class="eyebrow">Benefits</span>
+      <h2 id="ben-h">A refreshed, <em>rested</em> appearance</h2>
+    </div>
+    <ul class="benefits">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Smooth forehead lines, frown lines and crow's feet</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Prevent future wrinkle formation</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Create a refreshed, rested appearance</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Quick treatment with no downtime</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Natural-looking results when expertly performed</li>
+    </ul>
+    <div class="brands" aria-label="Neuromodulators offered"><span class="brand">Botox</span><span class="brand">Dysport</span><span class="brand">Xeomin</span><span class="brand">Jeuveau</span><span class="brand">Letybo</span></div>
+  </div></section>
+
+  <section id="areas" aria-labelledby="areas-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Treatment areas</span>
+      <h2 id="areas-h">Beyond <em>wrinkle</em> reduction</h2>
+    </div>
+    <div class="areas">
+      <article class="area"><span class="tagline">Lips</span><h3>Lip Flip</h3><p>A small amount of product around the upper lip relaxes the muscle so the lip rolls outward subtly, for a slightly fuller-looking upper lip without the volume of dermal filler.</p></article>
+      <article class="area"><span class="tagline">Smile</span><h3>Gummy Smile</h3><p>Relaxes the specific muscles that make the upper lip rise too far when smiling. For appropriate candidates, this creates a more balanced smile while keeping natural expression.</p></article>
+      <article class="area"><span class="tagline">Chin</span><h3>Chin Dimpling</h3><p>A dimpled or "pebbled" chin can come from increased mentalis muscle activity. Carefully placed Botox relaxes this muscle for a smoother-looking chin, customized to keep natural facial movement.</p></article>
+      <article class="area"><span class="tagline">Neck</span><h3>Neck Bands</h3><p>Vertical neck bands can become more noticeable with age and repeated muscle activity. Botox may temporarily relax the platysma muscles, for a smoother-looking neck and a more refined transition from jawline to neck.</p></article>
+      <article class="area" style="grid-column:1/-1"><span class="tagline">Jaw</span><h3>Jaw Slimming &amp; Masseter Reduction</h3><p>For clients with prominent masseter muscles, a nonsurgical approach to a slimmer-looking lower face. Temporarily reducing masseter activity may gradually soften a broad or square jaw for a more tapered profile, without surgery.</p></article>
+    </div>
+  </div></section>
+
+  <section id="why" class="journey" aria-labelledby="why-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Why choose Glam Bar</span>
+      <h2 id="why-h">Polished, <em>never</em> overdone</h2>
+    </div>
+    <div class="why">
+      <div><h3>Tailored to you</h3><p>Treatments are tailored to your facial anatomy, muscle activity and aesthetic goals.</p></div>
+      <div><h3>Precision and balance</h3><p>Subtle improvements that look polished rather than overdone.</p></div>
+      <div><h3>A personalized consultation</h3><p>Helps decide the right approach for a lip flip, gummy smile, chin smoothing, neck band reduction or masseter slimming.</p></div>
+    </div>
+  </div></section>
+
+  <section id="price" class="pricing" aria-labelledby="price-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2 id="price-h">Botox <em>pricing</em></h2>
+      <p class="lead"><span class="ph">The current site lists no prices. Add them here.</span></p>
+    </div>
+    <div class="price-table price-only">
+      <div class="price-row"><div><b>Botox</b><small>November special: $9.50/unit (50 or more units)</small></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Botox Facial</b><small>November special</small></div><span style="font-weight:700;color:var(--rose)">$350</span></div>
+      <div class="price-row"><div><b>Dysport</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Xeomin</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Jeuveau</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Letybo</b></div><span class="ph">add price</span></div>
+    </div>
+  </div></section>
+
+  <section id="more" aria-labelledby="more-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Other injectables</span>
+      <h2 id="more-h">Also at <em>Glam Bar</em></h2>
+    </div>
+    <div class="related">
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/Dermal%20Fillers.webp" alt="Dermal Fillers" loading="lazy"><span class="kind">Lip, cheek, jawline, chin</span><h3>Dermal Fillers</h3><ul><li>Instantly enhance lips, cheeks and jawline</li><li>Restore youthful volume and structure</li><li>Improve facial symmetry and harmony</li></ul><div class="treat-foot"><span class="spec" style="font-weight:700;color:var(--rose)">Lips $475/syringe</span><a href="fillers.html">View Treatment →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/skinbooster.webp" alt="Skinvive by Juvéderm" loading="lazy"><span class="kind">Skin booster</span><h3>Skinvive by Juvéderm</h3><ul><li>Deep hydration for glowing, radiant skin</li><li>Improve skin texture and smoothness</li><li>No change to facial structure, only better skin</li></ul><div class="treat-foot"><span class="ph">add price</span><a href="index.html#treatments">View Treatment →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/prf-injections.webp" alt="PRF Injections" loading="lazy"><span class="kind">Platelet-rich fibrin</span><h3>PRF Injections</h3><ul><li>Improves under-eye darkness and hollowness</li><li>Enhances skin texture and tone</li><li>Natural, gradual results</li></ul><div class="treat-foot"><span class="ph">add price</span><a href="index.html#treatments">View Treatment →</a></div></article>
+    </div>
+  </div></section>
+
+  <section id="book" class="book" aria-labelledby="book-h"><div class="inner book-wrap">
+    <div>
+      <span class="eyebrow" style="color:#F2A9C2">Book your consultation today</span>
+      <h2 id="book-h" style="margin-top:14px">A <em>refined</em> approach to facial enhancement</h2>
+      <p class="lead" style="margin-top:18px">Whether it's your first treatment or part of your ongoing self-care routine, our team is here to guide you every step of the way.</p>
+      <div class="visit">
+        <div><b>Visit</b>346 N La Cienega Blvd<br>Los Angeles, CA 90048</div>
+        <div><b>Hours</b>Mon–Sat, 9am–6pm<br>Sunday closed</div>
+        <div><b>Call</b><a href="tel:+13104672711">310-467-2711</a></div>
+        <div><b>Follow</b>Instagram @glambar_medspa</div>
+      </div>
+    </div>
+    <form class="booker" id="booker" aria-label="Online booking concept">
+      <fieldset>
+        <legend>What would you like to book?</legend>
+        <div class="chips" id="book-chips">
+          <button type="button" class="chip" aria-pressed="true">Botox Consultation</button>
+          <button type="button" class="chip" aria-pressed="false">Lip Flip</button>
+          <button type="button" class="chip" aria-pressed="false">Gummy Smile</button>
+          <button type="button" class="chip" aria-pressed="false">Jaw Slimming</button>
+        </div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">See Available Times</button>
+      <p class="demo-msg" id="demo-msg" aria-live="polite"></p>
+      <p class="note"><span class="ph">Connects to your booking software</span> Replaces today's contact form, so clients can pick a time themselves.</p>
+    </form>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <span>Glam Bar Aesthetic Spa · Refined Aesthetics. Natural Results. Elevated Confidence.</span>
+  <span>Concept by Studio8Web</span>
+</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+13104672711">Call</a>
+  <a class="btn btn-primary" href="#book">Book Your Consultation</a>
+</div>
+
+<script>
+(function () {
+  var chips = document.getElementById("book-chips");
+  chips.addEventListener("click", function (e) {
+    var c = e.target.closest(".chip"); if (!c) return;
+    Array.prototype.forEach.call(chips.children, function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+  });
+  document.getElementById("booker").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var sel = chips.querySelector('[aria-pressed="true"]').textContent;
+    document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + sel + ".";
+  });
+})();
+</script>
+</body>
+</html>

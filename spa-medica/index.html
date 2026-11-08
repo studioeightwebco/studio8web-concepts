@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spa Medica Redesign Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Spa Medica homepage concept: all copy and images from spamedicaaesthetic.com. */
+.photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-visual img { position: absolute; inset: 0; object-position: 50% 20%; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.split .img { aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; background: var(--blush); }
+.split .copy { display: flex; flex-direction: column; gap: 18px; }
+.split .copy p { color: var(--muted); }
+.pillars { display: flex; flex-wrap: wrap; gap: 10px; }
+.pillar { padding: 10px 18px; border-radius: 999px; background: var(--blush); font-weight: 600; font-size: .92rem; }
+
+.press { border-block: 1px solid var(--line); background: var(--surface); }
+.press .inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding-block: 28px; }
+.press .eyebrow { color: var(--muted); }
+.press-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 36px; flex: 1; justify-content: flex-end; }
+.press-logos img { height: 34px; width: auto; filter: grayscale(1) contrast(1.1); opacity: .8; }
+
+.feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.feature { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; }
+.feature img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; background: var(--blush); }
+.feature div { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.feature .kind { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--lavender); }
+.feature p { color: var(--muted); font-size: .94rem; flex: 1; }
+.feature a { font-weight: 600; color: var(--rose); text-decoration: none; }
+
+.dir { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.dir-group { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+.dir-group h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.dir-group a { display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-top: 1px solid var(--line); text-decoration: none; min-height: 44px; }
+.dir-group a b { font-weight: 600; }
+.dir-group a span { font-size: .85rem; color: var(--muted); }
+.dir-group a:hover b { color: var(--rose); }
+.dir-group a .go { color: var(--rose); font-weight: 600; font-size: .82rem; }
+
+.offers { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch; }
+.offer { border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+.offer.dark { background: var(--ink); color: #fff; }
+.offer.dark .eyebrow { color: #D9B99B; }
+.offer.dark p { color: #D3C6BA; }
+.offer.light { background: var(--surface); box-shadow: var(--shadow); }
+.offer .big { font-family: var(--display); font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.1; }
+.sema { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 0; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-top: 24px; }
+.sema img { width: 100%; height: 100%; object-fit: cover; min-height: 260px; background: var(--blush); }
+.sema div { padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.sema .price { font-family: var(--display); font-size: 1.8rem; color: var(--rose); }
+.checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; }
+.checks svg { width: 18px; height: 18px; stroke: var(--rose); flex: none; margin-top: 4px; }
+
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.gallery figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius); background: var(--blush); }
+.gallery figcaption { font-weight: 600; font-size: .95rem; }
+
+.rev-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 28px; }
+.rev-count { font-family: var(--display); font-size: 1.4rem; }
+.reviews-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.review blockquote { font-size: 1.08rem; }
+.review footer b { color: var(--ink); }
+
+.member .portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+.member .portrait { overflow: hidden; }
+.member .creds { font-weight: 600; color: var(--rose); font-size: .9rem; }
+
+.visit-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.visit-imgs img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; background: #3A302A; }
+
+@media (max-width: 960px) {
+  .split, .offers, .sema { grid-template-columns: minmax(0, 1fr); }
+  .split .img { max-width: 460px; }
+  .feature-grid, .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dir { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reviews-grid { grid-template-columns: minmax(0, 1fr); }
+  .press-logos { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .feature-grid, .gallery, .dir { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official Spa Medica Aesthetic website. Copy and images from spamedicaaesthetic.com.</span>
+  <span><span class="ph" style="margin-inline:2px">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="#top" aria-label="Spa Medica Aesthetic, home"><img class="logo-img" src="https://static.wixstatic.com/media/f99bd2_32041195e1294ae5bf2ff33c74b7c099~mv2.png/v1/fit/w_440,h_212/logo.png" alt="Spa Medica Aesthetic" width="220" height="106"></a>
+  <nav class="main" aria-label="Main">
+    <a href="#treatments">Treatments</a>
+    <a href="#offers">Offers</a>
+    <a href="#results">Results</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#team">Our Team</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+14243021354">424-302-1354</a>
+    <a class="btn btn-primary" href="https://spamedicaaesthetic.myaestheticrecord.com/online-booking?services=true">Book Now</a>
+  </div>
+</div></header>
+
+<main id="top">
+  <section class="hero"><div class="inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Celebrity skin in Brentwood LA</span>
+      <h1>Confidence looks good on <em>you</em></h1>
+      <p class="lead">Feel your best with state-of-the-art cosmetic injectables, tailored aesthetic treatments, laser and medical-grade skincare to elevate your natural allure.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://spamedicaaesthetic.myaestheticrecord.com/online-booking?services=true">Book Now</a>
+        <a class="btn btn-ghost" href="#treatments">View Treatments</a>
+      </div>
+      
+    </div>
+    <div class="hero-visual"><img class="photo" src="https://static.wixstatic.com/media/f99bd2_90389617a0d6457a91de9161e6eac6b9~mv2.png/v1/fill/w_900,h_1120,al_c,q_85/fay.png" alt="Fay Asghari, FNP-BC, founder of Spa Medica Aesthetic"></div>
+  </div></section>
+
+  <div class="hero-facts" aria-label="Visit details"><div class="facts">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21l1.5-7L2 9.3l7-.8z"/></svg>100+ verified reviews</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>11633 San Vicente Blvd, Unit 240</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>By appointment only</span>
+      </div></div>
+
+  <section class="press" aria-label="Clients featured in" style="padding-block:0"><div class="inner">
+    <span class="eyebrow">Clients featured in</span>
+    <div class="press-logos">
+      <img src="https://static.wixstatic.com/media/f99bd2_e82987aba8ac4c739ab46038053f399b~mv2.png/v1/fit/w_300,h_80/p1.png" alt="Publication logo 1" loading="lazy">
+      <img src="https://static.wixstatic.com/media/f99bd2_11009fc4d6664f3daa6bbafdcd29485a~mv2.png/v1/fit/w_300,h_80/p2.png" alt="Publication logo 2" loading="lazy">
+      <img src="https://static.wixstatic.com/media/f99bd2_797c8ca90ecd4d3dacec789c0f903f93~mv2.png/v1/fit/w_300,h_80/p3.png" alt="Publication logo 3" loading="lazy">
+      <img src="https://static.wixstatic.com/media/f99bd2_20986475700a4180b3807bcd8e5abfc6~mv2.png/v1/fit/w_300,h_80/p4.png" alt="Publication logo 4" loading="lazy">
+      <img src="https://static.wixstatic.com/media/f99bd2_c887055fba5448959729b021a08d8c14~mv2.png/v1/fit/w_300,h_80/p5.png" alt="Publication logo 5" loading="lazy">
+      <img src="https://static.wixstatic.com/media/f99bd2_6fb793f574b64bceb802a4ed2a4d57db~mv2.png/v1/fit/w_300,h_80/p6.png" alt="Publication logo 6" loading="lazy">
+    </div>
+  </div></section>
+
+  <section id="about" aria-labelledby="about-h"><div class="inner split">
+    <div class="img"><img class="photo" src="https://static.wixstatic.com/media/f99bd2_d982b45639a54f41b18f3b5c4786d15a~mv2.jpg/v1/fill/w_800,h_1000,al_c,q_85/fay2.jpg" alt="Fay Asghari in the Spa Medica studio" loading="lazy"></div>
+    <div class="copy">
+      <span class="eyebrow">Founded by Fay Asghari, FNP-BC</span>
+      <h2 id="about-h">Empowering your <em>natural</em> beauty with expert care</h2>
+      <p>Fay is a board-certified aesthetic injector and family nurse practitioner, and a national trainer and educator who has taught hundreds of providers across the US. She is known for her attention to detail, natural results and personalized care tailored to each client's individual goals.</p>
+      <p>Spa Medica Aesthetic blends cosmetic injectables, advanced skin health treatments, and wellness and health services, with a focus on refinement over augmentation.</p>
+      <div class="pillars"><span class="pillar">Non-surgical liquid facelift</span><span class="pillar">Lip augmentation</span><span class="pillar">Weight loss</span><span class="pillar">Rejuvenation</span></div>
+    </div>
+  </div></section>
+
+  <section class="team" aria-labelledby="feat-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Signature treatments</span>
+      <h2 id="feat-h">Driven by <em>natural</em> results</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature"><img src="https://static.wixstatic.com/media/f99bd2_7e30ca5cd9024196a170fb9666b0ce0b~mv2.png/v1/fill/w_800,h_600,al_c,q_85/f1.png" alt="Face and body contouring" loading="lazy"><div><span class="kind">Fillers · Sculptra · PDO Threads</span><h3>Face &amp; Body Contouring</h3><p>Offering every available dermal filler on the market, as well as Sculptra and PDO Threads, to sculpt and add volume to different facial areas, addressing wrinkles, lip hydration, volume loss, scars and more.</p><a href="fillers.html">View Treatment →</a></div></article>
+      <article class="feature"><img src="https://static.wixstatic.com/media/f99bd2_85eac94a17de4c29825c6036e42fc72e~mv2.jpg/v1/fill/w_800,h_600,al_c,q_85/f2.jpg" alt="Signature Lips" loading="lazy"><div><span class="kind">Lip Fillers</span><h3>Signature Lips</h3><p>Renowned for perfectly natural-looking results, Nurse Fay's Signature Lips have gained popularity nationwide, with patients traveling from all over the states for her expertise.</p><a href="fillers.html#lips">View Treatment →</a></div></article>
+      <article class="feature"><img src="https://static.wixstatic.com/media/f99bd2_489a88e9983a40399632d8e9620d7f09~mv2.png/v1/fill/w_800,h_600,al_c,q_85/f3.png" alt="Laser skin treatments" loading="lazy"><div><span class="kind">Alma Harmony Technology</span><h3>Laser Skin Treatments</h3><p>Reveal your best skin yet. Laser treatments target pigmentation, texture and signs of aging, gently and effectively, with no downtime and visible results.</p><a href="https://spamedicaaesthetic.myaestheticrecord.com/online-booking?services=true">Book Now →</a></div></article>
+    </div>
+  </div></section>
+
+  <section id="treatments" aria-labelledby="treat-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Treatments</span>
+      <h2 id="treat-h">Our <em>services</em></h2>
+    </div>
+    <div class="dir" id="dir"></div>
+  </div></section>
+
+  <section id="offers" class="pricing" aria-labelledby="off-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Offers</span>
+      <h2 id="off-h">New client <em>offers</em></h2>
+    </div>
+    <div class="offers">
+      <div class="offer dark"><span class="eyebrow">First treatment</span><span class="big">Up to 30% off</span><p>Book now to claim up to 30% off on your first visit. Text or call Fay at 424-302-1354.</p><span class="ph">add offer terms</span></div>
+      <div class="offer light"><span class="eyebrow">First visit</span><span class="big">Get $50 off</span><p>Sign up with your name, email and phone to get $50 off your first visit.</p><span class="ph">add offer terms</span></div>
+    </div>
+    <div class="sema">
+      <img src="https://static.wixstatic.com/media/f99bd2_6ade7227a27d4a4fae2461ccf6173e0b~mv2.png/v1/fill/w_700,h_800,al_c,q_85/sema.png" alt="Semaglutide weight loss" loading="lazy">
+      <div>
+        <span class="eyebrow">Popular treatment</span>
+        <h3 style="font-size:1.6rem">Semaglutide Weight Loss</h3>
+        <span class="price">from $400/mo+</span>
+        <p style="color:var(--muted)">Simple weekly at-home weight loss injections.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>MD supervised weight loss program</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>FDA approved treatment</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Helps reduce hunger &amp; food cravings</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="results" aria-labelledby="res-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Results</span>
+      <h2 id="res-h">A moment for the <em>results</em></h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="https://static.wixstatic.com/media/f99bd2_458798a5a1ab4c67a1055b759a665dd8~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85/r1.jpg" alt="Lips before and after" loading="lazy"><figcaption>Signature Lips</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/f99bd2_99fe40f4504b46139a4723eb7f48caa7~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85/r2.jpg" alt="Chin filler before and after" loading="lazy"><figcaption>Chin Filler</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/f99bd2_07cd8482b5444f91b10e98ca564917b9~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85/r3.jpg" alt="Under eye filler before and after" loading="lazy"><figcaption>Under Eye Filler</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/f99bd2_aa5eda0bc1ee442a9e44c4add357c362~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85/r4.jpg" alt="Jawline filler before and after" loading="lazy"><figcaption>Jawline Filler</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/f99bd2_5bf6084c08004249a8843f2c263990c7~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85/r5.jpg" alt="Crow's feet before and after" loading="lazy"><figcaption>Crow's Feet</figcaption></figure>
+      <figure><img src="https://static.wixstatic.com/media/f99bd2_366a81dcfb064440ad714755fe394618~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85/r6.jpg" alt="Hand rejuvenation, treated and untreated" loading="lazy"><figcaption>Hand Rejuvenation</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section id="reviews" class="journey" aria-labelledby="rev-h"><div class="inner">
+    <div class="rev-head">
+      <div class="section-head" style="margin:0">
+        <span class="eyebrow">Reviews</span>
+        <h2 id="rev-h">What our clients are <em>saying</em></h2>
+      </div>
+      <a class="rev-count" href="https://g.co/kgs/EozfD9z" style="text-decoration:none">100+ verified reviews →</a>
+    </div>
+    <div class="reviews-grid">
+      <article class="review"><blockquote>Fay is AMAZING. It's hard to find skilled injectors who give natural look results, I am SO happy with the way she did my lips. She spent so much time with me, and had so much knowledge on where to inject to help with facial balancing.</blockquote><footer><b>Casey B</b><span class="ph">add source + rating</span></footer></article>
+      <article class="review"><blockquote>Thrilled with my results from Spa Medica! Fay was incredibly knowledgeable and made me feel comfortable throughout the entire process. Couldn't be happier!</blockquote><footer><b>Neda B</b><span class="ph">add source + rating</span></footer></article>
+      <article class="review"><blockquote>Very positive experience. Fay was friendly, professional, and the space felt clean and inviting. I'm very satisfied with the results and appreciate the great care I received. I already got so many compliments about my skin and it hasn't even been a day.</blockquote><footer><b>Iman D</b><span class="ph">add source + rating</span></footer></article>
+    </div>
+  </div></section>
+
+  <section id="team" class="team" aria-labelledby="team-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Meet your specialists</span>
+      <h2 id="team-h">Personalized care, <em>sophisticated</em> comfort</h2>
+      <p class="lead">Highly trained medical professionals providing treatments that restore balance, enhance confidence and support your overall well-being.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member"><div class="portrait"><img src="https://static.wixstatic.com/media/f99bd2_90389617a0d6457a91de9161e6eac6b9~mv2.png/v1/fill/w_600,h_600,al_t,q_85/fay3.png" alt="Fay Asghari" loading="lazy"></div><h3>Fay Asghari</h3><span class="creds">FNP-BC · Founder</span><p>Well-known celebrity cosmetic provider, known for Signature Lips, facial contouring and rejuvenation.</p></div>
+      <div class="member"><div class="portrait"><span class="ph">add photo</span></div><h3>Maddie Asghari</h3><span class="creds">BSN, RN · Cosmetic Injector &amp; IV Specialist</span><p>Dual bachelor's degrees in nutrition and nursing science; pursuing a family nurse practitioner degree; national trainer and educator.</p></div>
+      <div class="member"><div class="portrait"><span class="ph">add photo</span></div><h3>Haad A. Mahmood</h3><span class="creds">MD</span><p>Diplomate of the American Board of Aesthetic Medicine and a graduate of Chicago Medical School, serving greater Los Angeles.</p></div>
+    </div>
+  </div></section>
+
+  <section id="pricing" aria-labelledby="price-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2 id="price-h">Treatment <em>pricing</em></h2>
+      <p class="lead"><span class="ph">The current site lists only Semaglutide pricing. Add starting prices here.</span></p>
+    </div>
+    <div class="price-table" id="price-table" style="max-width:760px"></div>
+    <p style="margin-top:18px;color:var(--muted)">Pay over time with payment plans. <span class="ph">add payment plan providers + terms</span></p>
+  </div></section>
+
+  <section id="book" class="book" aria-labelledby="book-h"><div class="inner book-wrap">
+    <div>
+      <span class="eyebrow" style="color:#D9B99B">By appointment only</span>
+      <h2 id="book-h" style="margin-top:14px">Celebrity skin in <em>Brentwood</em> LA</h2>
+      <p class="lead" style="margin-top:18px">Between Brentwood and Westwood on San Vicente Blvd. Book now to claim up to 30% off on your first visit.</p>
+      <div class="visit">
+        <div><b>Visit</b>11633 San Vicente Blvd, Unit 240<br>Los Angeles, CA 90049</div>
+        <div><b>Hours</b>Mon–Fri, 9am–5pm<br>Sat, 10am–4pm · Sun closed</div>
+        <div><b>Text or call Fay</b><a href="tel:+14243021354">424-302-1354</a></div>
+        <div><b>Email</b>info@spamedicaaesthetic.com</div>
+      </div>
+      <div class="visit-imgs">
+        <img src="https://static.wixstatic.com/media/f99bd2_3850f74b1420408e9b649d2c8528582b~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/b1.jpg" alt="Spa Medica building on San Vicente Blvd" loading="lazy">
+        <img src="https://static.wixstatic.com/media/f99bd2_5e4944d2f563421e89808e83670ad577~mv2.jpg/v1/fill/w_600,h_600,al_c,q_85/b2.jpg" alt="Inside the Spa Medica studio" loading="lazy">
+      </div>
+    </div>
+    <div class="booker">
+      <span class="eyebrow">Online booking</span>
+      <h3>Book your appointment</h3>
+      <p class="note" style="font-size:.95rem">Choose your treatment and time online. No walk-ins available.</p>
+      <a class="btn btn-primary" href="https://spamedicaaesthetic.myaestheticrecord.com/online-booking?services=true">Book Now</a>
+      <a class="btn btn-ghost" href="tel:+14243021354">Text or Call Fay</a>
+    </div>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <span>Spa Medica Aesthetic · Non-surgical face, lips &amp; body contouring and rejuvenation with natural looking results.</span>
+  <span>Concept by Studio8Web</span>
+</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+14243021354">Text or Call</a>
+  <a class="btn btn-primary" href="https://spamedicaaesthetic.myaestheticrecord.com/online-booking?services=true">Book Now</a>
+</div>
+
+<script>
+(function () {
+  // Services and subtitles exactly as in the site's Services menu, grouped as the menu groups them.
+  var groups = [
+    { g: "Anti-Wrinkle & Cosmetic Injectables", items: [
+      { n: "Botox", s: "Wrinkle Reducers", page: "botox.html" },
+      { n: "Fillers", s: "Face Contouring", page: "fillers.html" },
+      { n: "Sculptra", s: "Face Rejuvenation" },
+      { n: "PDO Threads", s: "Face Lifting" },
+      { n: "Kybella", s: "Fat Reduction" },
+      { n: "Hair Restoration", s: "" } ] },
+    { g: "Laser & Skin Treatments", items: [
+      { n: "PRP | PRF | Microneedling", s: "" },
+      { n: "Chemical Peel", s: "Skin Renewal" },
+      { n: "Laser Skin Treatments", s: "" },
+      { n: "Alma Harmony IPL Technology", s: "" },
+      { n: "Hair & Tattoo Removal", s: "" } ] },
+    { g: "Body Contour & Weight Loss", items: [
+      { n: "Semaglutide", s: "Weight Loss", p: "from $400/mo+" },
+      { n: "Sculptra", s: "Buttock Lift" } ] },
+    { g: "Aesthetics & Wellness", items: [
+      { n: "IV Therapy", s: "Vitamins & Hydration" },
+      { n: "Teeth Whitening", s: "" } ] }
+  ];
+  var BOOK = "https://spamedicaaesthetic.myaestheticrecord.com/online-booking?services=true";
+  function esc(t) { return t.replace(/&/g, "&amp;"); }
+  document.getElementById("dir").innerHTML = groups.map(function (gr) {
+    return '<div class="dir-group"><h3>' + esc(gr.g) + '</h3>' + gr.items.map(function (it) {
+      return '<a href="' + (it.page || BOOK) + '"><b>' + esc(it.n) + '</b>' + (it.s ? '<span>' + esc(it.s) + '</span>' : '') +
+        '<span class="go">' + (it.page ? 'View Treatment →' : 'Book Now →') + '</span></a>';
+    }).join("") + '</div>';
+  }).join("");
+  var rows = [];
+  groups.forEach(function (gr) { gr.items.forEach(function (it) {
+    rows.push('<div class="price-row"><div><b>' + esc(it.n) + '</b>' + (it.s ? '<small>' + esc(it.s) + '</small>' : '') + '</div>' +
+      (it.p ? '<span style="font-weight:700;color:var(--rose)">' + esc(it.p) + '</span>' : '<span class="ph">add price</span>') + '</div>');
+  }); });
+  document.getElementById("price-table").innerHTML = rows.join("");
+})();
+</script>
+</body>
+</html>

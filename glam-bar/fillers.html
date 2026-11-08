@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Glam Bar Fillers Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Treatment page: copy from glambarmedicalspa.com/fillers and the homepage service tabs; prices from Glam Bar's Instagram. */
+.crumbs { font-size: .85rem; color: var(--muted); padding-top: 28px; }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { color: var(--rose); }
+.t-hero { padding-block: 28px clamp(56px, 8vw, 88px); }
+.t-hero .inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
+.t-hero-copy { display: flex; flex-direction: column; gap: 22px; }
+.photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.t-photo { aspect-ratio: 4 / 5; border-radius: 220px 220px var(--radius) var(--radius); overflow: hidden; background: var(--blush); }
+
+.jump { position: sticky; top: calc(72px + env(safe-area-inset-top, 0px)); z-index: 15; background: var(--bg); border-bottom: 1px solid var(--line); }
+.jump .inner { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-block: 8px; }
+.jump .inner::-webkit-scrollbar { display: none; }
+.jump a { flex: none; font-size: .88rem; font-weight: 600; text-decoration: none; padding: 10px 14px; border-radius: 999px; min-height: 44px; display: inline-flex; align-items: center; }
+.jump a:hover { background: var(--blush); color: var(--rose); }
+section[id] { scroll-margin-top: 150px; }
+
+.areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.area { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.area p { color: var(--muted); }
+.area .tagline { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--lavender); }
+.area .special { font-weight: 700; color: var(--rose); font-size: .92rem; }
+
+.options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.treat img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; width: 100%; background: var(--blush); }
+.treat ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .92rem; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.treat .sub { font-size: .85rem; color: var(--muted); margin-top: -4px; }
+.treat-foot .spec { font-weight: 700; color: var(--rose); }
+
+.benefits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.benefits li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-weight: 500; display: flex; gap: 10px; align-items: flex-start; }
+.benefits svg { width: 18px; height: 18px; stroke: var(--rose); flex: none; margin-top: 3px; }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.why div { display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--rose); padding-top: 16px; }
+.why p { color: var(--muted); }
+
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; max-width: 760px; }
+.gallery figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); background: var(--blush); }
+.gallery figcaption b { font-weight: 600; }
+
+.spec-price { font-weight: 700; color: var(--rose); white-space: nowrap; }
+
+@media (max-width: 960px) {
+  .t-hero .inner { grid-template-columns: minmax(0, 1fr); }
+  .t-photo { max-width: 460px; }
+  .why { grid-template-columns: minmax(0, 1fr); }
+  .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .areas, .options, .gallery { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon"><div class="inner">
+  <span><b>Redesign concept by Studio8Web</b>, not the official Glam Bar website. Copy and images from glambarmedicalspa.com.</span>
+  <span><span class="ph" style="margin-inline:2px">Gold tags</span> = information the current site doesn't have yet</span>
+</div></div>
+
+<header class="site"><div class="inner">
+  <a class="logo" href="index.html" aria-label="Glam Bar Aesthetic Spa, home"><img class="logo-img" src="https://glambarmedicalspa.com/images/logo.jpg" alt="Glam Bar Aesthetic Spa" width="936" height="286"></a>
+  <nav class="main" aria-label="Main">
+    <a href="index.html#treatments" aria-current="page" style="color:var(--rose)">Treatments</a>
+    <a href="index.html#specials">Specials</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#results">Results</a>
+    <a href="index.html#team">Our Team</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="head-actions">
+    <a class="call" href="tel:+13104672711">310-467-2711</a>
+    <a class="btn btn-primary" href="#book">Book Your Consultation</a>
+  </div>
+</div></header>
+
+<main>
+  <div class="inner crumbs"><a href="index.html#treatments">Treatments</a> / Fillers</div>
+
+  <section class="t-hero" aria-labelledby="t-h"><div class="inner">
+    <div class="t-hero-copy">
+      <span class="eyebrow">Dermal Fillers · Lip, Cheek, Jawline, Chin</span>
+      <h1 id="t-h">Fillers in <em>Los Angeles</em></h1>
+      <p class="lead">A refined way to enhance your natural features, restore youthful-looking volume and create balanced facial contours. Customized filler treatments for fuller-looking lips, defined cheeks, a sculpted jawline or a more balanced chin, with sophisticated, natural-looking results.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#book">Book Your Consultation</a>
+        <a class="btn btn-ghost" href="#areas">View Treatment Areas</a>
+      </div>
+      <div class="facts">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>346 N La Cienega Blvd</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat, 9am–6pm</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>310-467-2711</span>
+      </div>
+    </div>
+    <div class="t-photo"><img class="photo" src="https://glambarmedicalspa.com/images/tab-images/Dermal%20Fillers.webp" alt="Dermal filler treatment at Glam Bar"></div>
+  </div></section>
+
+  <nav class="jump" aria-label="On this page"><div class="inner">
+    <a href="#areas">Treatment areas</a>
+    <a href="#options">Injectable options</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#results">Before &amp; after</a>
+    <a href="#price">Pricing</a>
+    <a href="#book">Book</a>
+  </div></nav>
+
+  <section id="areas" aria-labelledby="areas-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Treatment areas</span>
+      <h2 id="areas-h">Personalized filler <em>treatment</em> areas</h2>
+    </div>
+    <div class="areas">
+      <article class="area"><span class="tagline">Lips</span><h3>Lip Filler</h3><p>Enhances volume, definition and shape while keeping natural-looking proportions. Treatment can be subtle and elegant, for defined lips without an overdone look.</p><span class="special">November special: $475/syringe</span></article>
+      <article class="area"><span class="tagline">Cheeks</span><h3>Cheek Filler</h3><p>Restores volume and enhances cheekbone definition. Strategic placement adds dimension and a more sculpted, youthful-looking contour.</p></article>
+      <article class="area"><span class="tagline">Chin &amp; jawline</span><h3>Chin &amp; Jawline Filler</h3><p>The chin and jawline play an important role in overall facial balance. Fillers can enhance chin projection and add jawline definition, for a more refined profile.</p></article>
+      <article class="area"><span class="tagline">Under-eye</span><h3>Under-Eye Filler</h3><p>For appropriate candidates, under-eye filler may soften the look of hollows and create a more refreshed, rested appearance. Because this area is delicate, a professional evaluation is essential.</p></article>
+    </div>
+  </div></section>
+
+  <section id="options" class="team" aria-labelledby="opt-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Injectable options</span>
+      <h2 id="opt-h">Our MedSpa <em>services</em></h2>
+    </div>
+    <div class="options">
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/Dermal%20Fillers.webp" alt="Dermal Fillers" loading="lazy"><span class="kind">Lip, cheek, jawline, chin</span><h3>Dermal Fillers</h3><ul><li>Instantly enhance lips, cheeks and jawline</li><li>Restore youthful volume and structure</li><li>Smooth fine lines and deeper folds</li><li>Improve facial symmetry and harmony</li><li>Long-lasting results with minimal downtime</li></ul><div class="treat-foot"><span class="spec">Voluma/Volux $550/syringe</span><a href="#book">Book →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/skinbooster.webp" alt="Skinvive by Juvéderm" loading="lazy"><span class="kind">Skin booster</span><h3>Skinvive by Juvéderm</h3><ul><li>Deep hydration for glowing, radiant skin</li><li>Improve skin texture and smoothness</li><li>Reduce fine lines and crepey appearance</li><li>Enhance natural "glass skin" look</li><li>No change to facial structure, only better skin</li></ul><div class="treat-foot"><span class="ph">add price</span><a href="#book">Book →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/sculptra.webp" alt="Sculptra" loading="lazy"><span class="kind">Collagen stimulator</span><h3>Sculptra</h3><ul><li>Gradual, natural-looking volume restoration</li><li>Stimulates long-term collagen production</li><li>Improve skin firmness and elasticity</li><li>Long-lasting results (up to 2+ years)</li><li>Ideal for full facial rejuvenation</li></ul><div class="treat-foot"><span class="ph">add price</span><a href="#book">Book →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/radiese.webp" alt="Radiesse" loading="lazy"><span class="kind">Biostimulator &amp; contouring filler</span><h3>Radiesse</h3><ul><li>Instant volume and definition</li><li>Stimulates natural collagen production</li><li>Improves skin thickness and quality</li><li>Ideal for jawline, cheeks, neck and hands</li><li>Long-lasting, natural results</li></ul><div class="treat-foot"><span class="ph">add price</span><a href="#book">Book →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/gel.webp" alt="EZ Gel" loading="lazy"><span class="kind">Natural bio-filler</span><h3>EZ Gel</h3><ul><li>100% natural and biocompatible</li><li>Improves skin quality and elasticity</li><li>Boosts collagen production</li><li>Ideal for under eyes and fine lines</li><li>No synthetic fillers used</li></ul><div class="treat-foot"><span class="spec">$400 (full face)</span><a href="#book">Book →</a></div></article>
+      <article class="treat"><img src="https://glambarmedicalspa.com/images/tab-images/prf-injections.webp" alt="PRF Injections" loading="lazy"><span class="kind">Platelet-rich fibrin</span><h3>PRF Injections</h3><ul><li>Stimulates collagen and tissue regeneration</li><li>Improves under-eye darkness and hollowness</li><li>Enhances skin texture and tone</li><li>Natural, gradual results</li><li>Safe and chemical-free</li></ul><div class="treat-foot"><span class="ph">add price</span><a href="#book">Book →</a></div></article>
+    </div>
+  </div></section>
+
+  <section id="benefits" aria-labelledby="ben-h"><div class="inner" style="display:flex;flex-direction:column;gap:28px">
+    <div class="section-head" style="margin:0">
+      <span class="eyebrow">Benefits</span>
+      <h2 id="ben-h">The benefits of dermal <em>fillers</em></h2>
+      <p class="lead">Depending on your treatment goals, dermal fillers may help:</p>
+    </div>
+    <ul class="benefits">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Restore lost facial volume</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Enhance lip shape and fullness</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Define cheekbones</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Improve chin and jawline definition</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Soften the appearance of certain facial hollows</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Improve overall facial balance</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Create a refreshed, youthful-looking appearance</li>
+    </ul>
+  </div></section>
+
+  <section class="journey" aria-labelledby="why-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Why choose Glam Bar</span>
+      <h2 id="why-h">Refined results at <em>Glam Bar</em></h2>
+    </div>
+    <div class="why">
+      <div><h3>Balance and proportion</h3><p>Refined results are about balance, proportion and personalization.</p></div>
+      <div><h3>Tailored to you</h3><p>Treatments are tailored to your facial anatomy and aesthetic goals, enhancing your existing features rather than changing your appearance.</p></div>
+      <div><h3>A personalized consultation</h3><p>Helps decide the right approach for lip, cheek, chin, jawline or under-eye filler.</p></div>
+    </div>
+  </div></section>
+
+  <section id="results" aria-labelledby="res-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Results</span>
+      <h2 id="res-h"><em>Before</em> &amp; after</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="images/ig-lips-1.jpg" alt="Lip filler before and after" loading="lazy"><figcaption><b>Lips</b> <span class="ph">add provider</span></figcaption></figure>
+      <figure><img src="images/ig-lips-2.jpg" alt="Lip filler before and after" loading="lazy"><figcaption><b>Lips</b> <span class="ph">add provider</span></figcaption></figure>
+    </div>
+  </div></section>
+
+  <section id="price" class="pricing" aria-labelledby="price-h"><div class="inner">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2 id="price-h">Filler <em>pricing</em></h2>
+      <p class="lead"><span class="ph">Regular prices aren't on the current site. Add them here.</span></p>
+    </div>
+    <div class="price-table" style="max-width:720px">
+      <div class="price-row"><div><b>Lips</b><small>November special, per syringe</small></div><span class="spec-price">$475</span></div>
+      <div class="price-row"><div><b>Lips, half syringe</b><small>Beauty Hour, Tuesdays and Wednesdays</small></div><span class="spec-price">$250</span></div>
+      <div class="price-row"><div><b>Voluma/Volux</b><small>November special, per syringe</small></div><span class="spec-price">$550</span></div>
+      <div class="price-row"><div><b>EZ Gel</b><small>November special, full face</small></div><span class="spec-price">$400</span></div>
+      <div class="price-row"><div><b>Cheek Filler</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Chin &amp; Jawline Filler</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Under-Eye Filler</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Skinvive by Juvéderm</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Sculptra</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>Radiesse</b></div><span class="ph">add price</span></div>
+      <div class="price-row"><div><b>PRF Injections</b></div><span class="ph">add price</span></div>
+    </div>
+  </div></section>
+
+  <section id="book" class="book" aria-labelledby="book-h"><div class="inner book-wrap">
+    <div>
+      <span class="eyebrow" style="color:#F2A9C2">Book your consultation today</span>
+      <h2 id="book-h" style="margin-top:14px">A more <em>refined</em> approach to facial enhancement</h2>
+      <p class="lead" style="margin-top:18px">Whether it's your first treatment or part of your ongoing self-care routine, our team is here to guide you every step of the way.</p>
+      <div class="visit">
+        <div><b>Visit</b>346 N La Cienega Blvd<br>Los Angeles, CA 90048</div>
+        <div><b>Hours</b>Mon–Sat, 9am–6pm<br>Sunday closed</div>
+        <div><b>Call</b><a href="tel:+13104672711">310-467-2711</a></div>
+        <div><b>Follow</b>Instagram @glambar_medspa</div>
+      </div>
+    </div>
+    <form class="booker" id="booker" aria-label="Online booking concept">
+      <fieldset>
+        <legend>What would you like to book?</legend>
+        <div class="chips" id="book-chips">
+          <button type="button" class="chip" aria-pressed="true">Filler Consultation</button>
+          <button type="button" class="chip" aria-pressed="false">Lip Filler</button>
+          <button type="button" class="chip" aria-pressed="false">Cheek Filler</button>
+          <button type="button" class="chip" aria-pressed="false">Chin &amp; Jawline Filler</button>
+          <button type="button" class="chip" aria-pressed="false">Under-Eye Filler</button>
+        </div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">See Available Times</button>
+      <p class="demo-msg" id="demo-msg" aria-live="polite"></p>
+      <p class="note"><span class="ph">Connects to your booking software</span> Replaces today's contact form, so clients can pick a time themselves.</p>
+    </form>
+  </div></section>
+</main>
+
+<footer class="site"><div class="inner">
+  <span>Glam Bar Aesthetic Spa · Refined Aesthetics. Natural Results. Elevated Confidence.</span>
+  <span>Concept by Studio8Web</span>
+</div></footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+13104672711">Call</a>
+  <a class="btn btn-primary" href="#book">Book Your Consultation</a>
+</div>
+
+<script>
+(function () {
+  var chips = document.getElementById("book-chips");
+  chips.addEventListener("click", function (e) {
+    var c = e.target.closest(".chip"); if (!c) return;
+    Array.prototype.forEach.call(chips.children, function (x) { x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+  });
+  document.getElementById("booker").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var sel = chips.querySelector('[aria-pressed="true"]').textContent;
+    document.getElementById("demo-msg").textContent = "Concept: this would show live times for " + sel + ".";
+  });
+})();
+</script>
+</body>
+</html>
