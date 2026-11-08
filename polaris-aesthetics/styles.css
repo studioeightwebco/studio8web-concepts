@@ -207,3 +207,8 @@ footer.site .legal { flex-basis: 100%; font-size: .78rem; color: #B9ABA1; border
 .hero-facts { border-block: 1px solid color-mix(in srgb, currentColor 14%, transparent); }
 .hero-facts .facts { max-width: 1160px; margin: 0 auto; padding: 14px max(20px, env(safe-area-inset-left, 0px)); border: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; }
 
+
+/* Before/after fix: every result photo shows whole, at its natural shape. Nothing is cropped or stretched. */
+img[alt*="efore"], img[alt*="reated"] { width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; align-self: start; }
+figure:has(> img[alt*="efore"]), figure:has(> img[alt*="reated"]) { height: auto !important; align-self: start; }
+.strip { grid-template-columns: none !important; grid-auto-flow: column; grid-auto-columns: min(440px, 82vw); align-items: start; }

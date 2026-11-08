@@ -131,3 +131,7 @@ footer.site .tag { font-family: var(--display); letter-spacing: var(--track); te
   .mobile-bar .btn { flex: 1; padding: 0 12px; }
   footer.site { padding-bottom: 76px; }
 }
+
+/* Before/after fix: every result photo shows whole, at its natural shape. Nothing is cropped or stretched. */
+img[alt*="efore"], img[alt*="reated"] { width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; align-self: start; }
+figure:has(> img[alt*="efore"]), figure:has(> img[alt*="reated"]) { height: auto !important; align-self: start; }

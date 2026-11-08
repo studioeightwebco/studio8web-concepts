@@ -294,3 +294,7 @@ footer.site a { color: #fff; }
 @media (min-width: 961px) { .hero-photo { max-height: calc(100dvh - 200px); min-height: 420px; } .hero-photo img { height: 100%; object-fit: cover; } }
 
 @media (min-width: 961px) { .hero-photo { max-height: calc(100dvh - 240px); } }
+
+/* Before/after fix: every result photo shows whole, at its natural shape. Nothing is cropped or stretched. */
+img[alt*="efore"], img[alt*="reated"] { width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; align-self: start; }
+figure:has(> img[alt*="efore"]), figure:has(> img[alt*="reated"]) { height: auto !important; align-self: start; }

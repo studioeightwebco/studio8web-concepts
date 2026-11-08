@@ -227,3 +227,7 @@ h1 { font-size: clamp(2.3rem, 4.4vw, 3.5rem); }
 
 @media (min-width: 961px) { .hero { padding-block: 40px 56px; } .hero-visual { max-height: calc(100dvh - 240px); } }
 h1 { font-size: clamp(2.2rem, 4vw, 3rem); }
+
+/* Before/after fix: every result photo shows whole, at its natural shape. Nothing is cropped or stretched. */
+img[alt*="efore"], img[alt*="reated"] { width: 100% !important; height: auto !important; max-height: none !important; aspect-ratio: auto !important; object-fit: contain !important; align-self: start; }
+figure:has(> img[alt*="efore"]), figure:has(> img[alt*="reated"]) { height: auto !important; align-self: start; }
