@@ -175,6 +175,9 @@ footer p { max-width: 60em; }
   .person img { max-width: 280px; }
 }
 
+/* Skip link */
+.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--cocoa); color: var(--paper); padding: 10px 16px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
 /* Announcement */
 .announce { background: var(--paper); border-bottom: 1px solid var(--line); text-align: center; font-size: .9rem; padding: 8px 20px; }
 .announce a { color: var(--fan-3); font-weight: 600; text-underline-offset: 4px; }
@@ -276,6 +279,7 @@ footer a { color: var(--paper); }
 </style>
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 
 <div class="concept" role="note"><b>Redesign concept by Studio8Web</b>, not the official Advanced Dermatology Center website. Copy and images from advanceddermcenter.com.</div>
 
@@ -289,7 +293,7 @@ footer a { color: var(--paper); }
       <ul class="nav-list">
         <li><a href="#top">Home</a></li>
         <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-about">About</button>
-        <div class="menu" id="m-about"><a class="menu-all" href="https://www.advanceddermcenter.com/about-us/">About overview</a><ul><li><a href="https://www.advanceddermcenter.com/meet-our-team/">Meet Our Team</a></li><li><a href="https://www.advanceddermcenter.com/coupons/">Specials</a></li><li><a href="https://www.advanceddermcenter.com/blog/">Blog</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/remedies-for-sun-damaged-skin/">Videos</a></li></ul></div></li>
+        <div class="menu" id="m-about"><a class="menu-all" href="https://www.advanceddermcenter.com/about-us/">About overview</a><ul><li><a href="https://www.advanceddermcenter.com/meet-our-team/">Meet Our Team</a></li><li><a href="https://www.advanceddermcenter.com/coupons/">Specials</a></li><li><a href="https://www.advanceddermcenter.com/blog/">Blog</a></li><li class="sub">Videos</li><li><a href="https://www.advanceddermcenter.com/about-us/videos/">All videos</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/remedies-for-sun-damaged-skin/">Remedies for Sun Damage</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/how-to-get-rid-of-facial-moles/">How to Get Rid of Facial Moles</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/skin-cancer-screening/">Skin Cancer Screening</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/fotona4d-/">Fotona4D®</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/smootheye-/">SmoothEye™</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/tightsculpting-/">TightSculpting®</a></li></ul></div></li>
         <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-med">Medical</button>
         <div class="menu" id="m-med"><a class="menu-all" href="https://www.advanceddermcenter.com/medical-services/">Medical overview</a><ul><li><a href="https://www.advanceddermcenter.com/medical-services/acne/">Acne</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/dry-skin-treatment/">Dry Skin Treatment</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/mohs-surgery/">Mohs Surgery</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/moles/">Moles</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/rosacea/">Rosacea</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/skin-cancer-screening/">Skin Cancer Screening</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/spider-vein-removal/">Spider Vein Removal</a></li></ul></div></li>
         <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-laser">Laser</button>
