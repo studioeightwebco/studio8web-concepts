@@ -5,303 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Advanced Dermatology Center Redesign Concept</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Redesign concept for Advanced Dermatology Center, Burbank. Not the official website.">
+<meta name="description" content="Medical, laser and cosmetic dermatology in Burbank, CA. Redesign concept, not the official website.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@400;500;600&display=swap">
-<style>
-/* Concept. All facts, names, reviews and photos come from advanceddermcenter.com; only the order, design and short headings are new. */
-:root {
-  --oat: #E9E0D4;
-  --paper: #F7F2EB;
-  --cocoa: #3A2A21;
-  --mocha: #6F5646;
-  --line: #D6C8B6;
-  --fan-1: #F08830;
-  --fan-2: #D84028;
-  --fan-3: #A81018;
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Figtree", system-ui, sans-serif;
-  --wrap: 1180px;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--oat); color: var(--cocoa); font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-img { display: block; max-width: 100%; }
-a { color: inherit; }
-:focus-visible { outline: 2px solid var(--fan-3); outline-offset: 3px; border-radius: 2px; }
-.wrap { width: min(100% - 40px, var(--wrap)); margin-inline: auto; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.08; margin: 0; letter-spacing: -0.01em; }
-h1 { font-size: clamp(2.6rem, 5.6vw, 4.6rem); }
-h2 { font-size: clamp(2rem, 3.6vw, 3rem); }
-h3 { font-size: 1.6rem; }
-p { margin: 0; }
-.lede { color: var(--mocha); max-width: 34em; font-size: 1.125rem; }
-
-/* Concept notice */
-.concept { background: var(--cocoa); color: var(--paper); font-size: .85rem; text-align: center; padding: 9px 20px; }
-.concept b { font-weight: 600; }
-
-/* Header */
-.site-head { background: var(--paper); border-bottom: 1px solid var(--line); }
-.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; }
-.site-head img { height: 54px; width: auto; }
-.site-nav { display: flex; gap: 26px; font-size: .95rem; }
-.site-nav a { text-decoration: none; color: var(--mocha); }
-.site-nav a:hover { color: var(--cocoa); text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--fan-2); }
-.call { text-decoration: none; font-weight: 600; white-space: nowrap; padding: 10px 18px; border: 1px solid var(--cocoa); border-radius: 999px; }
-.call:hover { background: var(--cocoa); color: var(--paper); }
-
-/* Hero: two arched doors */
-.hero { padding-block: clamp(48px, 7vw, 96px) clamp(56px, 8vw, 104px); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr); gap: clamp(32px, 5vw, 72px); align-items: end; }
-.hero-copy { display: flex; flex-direction: column; gap: 22px; padding-bottom: 12px; }
-.hero-copy .fan { width: 64px; height: auto; }
-.doors { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.door { display: flex; flex-direction: column; background: var(--paper); border-radius: 999px 999px 18px 18px; overflow: hidden; text-decoration: none; border: 1px solid var(--line); transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s; }
-.door:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(58,42,33,.45); }
-.door .pic { aspect-ratio: 4 / 4.6; overflow: hidden; }
-.door .pic img { width: 100%; height: 100%; object-fit: cover; }
-.door .body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.door h2 { font-size: 1.85rem; }
-.door p { color: var(--mocha); font-size: .98rem; flex: 1; }
-.door .go { align-self: flex-start; margin-top: 6px; background: var(--cocoa); color: var(--paper); padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: .95rem; }
-.door:hover .go { background: var(--fan-3); }
-.door .note { font-size: .85rem; color: var(--fan-3); font-weight: 600; }
-
-/* One load moment: the doors open in */
-@media (prefers-reduced-motion: no-preference) {
-  .door { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
-  .door + .door { animation-delay: .12s; }
-  @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
-}
-
-/* Facts */
-.facts { border-block: 1px solid var(--line); background: var(--paper); }
-.facts ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
-.facts li { padding: 26px 24px; border-left: 1px solid var(--line); }
-.facts li:first-child { border-left: 0; padding-left: 0; }
-.facts strong { display: block; font-family: var(--serif); font-size: 1.45rem; font-weight: 600; line-height: 1.15; margin-bottom: 4px; }
-.facts span { color: var(--mocha); font-size: .92rem; }
-
-section.block { padding-block: clamp(64px, 9vw, 120px); }
-.head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 44px; max-width: 46em; }
-
-/* Team */
-.team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 28px; }
-.person { display: flex; flex-direction: column; gap: 10px; }
-.person img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 999px 999px 14px 14px; background: var(--paper); }
-.person h3 { font-size: 1.4rem; }
-.person .cred { font-size: .82rem; font-weight: 600; color: var(--fan-3); }
-.person p { font-size: .92rem; color: var(--mocha); }
-.staff { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
-.staff .person { flex-direction: row; align-items: center; gap: 16px; }
-.staff .person img { width: 76px; flex: none; border-radius: 999px; }
-.more { display: inline-block; margin-top: 36px; font-weight: 600; text-underline-offset: 5px; text-decoration-color: var(--fan-2); }
-
-/* Services */
-.services { background: var(--paper); }
-.cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-.col { display: flex; flex-direction: column; gap: 16px; }
-.col img { aspect-ratio: 5 / 4; width: 100%; object-fit: cover; border-radius: 14px; }
-.col h3 a { text-decoration: none; }
-.col h3 a:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--fan-2); }
-.col ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 18px; font-size: .95rem; }
-.col li { break-inside: avoid; padding: 7px 0; border-bottom: 1px solid var(--line); }
-.col li a { text-decoration: none; color: var(--mocha); }
-.col li a:hover { color: var(--cocoa); text-decoration: underline; }
-
-/* Specials */
-.specials { background: var(--cocoa); color: var(--paper); }
-.specials .wrap { display: grid; grid-template-columns: auto 1fr auto; gap: 36px; align-items: center; padding-block: 56px; }
-.specials img { width: 190px; height: auto; aspect-ratio: 297 / 90; object-fit: contain; }
-.specials p { color: #D9C9B8; margin-top: 8px; }
-.btn-light { background: var(--paper); color: var(--cocoa); text-decoration: none; padding: 14px 24px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
-.btn-light:hover { background: var(--fan-1); }
-
-/* Reviews */
-.reviews { columns: 3; column-gap: 40px; }
-.reviews figure { break-inside: avoid; margin: 0 0 36px; padding-top: 18px; border-top: 1px solid var(--line); }
-.reviews blockquote { margin: 0 0 12px; font-family: var(--serif); font-size: 1.32rem; line-height: 1.35; }
-.reviews figcaption { font-size: .9rem; color: var(--mocha); font-weight: 600; }
-
-/* Visit */
-.visit { background: var(--paper); border-top: 1px solid var(--line); }
-.visit .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
-.visit dl { margin: 24px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 24px; }
-.visit dt { font-weight: 600; }
-.visit dd { margin: 0; color: var(--mocha); }
-.visit .wrap > * { min-width: 0; }
-.visit dd, .social span { overflow-wrap: anywhere; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.btn { background: var(--cocoa); color: var(--paper); text-decoration: none; padding: 14px 24px; border-radius: 999px; font-weight: 600; }
-.btn:hover { background: var(--fan-3); }
-.btn.ghost { background: transparent; color: var(--cocoa); border: 1px solid var(--cocoa); }
-.btn.ghost:hover { background: var(--cocoa); color: var(--paper); }
-.visit img.photo { border-radius: 999px 999px 18px 18px; aspect-ratio: 4 / 3.4; object-fit: cover; width: 100%; }
-
-footer { background: var(--cocoa); color: #D9C9B8; font-size: .85rem; }
-footer .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
-footer img { height: 46px; width: auto; }
-footer p { max-width: 60em; }
-.social { display: inline-flex; align-items: center; gap: 10px; color: var(--paper); text-decoration: none; font-weight: 600; }
-.social svg { width: 24px; height: 24px; }
-.social:hover { color: var(--fan-1); }
-.foot-right { display: flex; flex-direction: column; gap: 14px; }
-
-/* Responsive */
-@media (max-width: 1000px) {
-  .site-nav { display: none; }
-  .hero .wrap { grid-template-columns: 1fr; }
-  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cols { grid-template-columns: 1fr; }
-  .reviews { columns: 2; }
-  .staff { grid-template-columns: 1fr; }
-}
-@media (max-width: 680px) {
-  .site-head img { height: 42px; }
-  .doors { grid-template-columns: 1fr; }
-  .door .pic { aspect-ratio: 4 / 3.4; }
-  .facts ul { grid-template-columns: 1fr 1fr; }
-  .facts li { border-left: 0; padding: 18px 0; }
-  .facts li:nth-child(odd) { padding-right: 16px; }
-  .reviews { columns: 1; }
-  .specials .wrap { grid-template-columns: 1fr; text-align: left; }
-  .visit .wrap { grid-template-columns: 1fr; }
-  .col ul { columns: 1; }
-}
-@media (max-width: 520px) {
-  .team { grid-template-columns: 1fr; }
-  .person img { max-width: 280px; }
-}
-
-/* Skip link */
-.skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--cocoa); color: var(--paper); padding: 10px 16px; border-radius: 8px; font-weight: 600; text-decoration: none; }
-.skip:focus { top: 12px; }
-/* Announcement */
-.announce { background: var(--paper); border-bottom: 1px solid var(--line); text-align: center; font-size: .9rem; padding: 8px 20px; }
-.announce a { color: var(--fan-3); font-weight: 600; text-underline-offset: 4px; }
-/* Header and menus */
-.site-head { position: sticky; top: 0; z-index: 20; }
-.site-head .wrap { position: relative; }
-.brand img { height: 54px; width: auto; }
-.site-nav { display: flex; align-items: center; gap: 22px; }
-.nav-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; align-items: center; }
-.nav-list > li > a, .menu-btn { display: block; padding: 10px 12px; font: inherit; font-size: .95rem; color: var(--mocha); background: none; border: 0; cursor: pointer; text-decoration: none; border-radius: 8px; }
-.nav-list > li > a:hover, .menu-btn:hover, .menu-btn[aria-expanded="true"] { color: var(--cocoa); background: var(--oat); }
-.menu-btn { display: inline-flex; align-items: center; white-space: nowrap; }
-.menu-btn::after { content: ""; display: inline-block; width: 6px; height: 6px; margin-left: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-3px) rotate(45deg); }
-.has-menu { position: relative; }
-.menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; min-width: 260px; max-height: 70vh; overflow: auto; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 12px; box-shadow: 0 18px 40px -20px rgba(58,42,33,.4); }
-.menu-btn[aria-expanded="true"] + .menu { display: block; }
-.menu ul { list-style: none; margin: 6px 0 0; padding: 0; }
-.menu a { display: block; padding: 7px 10px; border-radius: 8px; text-decoration: none; font-size: .93rem; color: var(--cocoa); }
-.menu a:hover { background: var(--oat); }
-.menu-all { font-weight: 600; }
-.menu .sub { padding: 10px 10px 2px; font-size: .8rem; font-weight: 600; color: var(--fan-3); }
-.nav-tools { display: flex; align-items: center; gap: 10px; }
-.icon-link { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; color: var(--cocoa); }
-.icon-link svg { width: 20px; height: 20px; }
-.icon-link:hover { background: var(--oat); }
-.pay { background: var(--cocoa); color: var(--paper); text-decoration: none; padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: .9rem; white-space: nowrap; }
-.pay:hover { background: var(--fan-3); }
-.site-nav .pay, .site-nav .pay:hover { color: var(--paper); text-decoration: none; }
-.office { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
-.office span { font-size: .78rem; color: var(--mocha); }
-.office .call { padding: 6px 14px; }
-.nav-toggle { display: none; font: inherit; font-weight: 600; background: none; border: 1px solid var(--cocoa); border-radius: 999px; padding: 8px 16px; color: var(--cocoa); cursor: pointer; }
-/* About */
-.narrow { max-width: 760px; }
-.about p { margin-top: 16px; }
-.about .lede { margin-top: 10px; }
-.readmore { margin-top: 18px; }
-.readmore summary { cursor: pointer; font-weight: 600; color: var(--fan-3); }
-.readmore h3 { margin-top: 26px; font-size: 1.5rem; }
-/* Slider */
-.slider { position: relative; }
-.slides { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, calc((100% - 64px) / 3)); gap: 32px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: thin; }
-.slides figure { scroll-snap-align: start; margin: 0; padding-top: 18px; border-top: 1px solid var(--line); }
-.slides blockquote { margin: 0 0 12px; font-family: var(--serif); font-size: 1.28rem; line-height: 1.35; }
-.slides figcaption { font-size: .9rem; color: var(--mocha); font-weight: 600; }
-.slider-ctl { display: flex; gap: 10px; margin-top: 20px; }
-.sbtn { font: inherit; font-weight: 600; background: none; border: 1px solid var(--cocoa); color: var(--cocoa); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
-.sbtn:hover { background: var(--cocoa); color: var(--paper); }
-/* Contact form */
-.contact { background: var(--paper); border-top: 1px solid var(--line); }
-.contact-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 56px; align-items: start; }
-.form { display: flex; flex-direction: column; gap: 16px; }
-.form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form label { display: flex; flex-direction: column; gap: 6px; font-size: .9rem; font-weight: 600; }
-.form input:not([type=radio]), .form textarea { font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--cocoa); }
-.form input:focus, .form textarea:focus { outline: 2px solid var(--fan-3); outline-offset: 1px; border-color: transparent; }
-.form fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; margin: 0; }
-.form legend { font-size: .9rem; font-weight: 600; padding: 0 6px; }
-.form .opt { flex-direction: row; align-items: center; gap: 10px; font-weight: 400; padding: 4px 0; }
-.form .opt input { accent-color: var(--fan-3); }
-.consent { font-size: .78rem; color: var(--mocha); }
-.form .btn { align-self: flex-start; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
-.form-note { background: var(--oat); border-radius: 10px; padding: 14px 16px; font-size: .92rem; }
-.form [aria-invalid="true"] { border-color: var(--fan-3) !important; }
-/* Footer */
-footer a { color: var(--paper); }
-.foot-grid { display: grid !important; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; align-items: start !important; }
-.foot-col { display: flex; flex-direction: column; gap: 10px; }
-.foot-col h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--paper); }
-.foot-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.foot-col ul a, .foot-col p a { text-decoration: none; }
-.foot-col ul a:hover, .foot-col p a:hover { text-decoration: underline; }
-.foot-logo { align-self: flex-start; height: auto; width: 200px; max-width: 100%; aspect-ratio: 297 / 90; object-fit: contain; margin-bottom: 6px; }
-.socials { display: flex; gap: 12px; }
-.soc { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(247,242,235,.3); border-radius: 999px; }
-.soc:hover { background: rgba(247,242,235,.12); border-color: var(--paper); }
-.soc img { width: 20px; height: 20px; }
-.foot-legal { display: flex !important; flex-direction: column; align-items: flex-start !important; gap: 10px !important; border-top: 1px solid rgba(247,242,235,.18); padding-top: 24px !important; font-size: .8rem; }
-.legal-links { display: flex; flex-wrap: wrap; gap: 18px; }
-@media (max-width: 1180px) {
-  .nav-toggle { display: inline-block; }
-  .site-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 20px 20px; max-height: 80vh; overflow: auto; }
-  .site-nav.open { display: flex; }
-  .nav-list { flex-direction: column; align-items: stretch; }
-  .menu { position: static; box-shadow: none; border: 0; padding: 0 0 0 12px; max-height: none; }
-  .nav-tools { padding-top: 12px; border-top: 1px solid var(--line); }
-  .site-head .wrap { flex-wrap: wrap; }
-}
-@media (max-width: 860px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 24px; }
-  .foot-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .office span { display: none; }
-  .brand img { height: 40px; }
-  .form .row { grid-template-columns: 1fr; }
-  .slides { grid-auto-columns: 86%; }
-}
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<a class="skip" href="#top">Skip to content</a>
-
+<a class="skip" href="#main">Skip to content</a>
 <div class="concept" role="note"><b>Redesign concept by Studio8Web</b>, not the official Advanced Dermatology Center website. Copy and images from advanceddermcenter.com.</div>
-
-<div class="announce"><a href="https://www.advanceddermcenter.com/contact/">Free cosmetic consultations with our cosmetic nurse. Contact us today</a></div>
-
+<div class="announce"><a href="contact.html?topic=Free+cosmetic+consultation">Free cosmetic consultations with our cosmetic nurse. Contact us today</a></div>
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Advanced Dermatology Center home"><img src="images/logo-dark.png" alt="Advanced Dermatology Center"></a>
+    <a class="brand" href="index.html" aria-label="Advanced Dermatology Center home"><img src="images/logo-dark.png" alt="Advanced Dermatology Center"></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul class="nav-list">
-        <li><a href="#top">Home</a></li>
-        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-about">About</button>
-        <div class="menu" id="m-about"><a class="menu-all" href="https://www.advanceddermcenter.com/about-us/">About overview</a><ul><li><a href="https://www.advanceddermcenter.com/meet-our-team/">Meet Our Team</a></li><li><a href="https://www.advanceddermcenter.com/coupons/">Specials</a></li><li><a href="https://www.advanceddermcenter.com/blog/">Blog</a></li><li class="sub">Videos</li><li><a href="https://www.advanceddermcenter.com/about-us/videos/">All videos</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/remedies-for-sun-damaged-skin/">Remedies for Sun Damage</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/how-to-get-rid-of-facial-moles/">How to Get Rid of Facial Moles</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/skin-cancer-screening/">Skin Cancer Screening</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/fotona4d-/">Fotona4D®</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/smootheye-/">SmoothEye™</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/tightsculpting-/">TightSculpting®</a></li></ul></div></li>
-        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-med">Medical</button>
-        <div class="menu" id="m-med"><a class="menu-all" href="https://www.advanceddermcenter.com/medical-services/">Medical overview</a><ul><li><a href="https://www.advanceddermcenter.com/medical-services/acne/">Acne</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/dry-skin-treatment/">Dry Skin Treatment</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/mohs-surgery/">Mohs Surgery</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/moles/">Moles</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/rosacea/">Rosacea</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/skin-cancer-screening/">Skin Cancer Screening</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/spider-vein-removal/">Spider Vein Removal</a></li></ul></div></li>
-        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-laser">Laser</button>
-        <div class="menu" id="m-laser"><a class="menu-all" href="https://www.advanceddermcenter.com/laser-treatments/">Laser overview</a><ul><li><a href="https://www.advanceddermcenter.com/laser-treatments/4d-facelift/">4D Facelift</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-vein-removal/">Laser Vein Removal</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/hair-loss-treatment/">Hair Loss Treatment</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-skin-resurfacing/">Laser Skin Resurfacing</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/eyelase/">Eyelase</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/facial-spider-vein-removal/">Facial Spider Vein Removal</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/fotona-acne-treatment/">Fotona Acne Treatment</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-hair-removal/">Laser Hair Removal</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/liplase/">LipLase</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/photo-rejuvenation/">Photo Rejuvenation</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/refirme-skin-tightening/">ReFirme Skin Tightening</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/smoothmode/">SmoothMode</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/tightlase-skin-tightening/">TightLase Skin Tightening</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-wrinkle-removal/">Laser Wrinkle Removal</a></li></ul></div></li>
-        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-cos">Cosmetic</button>
-        <div class="menu" id="m-cos"><a class="menu-all" href="https://www.advanceddermcenter.com/cosmetic-services/">Cosmetic overview</a><ul><li><a href="https://www.advanceddermcenter.com/cosmetic-services/botox/">Botox</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/dysport/">Dysport</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/chemical-peels/">Chemical Peels</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/coolsculpting/">CoolSculpting</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/kybella/">Kybella</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/facials/">Facials</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/microneedling/">Microneedling</a></li><li class="sub">Fillers</li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/juvederm/">Juvederm</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/restylane/">Restylane</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/restylane-kysse/">Restylane Kysse</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/restylane-lyft/">Restylane Lyft</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/revanesse-versa/">Revanesse Versa</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/sculptra/">Sculptra</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/volbella/">Volbella</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/vollure/">Vollure</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/volux/">Volux</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/voluma/">Voluma</a></li></ul></div></li>
-        <li><a href="#reviews">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-about">About</button><div class="menu" id="m-about"><a class="menu-all" href="https://www.advanceddermcenter.com/about-us/">About overview</a><ul><li><a href="team.html">Meet Our Team</a></li><li><a href="specials.html">Specials</a></li><li><a href="https://www.advanceddermcenter.com/blog/">Blog</a></li><li class="sub">Videos</li><li><a href="https://www.advanceddermcenter.com/about-us/videos/">All videos</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/remedies-for-sun-damaged-skin/">Remedies for Sun Damage</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/how-to-get-rid-of-facial-moles/">How to Get Rid of Facial Moles</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/skin-cancer-screening/">Skin Cancer Screening</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/fotona4d-/">Fotona4D®</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/smootheye-/">SmoothEye™</a></li><li><a href="https://www.advanceddermcenter.com/about-us/videos/tightsculpting-/">TightSculpting®</a></li></ul></div></li>
+        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-med">Medical</button><div class="menu" id="m-med"><a class="menu-all" href="medical.html">Medical overview</a><ul><li><a href="https://www.advanceddermcenter.com/medical-services/acne/">Acne</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/dry-skin-treatment/">Dry Skin Treatment</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/mohs-surgery/">Mohs Surgery</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/moles/">Moles</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/rosacea/">Rosacea</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/skin-cancer-screening/">Skin Cancer Screening</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/spider-vein-removal/">Spider Vein Removal</a></li></ul></div></li>
+        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-laser">Laser</button><div class="menu" id="m-laser"><a class="menu-all" href="laser.html">Laser overview</a><ul><li><a href="https://www.advanceddermcenter.com/laser-treatments/4d-facelift/">4D Facelift</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-vein-removal/">Laser Vein Removal</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/hair-loss-treatment/">Hair Loss Treatment</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-skin-resurfacing/">Laser Skin Resurfacing</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/eyelase/">Eyelase</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/facial-spider-vein-removal/">Facial Spider Vein Removal</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/fotona-acne-treatment/">Fotona Acne Treatment</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-hair-removal/">Laser Hair Removal</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/liplase/">LipLase</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/photo-rejuvenation/">Photo Rejuvenation</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/refirme-skin-tightening/">ReFirme Skin Tightening</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/smoothmode/">SmoothMode</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/tightlase-skin-tightening/">TightLase Skin Tightening</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-wrinkle-removal/">Laser Wrinkle Removal</a></li></ul></div></li>
+        <li class="has-menu"><button class="menu-btn" aria-expanded="false" aria-controls="m-cos">Cosmetic</button><div class="menu" id="m-cos"><a class="menu-all" href="cosmetic.html">Cosmetic overview</a><ul><li><a href="https://www.advanceddermcenter.com/cosmetic-services/botox/">Botox</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/dysport/">Dysport</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/chemical-peels/">Chemical Peels</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/coolsculpting/">CoolSculpting</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/kybella/">Kybella</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/facials/">Facials</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/microneedling/">Microneedling</a></li><li class="sub">Fillers</li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/">All dermal fillers</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/juvederm/">Juvederm</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/restylane/">Restylane</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/restylane-kysse/">Restylane Kysse</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/restylane-lyft/">Restylane Lyft</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/revanesse-versa/">Revanesse Versa</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/sculptra/">Sculptra</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/volbella/">Volbella</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/vollure/">Vollure</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/volux/">Volux</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/fillers/voluma/">Voluma</a></li></ul></div></li>
+        <li><a href="https://www.advanceddermcenter.com/testimonials/">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-tools">
         <a class="icon-link" href="https://www.advanceddermcenter.com/site-search/" aria-label="Search the site"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
@@ -311,8 +37,8 @@ footer a { color: var(--paper); }
     <div class="office"><span>Burbank office</span><a class="call" href="tel:+17472978534">747-297-8534</a></div>
   </div>
 </header>
+<main id="main">
 
-<main id="top">
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
@@ -399,7 +125,7 @@ footer a { color: var(--paper); }
           <div><h3>Yvonne Ruiz</h3><p>Aesthetician for acne and pigmentation, 16 years in dermatology.</p></div>
         </div>
       </div>
-      <a class="more" href="https://www.advanceddermcenter.com/meet-our-team/">Meet the whole team</a>
+      <a class="more" href="team.html">Meet the whole team</a>
     </div>
   </section>
 
@@ -412,7 +138,7 @@ footer a { color: var(--paper); }
       <div class="cols">
         <div class="col">
           <img src="images/images-s1-img-3.jpg" alt="A dermatologist treating a patient's skin">
-          <h3><a href="https://www.advanceddermcenter.com/medical-services/">Medical dermatology</a></h3>
+          <h3><a href="medical.html">Medical dermatology</a></h3>
           <ul>
             <li><a href="https://www.advanceddermcenter.com/medical-services/skin-cancer-screening/">Skin cancer screening</a></li>
             <li><a href="https://www.advanceddermcenter.com/medical-services/mohs-surgery/">Mohs surgery</a></li>
@@ -425,7 +151,7 @@ footer a { color: var(--paper); }
         </div>
         <div class="col">
           <img src="images/content-2.jpg" alt="Laser hair removal treatment">
-          <h3><a href="https://www.advanceddermcenter.com/laser-treatments/">Laser treatments</a></h3>
+          <h3><a href="laser.html">Laser treatments</a></h3>
           <ul>
             <li><a href="https://www.advanceddermcenter.com/laser-treatments/4d-facelift/">4D Facelift</a></li>
             <li><a href="https://www.advanceddermcenter.com/laser-treatments/laser-skin-resurfacing/">Skin resurfacing</a></li>
@@ -439,7 +165,7 @@ footer a { color: var(--paper); }
         </div>
         <div class="col">
           <img src="images/values-v1-child-img.jpg" alt="A woman with smooth, healthy skin">
-          <h3><a href="https://www.advanceddermcenter.com/cosmetic-services/">Cosmetic treatments</a></h3>
+          <h3><a href="cosmetic.html">Cosmetic treatments</a></h3>
           <ul>
             <li><a href="https://www.advanceddermcenter.com/cosmetic-services/botox/">Botox</a></li>
             <li><a href="https://www.advanceddermcenter.com/cosmetic-services/dysport/">Dysport</a></li>
@@ -462,7 +188,7 @@ footer a { color: var(--paper); }
         <h2>New specials every month</h2>
         <p>See what's on offer this month, and ask about it at your free cosmetic consultation.</p>
       </div>
-      <a class="btn-light" href="https://www.advanceddermcenter.com/coupons/">See this month's specials</a>
+      <a class="btn-light" href="specials.html">See this month's specials</a>
     </div>
   </section>
 
@@ -502,7 +228,7 @@ footer a { color: var(--paper); }
         <h2>Start your skin journey</h2>
         <p class="lede">Send us a message and our team will get back to you, or call <a href="tel:+17472978534">747-297-8534</a>.</p>
       </div>
-      <form class="form" id="contact-form" novalidate>
+      <form class="form concept-form" novalidate>
         <div class="row">
           <label>First name<input name="first" autocomplete="given-name" required></label>
           <label>Last name<input name="last" autocomplete="family-name" required></label>
@@ -520,7 +246,7 @@ footer a { color: var(--paper); }
         <label>How can we help you?<textarea name="message" rows="4"></textarea></label>
         <p class="consent">By submitting, you agree to receive text messages from Advanced Dermatology Center at the number provided, including those related to your inquiry, follow-ups, and review requests, via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency may vary. Reply STOP to cancel or HELP for assistance.</p>
         <button class="btn" type="submit">Send message</button>
-        <p class="form-note" id="form-note" role="status" hidden>This is a design concept, so nothing was sent. On the live site this message goes straight to the Advanced Dermatology Center team. To reach them now, call <a href="tel:+17472978534">747-297-8534</a> or use their <a href="https://www.advanceddermcenter.com/contact/">contact page</a>.</p>
+        <p class="form-note" role="status" hidden>This is a design concept, so nothing was sent. On the live site this message goes straight to the Advanced Dermatology Center team. To reach them now, call <a href="tel:+17472978534">747-297-8534</a> or use their <a href="https://www.advanceddermcenter.com/contact/">contact page</a>.</p>
       </form>
     </div>
   </section>
@@ -542,8 +268,8 @@ footer a { color: var(--paper); }
       <img class="photo" src="images/cta_insurance.jpg" alt="A team member going over paperwork with a patient">
     </div>
   </section>
-</main>
 
+</main>
 <footer>
   <div class="wrap foot-grid">
     <div class="foot-col">
@@ -554,7 +280,7 @@ footer a { color: var(--paper); }
     </div>
     <nav class="foot-col" aria-label="Footer">
       <h3>Navigation</h3>
-      <ul><li><a href="#top">Home</a></li><li><a href="https://www.advanceddermcenter.com/about-us/">About us</a></li><li><a href="https://www.advanceddermcenter.com/medical-services/">Medical services</a></li><li><a href="https://www.advanceddermcenter.com/laser-treatments/">Laser treatments</a></li><li><a href="https://www.advanceddermcenter.com/cosmetic-services/">Cosmetic services</a></li><li><a href="#contact">Contact</a></li></ul>
+      <ul><li><a href="index.html">Home</a></li><li><a href="https://www.advanceddermcenter.com/about-us/">About us</a></li><li><a href="team.html">Meet our team</a></li><li><a href="medical.html">Medical services</a></li><li><a href="laser.html">Laser treatments</a></li><li><a href="cosmetic.html">Cosmetic services</a></li><li><a href="specials.html">Specials</a></li><li><a href="contact.html">Contact</a></li></ul>
     </nav>
     <div class="foot-col">
       <h3>Follow us</h3>
@@ -568,47 +294,10 @@ footer a { color: var(--paper); }
   </div>
   <div class="wrap foot-legal">
     <p>The information on this website is for general information purposes only. Nothing on this site should be taken as medical advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, a doctor-patient relationship.</p>
-    <p class="legal-links"><a href="https://www.advanceddermcenter.com/privacy-policy/">Privacy policy</a><a href="https://www.advanceddermcenter.com/site-map/">Site map</a><a href="https://www.advanceddermcenter.com/site-search/">Site search</a></p>
+    <p class="legal-links"><a href="https://www.advanceddermcenter.com/privacy-policy/">Privacy policy</a><a href="https://www.advanceddermcenter.com/privacy-policy/">Your privacy choices</a><a href="https://www.advanceddermcenter.com/site-map/">Site map</a><a href="https://www.advanceddermcenter.com/site-search/">Site search</a></p>
     <p>Redesign concept by Studio8Web. Not the official website. Copy, reviews and photos from advanceddermcenter.com.</p>
   </div>
 </footer>
-<script>
-(function () {
-  var toggle = document.querySelector('.nav-toggle'), nav = document.getElementById('site-nav');
-  toggle.addEventListener('click', function () {
-    var open = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', open);
-  });
-  var btns = document.querySelectorAll('.menu-btn');
-  btns.forEach(function (b) {
-    b.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = b.getAttribute('aria-expanded') === 'true';
-      btns.forEach(function (o) { o.setAttribute('aria-expanded', 'false'); });
-      b.setAttribute('aria-expanded', String(!open));
-    });
-  });
-  document.addEventListener('click', function (e) { if (!e.target.closest('.has-menu')) btns.forEach(function (o) { o.setAttribute('aria-expanded', 'false'); }); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') btns.forEach(function (o) { o.setAttribute('aria-expanded', 'false'); }); });
-  nav.addEventListener('click', function (e) { if (e.target.matches('a[href^="#"]')) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); } });
-
-  var slides = document.getElementById('slides');
-  document.querySelectorAll('.sbtn').forEach(function (b) {
-    b.addEventListener('click', function () { slides.scrollBy({ left: slides.clientWidth * +b.dataset.dir, behavior: 'smooth' }); });
-  });
-
-  var form = document.getElementById('contact-form'), note = document.getElementById('form-note');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var ok = true;
-    form.querySelectorAll('[required]').forEach(function (f) {
-      var bad = f.type === 'radio' ? !form.querySelector('input[name="' + f.name + '"]:checked') : !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value));
-      if (f.type !== 'radio') f.setAttribute('aria-invalid', bad ? 'true' : 'false');
-      if (bad) ok = false;
-    });
-    note.hidden = false;
-    note.innerHTML = ok ? 'This is a design concept, so nothing was sent. On the live site this message goes straight to the Advanced Dermatology Center team. To reach them now, call <a href="tel:+17472978534">747-297-8534</a> or use their <a href="https://www.advanceddermcenter.com/contact/">contact page</a>.' : 'Please fill in your name, phone, a valid email and whether you are a new patient.';
-  });
-})();
-</script>
+<script src="site.js"></script>
 </body>
 </html>
