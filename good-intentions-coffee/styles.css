@@ -7,7 +7,8 @@
   --pink: #ef58a0;
   --ink: #0e2346;
   --muted: #4a5b78;
-  --paper: #fafbfc;
+  --paper: #ffffff;
+  color-scheme: light;
   --sky: #e6eef8;
   --line: #d3deec;
   --on-blue: #ffffff;
@@ -26,21 +27,6 @@
   --wrap: 1180px;
   --gutter: clamp(1rem, 4vw, 2.5rem);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --blue: #7fb3ef;
-    --blue-deep: #a5cbf5;
-    --ink: #eaf0f8;
-    --muted: #a8b6cc;
-    --paper: #0b1b33;
-    --sky: #12274a;
-    --line: #22395e;
-    --on-blue: #0b1b33;
-    --ph: #e0b54a;
-    --focus: #a5cbf5;
-  }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -83,7 +69,7 @@ p { margin: 0; max-width: 62ch; }
 /* Header */
 .site-header {
   position: sticky; top: 0; z-index: 20;
-  background: rgb(250 251 252 / .94);
+  background: rgb(255 255 255 / .96);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -275,7 +261,6 @@ p { margin: 0; max-width: 62ch; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: var(--paper); padding: 3.5rem 0 2rem; margin-top: 2rem; }
-@media (prefers-color-scheme: dark) { .site-footer { background: #06111f; color: var(--ink); } }
 .site-footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
 .site-footer h2 { font-size: var(--step-0); color: inherit; letter-spacing: 0; margin-bottom: .75rem; }
 .site-footer p, .site-footer li { font-size: var(--step--1); opacity: .9; }
@@ -283,7 +268,6 @@ p { margin: 0; max-width: 62ch; }
 .site-footer a { text-underline-offset: 3px; }
 .footer-logo { width: 76px; height: auto; }
 .site-footer .ph { color: #e0b54a; border-color: #e0b54a; }
-@media (prefers-color-scheme: dark) { .site-header { background: rgb(11 27 51 / .94); } }
 .footer-base { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent); padding-top: 1.25rem; margin-top: 1rem; font-size: .8rem; opacity: .75; }
 
 /* ---------- Inner page header ---------- */
