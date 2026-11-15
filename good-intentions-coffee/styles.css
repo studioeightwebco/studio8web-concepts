@@ -216,6 +216,56 @@ p { margin: 0; max-width: 62ch; }
 }
 .kindle.is-kindling .value-list li.is-on { opacity: 1; transform: none; }
 
+/* ---------- About: "the chain" (Who We Work With) ----------
+   Default (phones, reduced motion, no JS): cards stacked, chain line down the left.
+   script.js adds .is-panning on wide screens: the stage pins, the row pans sideways,
+   and the line fills from maker to maker until it reaches Good Intentions. */
+.chain { padding: clamp(3.5rem, 8vw, 6.5rem) 0; border-top: 1px solid var(--line); }
+.chain-head .lede { margin-top: 1rem; }
+.chain-viewport { max-width: var(--wrap); margin: 2.5rem auto 0; padding: 0 var(--gutter); }
+.chain-rail { position: relative; }
+.chain-list { position: relative; z-index: 1; list-style: none; margin: 0; padding: 0 0 0 2.25rem; display: grid; gap: 1.25rem; }
+.chain-line { position: absolute; z-index: 0; left: .6rem; top: 2rem; bottom: 2rem; width: 3px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.chain-fill { position: absolute; inset: 0; background: var(--blue); transform-origin: left top; }
+.maker {
+  position: relative; background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--radius);
+  padding: 1.25rem; display: grid; grid-template-columns: 112px 1fr; column-gap: 1.25rem; align-items: center;
+}
+.maker::before {
+  content: ""; position: absolute; left: calc(-2.25rem + .6rem - 5px); top: 50%; width: 13px; height: 13px; margin-top: -6.5px;
+  border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px var(--paper);
+}
+.maker-logo { grid-row: span 2; height: 84px; display: flex; align-items: center; justify-content: center; }
+.maker-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.maker-logo.is-photo img { width: 100%; height: auto; max-height: 100%; object-fit: contain; border-radius: 10px; }
+.maker h3 { font-size: var(--step-0); letter-spacing: 0; align-self: end; }
+.maker p { color: var(--muted); font-size: var(--step--1); margin-top: .2rem; align-self: start; }
+.maker-home { border-color: var(--blue); }
+
+.chain.is-panning { padding: 0; }
+.chain.is-panning .chain-stage {
+  position: sticky; top: 68px; height: calc(100dvh - 68px); overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.chain.is-panning .chain-viewport { max-width: none; padding: 0; margin-top: 2.75rem; }
+.chain.is-panning .chain-rail {
+  --pad: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter)));
+  width: max-content; padding-inline: var(--pad);
+  transform: translateX(var(--x, 0px)); will-change: transform;
+}
+.chain.is-panning .chain-list { display: flex; gap: 1.75rem; padding: 0; }
+.chain.is-panning .maker { width: 270px; flex: none; display: block; padding: 1.5rem; }
+.chain.is-panning .maker > * { opacity: .3; transition: opacity .5s var(--ease); }
+.chain.is-panning .maker.is-on > * { opacity: 1; }
+.chain.is-panning .maker::before { display: none; }
+.chain.is-panning .maker-logo { height: 120px; margin-bottom: 1.25rem; }
+.chain.is-panning .maker p { margin-top: .35rem; }
+.chain.is-panning .chain-line {
+  left: calc(var(--pad) + 135px); right: calc(var(--pad) + 135px); top: calc(1.5rem + 60px);
+  bottom: auto; width: auto; height: 3px;
+}
+.chain.is-panning .chain-fill { transform: scaleX(var(--chain, 0)); }
+
 /* ---------- Founder ---------- */
 .founder .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .founder figure { margin: 0; }

@@ -74,6 +74,65 @@
   update();
 })();
 
+// About page, "the chain": on wide screens the makers row pans sideways with
+// scroll while a line fills from maker to maker and ends at Good Intentions.
+// Phones, reduced motion and no-IntersectionObserver keep the stacked layout.
+(function () {
+  var sec = document.querySelector("[data-chain]");
+  if (!sec || !window.matchMedia) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  var wide = window.matchMedia("(min-width: 760px)");
+  var stage = sec.querySelector(".chain-stage");
+  var rail = sec.querySelector("[data-chain-track]");
+  var line = sec.querySelector(".chain-line");
+  var cards = [].slice.call(sec.querySelectorAll(".maker"));
+  var distance = 0, ticking = false, listening = false, on = false;
+  var END = 0.85; // pan and line finish here; the rest of the scroll holds on Good Intentions
+
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function measure() {
+    sec.style.height = "";
+    distance = Math.max(0, rail.scrollWidth - stage.clientWidth);
+    sec.style.height = Math.round(stage.offsetHeight + distance / END + 1) + "px";
+  }
+  function update() {
+    ticking = false;
+    if (!on) return;
+    var r = sec.getBoundingClientRect();
+    var travel = sec.offsetHeight - stage.offsetHeight;
+    var p = travel > 0 ? clamp(-r.top / travel) : 1;
+    var t = clamp(p / END);
+    rail.style.setProperty("--x", (-t * distance).toFixed(1) + "px");
+    sec.style.setProperty("--chain", t.toFixed(4));
+    var fillEnd = line.offsetLeft + t * line.offsetWidth;
+    cards.forEach(function (c, i) {
+      var mid = c.offsetLeft + c.parentNode.offsetLeft + c.offsetWidth / 2;
+      c.classList.toggle("is-on", i === 0 || mid <= fillEnd + 4);
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  function setup() {
+    on = wide.matches;
+    sec.classList.toggle("is-panning", on);
+    if (!on) {
+      sec.style.height = ""; rail.style.removeProperty("--x");
+      cards.forEach(function (c) { c.classList.remove("is-on"); });
+      return;
+    }
+    measure(); update();
+  }
+  new IntersectionObserver(function (entries) {
+    var vis = entries[0].isIntersecting;
+    if (vis && !listening) { window.addEventListener("scroll", onScroll, { passive: true }); listening = true; update(); }
+    if (!vis && listening) { window.removeEventListener("scroll", onScroll); listening = false; }
+  }).observe(sec);
+  if (wide.addEventListener) wide.addEventListener("change", setup);
+  window.addEventListener("resize", function () { if (on) { measure(); onScroll(); } }, { passive: true });
+  window.addEventListener("load", function () { if (on) { measure(); update(); } });
+  setup();
+})();
+
 // "signatures for {month}": current month in Los Angeles time.
 (function () {
   try {
