@@ -266,6 +266,17 @@ p { margin: 0; max-width: 62ch; }
 }
 .chain.is-panning .chain-fill { transform: scaleX(var(--chain, 0)); }
 
+/* ---------- About: Good Intentions on Social ---------- */
+.social { border-top: 1px solid var(--line); }
+.social .section-head a:not(.btn) { color: var(--blue); }
+.posts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25rem; }
+.post a { display: block; border-radius: var(--radius); overflow: hidden; }
+.post img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; transition: transform .4s var(--ease); }
+.post a:hover img { transform: scale(1.03); }
+.post p { margin-top: .75rem; font-size: var(--step--1); color: var(--muted); line-height: 1.5; }
+@media (max-width: 1100px) { .posts { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .posts { grid-template-columns: 1fr 1fr; gap: 1rem; } }
+
 /* ---------- Founder ---------- */
 .founder .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .founder figure { margin: 0; }
